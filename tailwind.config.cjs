@@ -1,8 +1,11 @@
 const { ComponentsContentPath } = require("@yext/search-ui-react");
 
-
 module.exports = {
-  content: ["./src/**/*.{ts,tsx}", "./lib/**/*.{js,jsx}", ComponentsContentPath],
+  content: [
+    "./src/**/*.{ts,tsx}",
+    "./lib/**/*.{js,jsx}",
+    ComponentsContentPath,
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -20,7 +23,7 @@ module.exports = {
         "dark-orange": "#F85E00",
         red: "#A41632",
         blue: "#17AABE",
-        gray: "#c4c4c442",
+        // gray: "#c4c4c442",
       },
     },
   },
