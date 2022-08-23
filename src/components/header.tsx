@@ -1,10 +1,10 @@
-import { SearchBar } from "@yext/search-ui-react";
 import * as React from "react";
 import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaShoppingBasket } from "react-icons/fa";
 import SearchIcon from "../icons/SearchIcon";
 import ScreenOverlay from "./ScreenOverlay";
+import SearchBar from "./search/SearchBar";
 
 export const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -31,8 +31,8 @@ export const Header = () => {
             <a>LIQUOR</a>
             <a>OTHER</a>
           </div>
-          <div className="hidden px-6 md:block">
-            <SearchBar customCssClasses={{ searchBarContainer: "mb-0 " }} />
+          <div className="hidden px-6 md:flex md:pt-6">
+            <SearchBar />
           </div>
         </div>
         <div className="flex items-center justify-center text-3xl text-red md:hidden">
