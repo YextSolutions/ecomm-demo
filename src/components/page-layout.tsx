@@ -1,7 +1,7 @@
 import * as React from "react";
 import Site from "../types/Site";
 import Header from "./header";
-import Footer from "./footer";
+import SearchExperience from "./search/SearchExperience";
 
 type Props = {
   _site: Site;
@@ -10,11 +10,11 @@ type Props = {
 
 const PageLayout = ({ _site, children }: Props) => {
   return (
-    <div className="min-h-screen">
+    <SearchExperience verticalKey="beverages">
+    <div className="min-h-screen font-primary">
       <Header _site={_site} />
-      {children}
-      <Footer _site={_site}></Footer>
     </div>
+    </SearchExperience>
   );
 };
 

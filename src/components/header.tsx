@@ -1,51 +1,59 @@
+import { SearchBar } from "@yext/search-ui-react";
 import * as React from "react";
-import Cta from "../components/cta";
+import { useState } from "react";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { FaShoppingBasket } from "react-icons/fa";
+import SearchIcon from "../icons/SearchIcon";
+import ScreenOverlay from "./ScreenOverlay";
 
-type Link = {
-  label: string;
-  url: string;
-};
+export const Header = () => {
+  const [searchOpen, setSearchOpen] = useState(false);
 
-const links: Link[] = [
-  {
-    label: "Home",
-    url: "/",
-  },
-  {
-    label: "About",
-    url: "/turtlehead-tacos",
-  },
-];
-
-const Header = () => {
-  const linkDoms = links.map((link) => (
-    <div key={link.label}>
-      <a href={link.url} target="_blank" rel="noreferrer">
-        {link.label}
-      </a>
-    </div>
-  ));
+  const toggleSearch = () => setSearchOpen(!searchOpen);
 
   return (
     <>
-      <div className="centered-container">
-        <nav className="py-6 flex items-center justify-between">
-          <img
-            src="https://cdn.fs.brandfolder.com/cache=expiry:604800/deY3VGFpSjC761Abjbfc"
-            width="50"
-            height="50"
-          ></img>
-          <div className="text-2xl font-semibold">Turtlehead Tacos</div>
-          <div className="flex gap-x-10 text-lg font-semibold">{linkDoms}</div>
-          <div className="space-x-5">
-            <Cta buttonText="Order Pickup" url="#" style="primary-cta"></Cta>
-            <Cta
-              buttonText="Order Delivery"
-              url="#"
-              style="secondary-cta"
-            ></Cta>
+      {searchOpen && (
+        <ScreenOverlay>
+          <SearchBar />
+        </ScreenOverlay>
+      )}
+      <div className="grid h-16 grid-cols-3 content-center bg-orange md:grid-cols-2">
+        <div className="ml-4 flex items-center text-dark-orange">
+          <AiOutlineMenu className="block md:hidden" size={30} />
+          {/* TODO: add links to search pages after they exist */}
+          <a className="hidden pr-4 text-3xl font-semibold text-red md:block">
+            TOAST
+          </a>
+          <div className="ml-4 hidden gap-8 text-sm text-black md:flex">
+            <a>WINE</a>
+            <a>BEER</a>
+            <a>LIQUOR</a>
+            <a>OTHER</a>
           </div>
-        </nav>
+          <div className="hidden px-6 md:block">
+            <SearchBar customCssClasses={{ searchBarContainer: "mb-0 " }} />
+          </div>
+        </div>
+        <div className="flex items-center justify-center text-3xl text-red md:hidden">
+          TOAST
+        </div>
+        <div className="mr-4 flex items-center justify-end text-dark-orange">
+          <FaShoppingBasket className="mr-3" size={30} />
+          <div className="w-8 md:hidden">
+            <button
+              className="flex h-8 w-8 items-center"
+              onClick={toggleSearch}
+            >
+              {searchOpen ? <AiOutlineClose size={30} /> : <SearchIcon />}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="flex h-12 w-full items-center justify-center bg-light-orange shadow-lg">
+        <span>
+          Deliver to <span className="text-dark-orange">61 9th Ave</span>
+        </span>
       </div>
     </>
   );

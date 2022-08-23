@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .centered-container {
-  @apply mx-auto px-5 md:px-14 max-w-screen-xl;
+  @apply mx-auto max-w-screen-xl px-5 md:px-14;
 }
 
 .section {
@@ -16,4 +16,9 @@
 
 .secondary-cta {
   @apply bg-sky-700 hover:bg-sky-800;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-VariableFont_wght.ttf);
 }
