@@ -8,7 +8,7 @@ export const setPathAndQueryParams = (
   // Set new or modify existing parameter value.
   queryParams.set("query", value);
   // OR do a push to history
-  history.pushState(null, path ?? "", "?" + queryParams.toString());
+  history.pushState(null, "", `${path ?? ""}?` + queryParams.toString());
 };
 
 export const removeQueryParam = (name: string) => {

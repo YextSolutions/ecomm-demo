@@ -14,10 +14,12 @@ const SearchResults = () => {
   );
   return (
     <>
-      <span className="text-bold border-b-2 border-dark-orange text-3xl font-bold">
-        Results for
-        <span className="text-dark-orange">{` "${mostRecentSearch}"`}</span>
-      </span>
+      {mostRecentSearch && (
+        <span className="text-bold border-b-2 border-dark-orange text-3xl font-bold">
+          Results for
+          <span className="text-dark-orange">{` "${mostRecentSearch}"`}</span>
+        </span>
+      )}
       <ResultsCount customCssClasses={{ resultsCountContainer: "py-3" }} />
       <VerticalResults<Beverage>
         customCssClasses={{
