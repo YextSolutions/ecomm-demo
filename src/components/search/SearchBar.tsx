@@ -1,6 +1,5 @@
 import {
   useSearchActions,
-  useSearchState,
   provideHeadless,
   VerticalResults as VerticalResultsData,
   Result,
@@ -16,13 +15,11 @@ import * as React from "react";
 import searchConfig from "../../config/searchConfig";
 import { Beverage } from "../../types/beverages";
 import BeverageCategory from "../../types/beverage_categories";
-import { removeQueryParam, setQueryParam } from "../../util";
+import { removeQueryParam, setPathAndQueryParams } from "../../util";
 import { BeverageCard } from "./BeverageCard";
-import CategoryDropdownItem from "./CategoryDropdownItem";
 
 const SearchBar = (props: SearchBarProps) => {
   const searchActions = useSearchActions();
-  const verticalKey = useSearchState((s) => s.vertical.verticalKey);
 
   const entityPreviewSearcher = provideHeadless({
     ...searchConfig,
@@ -100,7 +97,7 @@ const SearchBar = (props: SearchBarProps) => {
 
       return title && result.name ? (
         <DropdownItem value={result.name}>
-          <BeverageCard result={result} />
+          <BeverageCard result={result} autocomplete />
           <div className="mx-2.5 h-px bg-gray-200" />
         </DropdownItem>
       ) : (
@@ -109,31 +106,26 @@ const SearchBar = (props: SearchBarProps) => {
     });
   };
 
+  const handleSearch = (searchEventData: {
+    verticalKey?: string;
+    query?: string;
+  }): void => {
+    const { query } = searchEventData;
+    if (query) {
+      setPathAndQueryParams("query", query ?? "", "/search");
+    } else {
+      removeQueryParam("query");
+    }
+
+    searchActions.executeVerticalQuery();
+  };
+
   return (
     <SB
       {...props}
       hideRecentSearches
       customCssClasses={{ searchBarContainer: "py-6 px-3 md:py-0 md:px-0" }}
-      onSearch={(input) => {
-        const { query } = input;
-        if (query) {
-          setQueryParam("query", query ?? "");
-        } else {
-          removeQueryParam("query");
-        }
-
-        if (verticalKey) {
-          searchActions.setQuery(query ?? "");
-          searchActions.executeVerticalQuery();
-        } else {
-          if (query) {
-            searchActions.setQuery(query);
-            searchActions.executeUniversalQuery();
-          }
-        }
-
-        props.onSearch?.(input);
-      }}
+      onSearch={handleSearch}
       visualAutocompleteConfig={{
         renderEntityPreviews,
         entityPreviewSearcher,

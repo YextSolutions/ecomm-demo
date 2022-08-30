@@ -1,13 +1,15 @@
 import { Image } from "@yext/pages/components";
 import * as React from "react";
-import { CategoryPhoto, ComplexImage } from "../types/Site";
+import { CategoryPhoto, ComplexImage } from "../types/kg";
 import CategoryLayout from "./CategoryLayout";
+import SearchResults from "./search/SearchResults";
 
 interface SearchLayoutProps {
   coverPhoto?: ComplexImage;
   title?: string;
   categoryPhotos?: CategoryPhoto[];
   categoryPhotoContainerCss?: string;
+  verticalSearch?: boolean;
 }
 
 const SearchLayout = ({
@@ -15,6 +17,7 @@ const SearchLayout = ({
   title,
   categoryPhotos,
   categoryPhotoContainerCss,
+  verticalSearch = false,
 }: SearchLayoutProps): JSX.Element => {
   return (
     <>
@@ -33,6 +36,7 @@ const SearchLayout = ({
           containerCss={categoryPhotoContainerCss}
         />
       )}
+      {verticalSearch && <SearchResults />}
     </>
   );
 };

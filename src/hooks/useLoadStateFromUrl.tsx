@@ -11,19 +11,11 @@ export const useLoadStateFromURL = () => {
     );
 
     const { query } = params;
-    // if (query) {
-    searchActions.setQuery(query ?? verticalKey);
+    searchActions.setQuery(query);
 
     if (verticalKey) {
       searchActions.executeVerticalQuery();
-    } else {
-      searchActions.executeUniversalQuery();
     }
-    // } else {
-    //   if (verticalKey) {
-    //     searchActions.executeVerticalQuery();
-    //   }
-    // }
   };
 
   useEffect(() => {
