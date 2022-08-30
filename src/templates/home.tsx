@@ -10,17 +10,18 @@ import {
   TemplateProps,
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
+import Site from "../types/Site";
+import SearchLayout from "../components/SearchLayout";
 
 export const config: TemplateConfig = {
   name: "home",
 };
 
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  document,
-}): HeadConfig => {
-  const { name } = document;
+export const getHeadConfig: GetHeadConfig<
+  TemplateRenderProps
+> = (): HeadConfig => {
   return {
-    title: name,
+    title: "Toast",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };
@@ -42,10 +43,20 @@ export const getPath: GetPath<TemplateProps> = () => {
  */
 const Home: Template<TemplateRenderProps> = ({ document }) => {
   const { _site } = document;
+  const site: Site = _site;
 
   return (
     <>
-      <PageLayout _site={_site}></PageLayout>
+      <PageLayout>
+        <SearchLayout
+          coverPhoto={site.c_coverPhoto}
+          title={"Browse Categories"}
+          categoryPhotos={site.c_categoryPhotos}
+          categoryPhotoContainerCss={
+            "md:flex md:justify-center md:space-x-8 grid grid-cols-2 justify-items-center gap-2"
+          }
+        />
+      </PageLayout>
     </>
   );
 };

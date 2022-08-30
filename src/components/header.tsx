@@ -26,9 +26,9 @@ export const Header = () => {
             TOAST
           </a>
           <div className="ml-4 hidden gap-8 text-sm text-black md:flex">
-            <a>WINE</a>
-            <a>BEER</a>
-            <a>LIQUOR</a>
+            <a href="/wine">WINE</a>
+            <a href="/beer">BEER</a>
+            <a href="/liquor">LIQUOR</a>
             <a>OTHER</a>
           </div>
           <div className="hidden px-6 md:flex md:pt-6">
