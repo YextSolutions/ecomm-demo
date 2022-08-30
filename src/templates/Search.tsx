@@ -9,7 +9,7 @@ import {
   TemplateProps,
 } from "@yext/pages";
 import "../index.css";
-import PageLayout from "../components/page-layout";
+import PageLayout from "../components/PageLayout";
 import SearchLayout from "../components/SearchLayout";
 import Site from "../types/Site";
 
