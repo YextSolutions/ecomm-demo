@@ -4,11 +4,16 @@ export const setPathAndQueryParams = (
   value: any,
   path?: string
 ) => {
+  const pathname = window.location.pathname;
   const queryParams = new URLSearchParams(window.location.search);
-  // Set new or modify existing parameter value.
+
   queryParams.set("query", value);
-  // OR do a push to history
-  history.pushState(null, "", `${path ?? ""}?` + queryParams.toString());
+
+  if (pathname.includes("/search")) {
+    history.pushState(null, "", `${path ?? ""}?` + queryParams.toString());
+  } else {
+    window.location.href = `/search?query=${value}`;
+  }
 };
 
 export const removeQueryParam = (name: string) => {
