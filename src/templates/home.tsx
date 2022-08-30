@@ -44,12 +44,15 @@ export const getPath: GetPath<TemplateProps> = () => {
 const Home: Template<TemplateRenderProps> = ({ document }) => {
   const { _site } = document;
   const site: Site = _site;
+  const coverPhoto = site.c_coverPhotos?.find(
+    (photo) => photo.name === "Home"
+  )?.photo;
 
   return (
     <>
       <PageLayout>
         <SearchLayout
-          coverPhoto={site.c_coverPhoto}
+          coverPhoto={coverPhoto}
           title={"Browse Categories"}
           categoryPhotos={site.c_categoryPhotos}
           categoryPhotoContainerCss={

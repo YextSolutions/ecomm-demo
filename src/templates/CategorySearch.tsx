@@ -13,6 +13,8 @@ import "../index.css";
 import PageLayout from "../components/page-layout";
 import SearchLayout from "../components/SearchLayout";
 import BeverageCategory from "../types/beverage_categories";
+import Site from "../types/Site";
+import { ComplexImage } from "../types/beverages";
 
 export const config: TemplateConfig = {
   stream: {
@@ -45,11 +47,15 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
 const CategorySearch: Template<TemplateRenderProps> = (props) => {
   const { document } = props;
   const beverageCategory: BeverageCategory = document;
+  const site: Site | undefined = beverageCategory._site;
+  const coverPhoto: ComplexImage = site?.c_coverPhotos?.find(
+    (photo) => beverageCategory.name === photo.name
+  )?.photo;
 
   return (
     <PageLayout>
       <SearchLayout
-        // coverPhoto={site.c_coverPhoto}
+        coverPhoto={coverPhoto}
         title={beverageCategory.name}
         categoryPhotos={beverageCategory.c_categoryPhotos}
       />

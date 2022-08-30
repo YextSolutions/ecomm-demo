@@ -1,8 +1,7 @@
-import { ComplexImage } from "./beverages";
 import { CategoryPhoto } from "./kg";
 
 interface Site {
-  c_coverPhoto?: ComplexImage;
+  c_coverPhotos?: CategoryPhoto[];
   c_categoryPhotos?: CategoryPhoto[];
 }
 

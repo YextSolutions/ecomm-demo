@@ -11,7 +11,7 @@ const PageLayout = ({ children }: Props) => {
     <SearchExperience verticalKey="beverages">
       <div className="min-h-screen font-primary">
         <Header />
-        <div className="px-4">{children}</div>
+        <div className="centered-container">{children}</div>
       </div>
     </SearchExperience>
   );
