@@ -12,13 +12,13 @@ export const Header = () => {
   const toggleSearch = () => setSearchOpen(!searchOpen);
 
   return (
-    <>
+    <div className="fixed top-0 w-full">
       {searchOpen && (
         <ScreenOverlay>
           <SearchBar />
         </ScreenOverlay>
       )}
-      <div className="grid h-16 grid-cols-3 content-center bg-orange md:grid-cols-2">
+      <div className=" grid h-16 grid-cols-3 content-center bg-orange md:grid-cols-2">
         <div className="ml-4 flex items-center text-dark-orange">
           <AiOutlineMenu className="block md:hidden" size={30} />
           {/* TODO: add links to search pages after they exist */}
@@ -55,7 +55,7 @@ export const Header = () => {
           Deliver to <span className="text-dark-orange">61 9th Ave</span>
         </span>
       </div>
-    </>
+    </div>
   );
 };
 
