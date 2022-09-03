@@ -11,7 +11,7 @@ import {
 } from "@yext/pages";
 import PageLayout from "../components/PageLayout";
 import Site from "../types/Site";
-import SearchLayout from "../components/SearchLayout";
+import CategorySearchGrid from "../components/search/CategorySearchGrid";
 
 export const config: TemplateConfig = {
   name: "home",
@@ -51,7 +51,7 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <>
       <PageLayout>
-        <SearchLayout
+        <CategorySearchGrid
           coverPhoto={coverPhoto}
           title={"Browse Categories"}
           categoryPhotos={site.c_categoryPhotos}

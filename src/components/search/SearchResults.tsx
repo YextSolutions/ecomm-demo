@@ -1,20 +1,19 @@
-import {
-  Pagination,
-  ResultsCount,
-  VerticalResults,
-} from "@yext/search-ui-react";
+import { ResultsCount } from "@yext/search-ui-react";
 import * as React from "react";
-import { Beverage } from "../../types/beverages";
-import { BeverageCard } from "./BeverageCard";
 import { useSearchState } from "@yext/search-headless-react";
-import Filters from "./Filters";
+import { useState } from "react";
+import BeverageResults from "./BeverageResults";
 
+// TODO: DELETE
 const SearchResults = () => {
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
   const mostRecentSearch = useSearchState(
     (state) => state.query.mostRecentSearch
   );
   return (
     <>
+      {/* TODO: Componentize with title, breadcrumbs, results count */}
       {mostRecentSearch && (
         <span className="text-bold border-b-2 border-dark-orange text-3xl font-bold">
           Results for
@@ -22,14 +21,7 @@ const SearchResults = () => {
         </span>
       )}
       <ResultsCount customCssClasses={{ resultsCountContainer: "py-3" }} />
-      <Filters />
-      <VerticalResults<Beverage>
-        customCssClasses={{
-          verticalResultsContainer: "grid grid-cols-2 md:grid-cols-3 gap-4",
-        }}
-        CardComponent={BeverageCard}
-      />
-      <Pagination />
+      <BeverageResults />
     </>
   );
 };
