@@ -1,56 +1,15 @@
 import * as React from "react";
-import { Pagination } from "@yext/search-ui-react";
 import { useSearchState, useSearchActions } from "@yext/search-headless-react";
 import { ShakerLoader } from "../ShakerLoader";
-import BottomButton from "../BottomButton";
 import { useState } from "react";
-import BeverageVerticalResults from "./BeverageVerticalResults";
-import BeverageFilters from "./BeverageFilters";
+import BeverageResultsView from "./BeverageResultsView";
+import MobileFiltersView from "./mobile/MobileFiltersView";
 
-interface BeverageResultsViewProps {
-  bottomButtonOnClick: () => void;
+interface BeverageResultsProps {
+  title?: string;
 }
 
-const BeverageResultsView = ({
-  bottomButtonOnClick,
-}: BeverageResultsViewProps): JSX.Element => {
-  return (
-    <>
-      <div className="pb-16">
-        <BeverageVerticalResults />
-        <Pagination />
-      </div>
-      <BottomButton label={"SORT / FILTER"} handleClick={bottomButtonOnClick} />
-    </>
-  );
-};
-
-interface MobileFiltersViewInterface {
-  bottomButtonOnClick: () => void;
-}
-const MobileFiltersView = ({
-  bottomButtonOnClick,
-}: MobileFiltersViewInterface): JSX.Element => {
-  useSearchState((state) => state.vertical.resultsCount);
-
-  const resultsCount =
-    useSearchState((state) => state.vertical.resultsCount) ?? 0;
-
-  return (
-    <>
-      <div className="pb-16">
-        <BeverageFilters />
-      </div>
-      <BottomButton
-        // TODO: Add results count
-        label={`Show Results (${resultsCount})`}
-        handleClick={bottomButtonOnClick}
-      />
-    </>
-  );
-};
-
-const BeverageResults = (): JSX.Element => {
+const BeverageResults = ({ title }: BeverageResultsProps): JSX.Element => {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const searchLoading = useSearchState((state) => state.searchStatus.isLoading);
@@ -73,7 +32,7 @@ const BeverageResults = (): JSX.Element => {
       ) : searchLoading ? (
         <ShakerLoader />
       ) : (
-        <BeverageResultsView bottomButtonOnClick={handleBottomButton} />
+        <BeverageResultsView title={title} />
       )}
     </>
   );

@@ -36,7 +36,7 @@ const Search: Template<TemplateRenderProps> = ({ document }) => {
 
   return (
     <PageLayout>
-      <SearchLayout coverPhoto={coverPhoto} verticalSearch />
+      <SearchLayout coverPhoto={coverPhoto} />
     </PageLayout>
   );
 };

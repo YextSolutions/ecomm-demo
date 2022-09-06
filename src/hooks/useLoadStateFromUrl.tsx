@@ -1,7 +1,8 @@
 import { useSearchActions, useSearchState } from "@yext/search-headless-react";
 import { useEffect } from "react";
+import { SelectableFilter } from "@yext/search-headless-react";
 
-export const useLoadStateFromURL = () => {
+export const useSearchPageSetupEffect = (initialFilter?: SelectableFilter) => {
   const searchActions = useSearchActions();
   const verticalKey = useSearchState((s) => s.vertical.verticalKey);
 
@@ -10,8 +11,12 @@ export const useLoadStateFromURL = () => {
       new URLSearchParams(window.location.search)
     );
 
-    const { query } = params;
-    searchActions.setQuery(query);
+    if (initialFilter) {
+      searchActions.setStaticFilters([initialFilter]);
+    } else {
+      const { query } = params;
+      searchActions.setQuery(query);
+    }
 
     if (verticalKey) {
       searchActions.executeVerticalQuery();

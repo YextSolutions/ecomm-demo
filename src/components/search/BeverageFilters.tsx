@@ -1,18 +1,23 @@
 import * as React from "react";
-import { StandardFacets } from "@yext/search-ui-react";
+import {
+  NumericalFacets,
+  NumericalFacetsProps,
+  StandardFacets,
+  StandardFacetsProps,
+} from "@yext/search-ui-react";
 
-const BeverageFilters = () => {
+interface BeverageFiltersProps {
+  standardFacetsProps?: StandardFacetsProps;
+  numericalFacetProps?: NumericalFacetsProps;
+}
+const BeverageFilters = ({
+  standardFacetsProps,
+  numericalFacetProps,
+}: BeverageFiltersProps) => {
   return (
     <>
-      <StandardFacets
-        customCssClasses={{
-          standardFacetsContainer: "py-8",
-          optionLabel: "font-bold text-base",
-          optionInput: "text-orange focus:ring-orange w-7 h-7",
-        }}
-        // searchOnChange={false}
-        showMoreLimit={5}
-      />
+      <StandardFacets {...standardFacetsProps} />
+      <NumericalFacets {...numericalFacetProps} />
     </>
   );
 };
