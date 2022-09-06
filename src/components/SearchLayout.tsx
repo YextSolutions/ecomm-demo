@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useSearchPageSetupEffect } from "../hooks/useLoadStateFromUrl";
-import { ComplexImage } from "../types/kg";
+import { CategoryLink, ComplexImage } from "../types/kg";
 import { SelectableFilter } from "@yext/search-headless-react";
 import { useEffect, useState } from "react";
 import useWindowDimensions from "../hooks/useWindowDimensions";
@@ -16,6 +16,7 @@ interface SearchLayoutProps {
   title?: string;
   initialFilter?: SelectableFilter;
   breadcrumbs?: BreadcrumbsProps;
+  categories?: CategoryLink[];
 }
 
 const SearchLayout = ({
@@ -23,6 +24,7 @@ const SearchLayout = ({
   title,
   initialFilter,
   breadcrumbs,
+  categories,
 }: SearchLayoutProps): JSX.Element => {
   useSearchPageSetupEffect(initialFilter);
 
@@ -66,6 +68,7 @@ const SearchLayout = ({
           title={title}
           coverPhoto={coverPhoto}
           breadcrumbs={breadcrumbs}
+          categories={categories}
         />
       );
     }
@@ -74,7 +77,10 @@ const SearchLayout = ({
   return (
     <>
       {filtersOpen ? (
-        <MobileFiltersView bottomButtonOnClick={handleBottomButton} />
+        <MobileFiltersView
+          bottomButtonOnClick={handleBottomButton}
+          categories={categories}
+        />
       ) : searchLoading ? (
         <ShakerLoader />
       ) : (

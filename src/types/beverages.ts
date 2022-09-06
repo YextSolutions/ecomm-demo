@@ -37,11 +37,13 @@ export interface Beverage {
   c_abv?: number;
   c_beverageCategories?: EntityReference[];
   c_originCountry?: string;
-  c_price?: number;
   c_rating?: number;
   c_tag?: C_tag;
   c_transformedPhoto?: Image;
   c_usState?: string;
-  c_variantBeverages?: EntityReference[];
+  c_variantBeverages?: {
+    id: string;
+    c_price?: string;
+  }[];
   id: string;
 }

@@ -14,8 +14,8 @@ import PageLayout from "../components/PageLayout";
 import SearchLayout from "../components/SearchLayout";
 import { Matcher } from "@yext/search-headless-react";
 import Site from "../types/Site";
-import { BreadcrumbLink } from "../components/Breadcrumbs";
 import { flattenCategoryAncestors } from "../util";
+import { CategoryLink } from "../types/kg";
 
 export const config: TemplateConfig = {
   stream: {
@@ -68,7 +68,7 @@ const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
     matcher: Matcher.Equals,
     selected: true,
   };
-  const links: BreadcrumbLink[] | undefined = document.c_parentCategory?.[0]
+  const links: CategoryLink[] | undefined = document.c_parentCategory?.[0]
     ? flattenCategoryAncestors(document.c_parentCategory[0])?.reverse()
     : undefined;
 
@@ -82,6 +82,7 @@ const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
           currentPage: document.name,
           links,
         }}
+        categories={document.c_subCategories}
       />
     </PageLayout>
   );

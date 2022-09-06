@@ -73,12 +73,14 @@ const SearchBar = (props: SearchBarProps) => {
               value={result.name}
               // onClick={() => searchHandler(categoryUrl)}
             >
-              <div className="py-3 px-4 hover:bg-gray-200">
-                {renderHighlightedValue(title, {
-                  nonHighlighted: "text-black text-base ",
-                  highlighted: "text-dark-orange text-base font-black",
-                })}
-              </div>
+              <a href={result.rawData.slug}>
+                <div className="py-3 px-4 hover:bg-gray-200">
+                  {renderHighlightedValue(title, {
+                    nonHighlighted: "text-black text-base ",
+                    highlighted: "text-dark-orange text-base font-black",
+                  })}
+                </div>
+              </a>
               <div className="mx-2.5 h-px bg-gray-200" />
             </DropdownItem>
           ) : (

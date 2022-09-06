@@ -1,14 +1,10 @@
 import * as React from "react";
 import { v4 as uuid } from "uuid";
-
-export interface BreadcrumbLink {
-  name: string;
-  slug: string;
-}
+import { CategoryLink } from "../types/kg";
 
 export interface BreadcrumbsProps {
   currentPage: string;
-  links?: BreadcrumbLink[];
+  links?: CategoryLink[];
 }
 
 const Breadcrumbs = ({ links, currentPage }: BreadcrumbsProps) => {

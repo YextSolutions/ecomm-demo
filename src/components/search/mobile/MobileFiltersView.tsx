@@ -2,12 +2,15 @@ import * as React from "react";
 import { useSearchState } from "@yext/search-headless-react";
 import BeverageFilters from "../BeverageFilters";
 import BottomButton from "../../BottomButton";
+import { CategoryLink } from "../../../types/kg";
 
 interface MobileFiltersViewInterface {
   bottomButtonOnClick: () => void;
+  categories?: CategoryLink[];
 }
 const MobileFiltersView = ({
   bottomButtonOnClick,
+  categories,
 }: MobileFiltersViewInterface): JSX.Element => {
   useSearchState((state) => state.vertical.resultsCount);
 
@@ -18,6 +21,7 @@ const MobileFiltersView = ({
     <>
       <div className="pb-16">
         <BeverageFilters
+          categories={categories}
           standardFacetsProps={{
             customCssClasses: {
               standardFacetsContainer: "py-8",
