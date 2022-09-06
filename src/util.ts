@@ -1,3 +1,6 @@
+import { BreadcrumbLink } from "./components/Breadcrumbs";
+import { ParentCategory } from "./types/beverage_categories";
+
 // TODO: modify to account for facets and filters
 export const setPathAndQueryParams = (
   name: string,
@@ -22,4 +25,18 @@ export const removeQueryParam = (name: string) => {
   queryParams.delete(name);
   // OR do a push to history
   history.pushState(null, "", "?" + queryParams.toString());
+};
+
+export const flattenCategoryAncestors = (
+  parentCategory: ParentCategory
+): BreadcrumbLink[] => {
+  if (!parentCategory) [];
+
+  const links = [{ name: parentCategory.name, slug: parentCategory.slug }];
+  if (parentCategory.c_parentCategory?.[0]) {
+    return links.concat(
+      flattenCategoryAncestors(parentCategory.c_parentCategory[0])
+    );
+  }
+  return links;
 };

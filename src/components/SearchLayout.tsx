@@ -9,17 +9,20 @@ import MobileBeverageResultsView from "./search/mobile/MobileBeverageResultsView
 import BeverageResultsView from "./search/BeverageResultsView";
 import { useSearchState, useSearchActions } from "@yext/search-headless-react";
 import { ShakerLoader } from "./ShakerLoader";
+import { BreadcrumbsProps } from "./Breadcrumbs";
 
 interface SearchLayoutProps {
   coverPhoto?: ComplexImage;
   title?: string;
   initialFilter?: SelectableFilter;
+  breadcrumbs?: BreadcrumbsProps;
 }
 
 const SearchLayout = ({
   coverPhoto,
   title,
   initialFilter,
+  breadcrumbs,
 }: SearchLayoutProps): JSX.Element => {
   useSearchPageSetupEffect(initialFilter);
 
@@ -54,10 +57,17 @@ const SearchLayout = ({
           title={title}
           coverPhoto={coverPhoto}
           bottomButtonOnClick={handleBottomButton}
+          breadcrumbs={breadcrumbs}
         />
       );
     } else {
-      return <BeverageResultsView title={title} coverPhoto={coverPhoto} />;
+      return (
+        <BeverageResultsView
+          title={title}
+          coverPhoto={coverPhoto}
+          breadcrumbs={breadcrumbs}
+        />
+      );
     }
   };
 

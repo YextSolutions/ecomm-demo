@@ -1,18 +1,24 @@
 import * as React from "react";
 import { useSearchState } from "@yext/search-headless-react";
+import { ResultsCount } from "@yext/search-ui-react";
+import Breadcrumbs, { BreadcrumbsProps } from "../Breadcrumbs";
 
 interface BeverageResultsTitleProps {
   title?: string;
+  breadcrumbs?: BreadcrumbsProps;
 }
 
-const BeverageResultsTitle = ({ title }: BeverageResultsTitleProps) => {
+const BeverageResultsTitle = ({
+  title,
+  breadcrumbs,
+}: BeverageResultsTitleProps) => {
   const mostRecentSearch = useSearchState(
     (state) => state.query.mostRecentSearch
   );
 
-  // TODO: add breadcrumbs and results count
   return (
     <div className="py-8">
+      {breadcrumbs && <Breadcrumbs {...breadcrumbs} />}
       <span className="text-bold border-b-2 border-dark-orange  text-3xl font-bold">
         {title ? (
           title
@@ -30,6 +36,7 @@ const BeverageResultsTitle = ({ title }: BeverageResultsTitleProps) => {
           </div>
         )}
       </span>
+      <ResultsCount customCssClasses={{ resultsCountContainer: "pt-4" }} />
     </div>
   );
 };
