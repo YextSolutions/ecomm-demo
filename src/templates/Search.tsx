@@ -36,7 +36,14 @@ const Search: Template<TemplateRenderProps> = ({ document }) => {
 
   return (
     <PageLayout>
-      <SearchLayout coverPhoto={coverPhoto} />
+      <SearchLayout
+        coverPhoto={coverPhoto}
+        categories={[
+          { name: "Beer", slug: "/beer" },
+          { name: "Wine", slug: "/wine" },
+          { name: "Liquor", slug: "/liquor" },
+        ]}
+      />
     </PageLayout>
   );
 };

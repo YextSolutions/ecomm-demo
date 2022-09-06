@@ -28,24 +28,22 @@ const CategoryTiles = ({ title, categories }: CategoryTilesProps) => {
   };
 
   return (
-    <div className="py-8">
+    <div className="pb-4">
       <span className="font-bold">{title}</span>
       <div
         ref={outerContainerRef}
         className={classNames(
-          "transition-max-h mt-6 flex flex-wrap overflow-hidden px-4 duration-200 ease-linear md:px-0",
+          "transition-max-h mt-6 flex flex-wrap overflow-hidden duration-200 ease-linear ",
           {
-            "max-h-32 md:max-h-28": !expanded,
+            "max-h-32": !expanded,
             "max-h-72 overflow-y-scroll": expanded,
           }
         )}
       >
         {categories.map((category) => (
           <a key={uuid()} href={category.slug}>
-            <div className="mr-3 mb-3 flex w-fit items-center border border-orange bg-light-orange md:hover:bg-orange">
-              <div className="px-6 py-1 md:px-3 md:text-xs">
-                {category.name}
-              </div>
+            <div className="mr-3 mb-3 flex w-fit items-center border border-orange bg-light-orange text-sm md:hover:bg-orange">
+              <div className="px-6 py-1 ">{category.name}</div>
             </div>
           </a>
         ))}

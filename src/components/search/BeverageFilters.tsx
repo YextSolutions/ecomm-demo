@@ -26,8 +26,8 @@ const BeverageFilters = ({
       <StandardFacets {...standardFacetsProps} />
       <NumericalFacets
         includedFieldIds={["c_abv"]}
-        customCssClasses={{ rangeInputContainer: "hidden" }}
         {...numericalFacetProps}
+        customCssClasses={{ rangeInputContainer: "hidden" }}
       />
     </div>
   );

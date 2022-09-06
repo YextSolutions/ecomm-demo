@@ -27,19 +27,11 @@ const SearchLayout = ({
 }: SearchLayoutProps): JSX.Element => {
   useSearchPageSetupEffect(initialFilter);
 
-  const { width } = useWindowDimensions();
+  const windowDimensions = useWindowDimensions();
 
   const [filtersOpen, setFiltersOpen] = useState(false);
   // using Tailwind md breakpoint
-  const [isMobile, setIsMobile] = useState(width < 768);
 
-  useEffect(() => {
-    if (width < 768) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }, [width]);
   const searchActions = useSearchActions();
 
   const handleBottomButton = () => {
@@ -47,28 +39,6 @@ const SearchLayout = ({
       searchActions.executeVerticalQuery();
     }
     setFiltersOpen(!filtersOpen);
-  };
-
-  const renderSearchResults = () => {
-    if (isMobile) {
-      return (
-        <MobileBeverageResultsView
-          title={title}
-          coverPhoto={coverPhoto}
-          bottomButtonOnClick={handleBottomButton}
-          breadcrumbs={breadcrumbs}
-        />
-      );
-    } else {
-      return (
-        <BeverageResultsView
-          title={title}
-          coverPhoto={coverPhoto}
-          breadcrumbs={breadcrumbs}
-          categories={categories}
-        />
-      );
-    }
   };
 
   return (
@@ -79,7 +49,23 @@ const SearchLayout = ({
           categories={categories}
         />
       ) : (
-        renderSearchResults()
+        windowDimensions &&
+        // using tailwind md breakpoint
+        (windowDimensions?.width < 768 ? (
+          <MobileBeverageResultsView
+            title={title}
+            coverPhoto={coverPhoto}
+            bottomButtonOnClick={handleBottomButton}
+            breadcrumbs={breadcrumbs}
+          />
+        ) : (
+          <BeverageResultsView
+            title={title}
+            coverPhoto={coverPhoto}
+            breadcrumbs={breadcrumbs}
+            categories={categories}
+          />
+        ))
       )}
     </>
   );

@@ -39,6 +39,12 @@ const BeverageResultsView = ({
               },
               showMoreLimit: 5,
             }}
+            numericalFacetProps={{
+              customCssClasses: {
+                optionLabel: "font-bold whitespace-nowrap",
+                optionInput: "text-orange focus:ring-orange ",
+              },
+            }}
           />
         </div>
         {searchLoading ? (
@@ -46,6 +52,7 @@ const BeverageResultsView = ({
         ) : (
           <div className="flex flex-col">
             <BeverageVerticalResults />
+            {/* TODO: Scroll to top on click */}
             <Pagination />
           </div>
         )}

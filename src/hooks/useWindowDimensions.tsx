@@ -8,7 +8,7 @@ function getWindowDimensions() {
       height,
     };
   } else {
-    return { width: 0, height: 0 };
+    return;
   }
 }
 

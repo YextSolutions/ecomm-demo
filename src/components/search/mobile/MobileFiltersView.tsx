@@ -19,12 +19,18 @@ const MobileFiltersView = ({
 
   return (
     <>
-      <div className="pb-16">
+      <div className="pb-16 pt-8">
         <BeverageFilters
           categories={categories}
           standardFacetsProps={{
             customCssClasses: {
-              standardFacetsContainer: "py-8",
+              optionLabel: "font-bold text-base",
+              optionInput: "text-orange focus:ring-orange w-7 h-7",
+            },
+            showMoreLimit: 5,
+          }}
+          numericalFacetProps={{
+            customCssClasses: {
               optionLabel: "font-bold text-base",
               optionInput: "text-orange focus:ring-orange w-7 h-7",
             },
