@@ -7,8 +7,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import MobileFiltersView from "./search/mobile/MobileFiltersView";
 import MobileBeverageResultsView from "./search/mobile/MobileBeverageResultsView";
 import BeverageResultsView from "./search/BeverageResultsView";
-import { useSearchState, useSearchActions } from "@yext/search-headless-react";
-import { ShakerLoader } from "./ShakerLoader";
+import { useSearchActions } from "@yext/search-headless-react";
 import { BreadcrumbsProps } from "./Breadcrumbs";
 
 interface SearchLayoutProps {
@@ -33,8 +32,6 @@ const SearchLayout = ({
   const [filtersOpen, setFiltersOpen] = useState(false);
   // using Tailwind md breakpoint
   const [isMobile, setIsMobile] = useState(width < 768);
-
-  const searchLoading = useSearchState((state) => state.searchStatus.isLoading);
 
   useEffect(() => {
     if (width < 768) {
@@ -81,8 +78,6 @@ const SearchLayout = ({
           bottomButtonOnClick={handleBottomButton}
           categories={categories}
         />
-      ) : searchLoading ? (
-        <ShakerLoader />
       ) : (
         renderSearchResults()
       )}

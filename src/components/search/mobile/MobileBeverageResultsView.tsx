@@ -6,6 +6,8 @@ import BeverageVerticalResults from "../BeverageVerticalResults";
 import { ComplexImage } from "../../../types/kg";
 import CoverPhoto from "../../CoverPhoto";
 import { BreadcrumbsProps } from "../../Breadcrumbs";
+import { ShakerLoader } from "../../ShakerLoader";
+import { useSearchState } from "@yext/search-headless-react";
 
 interface MobileBeverageResultsViewProps {
   bottomButtonOnClick: () => void;
@@ -20,13 +22,21 @@ const MobileBeverageResultsView = ({
   coverPhoto,
   breadcrumbs,
 }: MobileBeverageResultsViewProps): JSX.Element => {
+  const searchLoading = useSearchState((state) => state.searchStatus.isLoading);
+
   return (
     <>
       {coverPhoto && <CoverPhoto image={coverPhoto} />}
       <BeverageResultsTitle title={title} breadcrumbs={breadcrumbs} />
       <div className="pb-16">
-        <BeverageVerticalResults />
-        <Pagination />
+        {searchLoading ? (
+          <ShakerLoader />
+        ) : (
+          <>
+            <BeverageVerticalResults />
+            <Pagination />
+          </>
+        )}
       </div>
       <BottomButton label={"SORT / FILTER"} handleClick={bottomButtonOnClick} />
     </>

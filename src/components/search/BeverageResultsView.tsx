@@ -1,11 +1,13 @@
-import { Pagination } from "@yext/search-ui-react";
 import * as React from "react";
+import { Pagination } from "@yext/search-ui-react";
+import { useSearchState } from "@yext/search-headless-react";
 import { CategoryLink, ComplexImage } from "../../types/kg";
 import { BreadcrumbsProps } from "../Breadcrumbs";
 import CoverPhoto from "../CoverPhoto";
 import BeverageFilters from "./BeverageFilters";
 import BeverageResultsTitle from "./BeverageResultsTitle";
 import BeverageVerticalResults from "./BeverageVerticalResults";
+import { ShakerLoader } from "../ShakerLoader";
 
 interface BeverageResultsViewProps {
   title?: string;
@@ -20,12 +22,14 @@ const BeverageResultsView = ({
   breadcrumbs,
   categories,
 }: BeverageResultsViewProps): JSX.Element => {
+  const searchLoading = useSearchState((state) => state.searchStatus.isLoading);
+
   return (
     <>
       {coverPhoto && <CoverPhoto image={coverPhoto} />}
       <BeverageResultsTitle title={title} breadcrumbs={breadcrumbs} />
       <div className="flex">
-        <div className="pr-10 md:block">
+        <div className="pr-10">
           <BeverageFilters
             categories={categories}
             standardFacetsProps={{
@@ -37,9 +41,15 @@ const BeverageResultsView = ({
             }}
           />
         </div>
-        <BeverageVerticalResults />
+        {searchLoading ? (
+          <ShakerLoader />
+        ) : (
+          <div className="flex flex-col">
+            <BeverageVerticalResults />
+            <Pagination />
+          </div>
+        )}
       </div>
-      <Pagination />
     </>
   );
 };

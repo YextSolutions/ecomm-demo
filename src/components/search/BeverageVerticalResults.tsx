@@ -12,14 +12,6 @@ const BeverageVerticalResults = () => {
         }}
         CardComponent={BeverageCard}
       />
-      {/* <Pagination
-            customCssClasses={{
-              selectedLabel: "-z-10",
-              label: "-z-20",
-              rightIconContainer: "-z-10",
-              leftIconContainer: "-z-10",
-            }}
-          /> */}
     </>
   );
 };
