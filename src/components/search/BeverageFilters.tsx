@@ -7,6 +7,7 @@ import {
 } from "@yext/search-ui-react";
 import CategoryTiles from "./CategoryTiles";
 import { CategoryLink } from "../../types/kg";
+import SortingDropdown from "./SortingDropdown";
 
 interface BeverageFiltersProps {
   standardFacetsProps?: StandardFacetsProps;
@@ -20,6 +21,7 @@ const BeverageFilters = ({
 }: BeverageFiltersProps) => {
   return (
     <div className="md:max-w-lg">
+      <SortingDropdown containerCss="pt-4 pb-8 md:hidden" />
       {categories && (
         <CategoryTiles title="CATEGORIES" categories={categories} />
       )}
@@ -27,7 +29,10 @@ const BeverageFilters = ({
       <NumericalFacets
         includedFieldIds={["c_abv"]}
         {...numericalFacetProps}
-        customCssClasses={{ rangeInputContainer: "hidden" }}
+        customCssClasses={{
+          rangeInputContainer: "hidden",
+          ...numericalFacetProps?.customCssClasses,
+        }}
       />
     </div>
   );

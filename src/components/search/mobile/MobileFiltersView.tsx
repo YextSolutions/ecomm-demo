@@ -32,7 +32,7 @@ const MobileFiltersView = ({
           numericalFacetProps={{
             customCssClasses: {
               optionLabel: "font-bold text-base",
-              optionInput: "text-orange focus:ring-orange w-7 h-7",
+              input: "text-orange focus:ring-orange w-7 h-7",
             },
             showMoreLimit: 5,
           }}
