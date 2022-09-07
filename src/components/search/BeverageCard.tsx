@@ -14,6 +14,18 @@ export const BeverageCard = ({
   autocomplete,
 }: BeverageCardProps<Beverage>): JSX.Element => {
   const beverage = result.rawData;
+  const priceRange = beverage.c_variantBeverages?.reduce(
+    (acc, variant) => {
+      const variantPrice = Number(variant.c_price);
+      if (variantPrice) {
+        acc.min = Math.min(acc.min, variantPrice);
+        acc.max = Math.max(acc.max, variantPrice);
+      }
+      return acc;
+    },
+    { min: Number.MAX_SAFE_INTEGER, max: Number.MIN_SAFE_INTEGER }
+  );
+
   return (
     <div
       className={classNames("flex py-4 px-4 ", {
@@ -38,10 +50,15 @@ export const BeverageCard = ({
           </div>
         </div>
       )}
-      <div className="flex flex-col  justify-start">
+      <div className="flex h-20 flex-col justify-start">
         <p className="text-black line-clamp-2">{beverage.name}</p>
         {beverage.c_rating && <StarRating rating={beverage.c_rating} />}
       </div>
+      {priceRange &&
+        priceRange.min < Number.MAX_SAFE_INTEGER &&
+        priceRange.max > Number.MIN_SAFE_INTEGER && (
+          <div className="">{`$${priceRange.min} - $${priceRange.max}`}</div>
+        )}
     </div>
   );
 };

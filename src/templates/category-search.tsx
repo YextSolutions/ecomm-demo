@@ -11,10 +11,10 @@ import {
 } from "@yext/pages";
 import "../index.css";
 import PageLayout from "../components/PageLayout";
-import SearchLayout from "../components/SearchLayout";
 import BeverageCategory from "../types/beverage_categories";
 import Site from "../types/Site";
 import { ComplexImage } from "../types/beverages";
+import CategorySearchGrid from "../components/search/CategorySearchGrid";
 
 export const config: TemplateConfig = {
   stream: {
@@ -54,7 +54,7 @@ const CategorySearch: Template<TemplateRenderProps> = (props) => {
 
   return (
     <PageLayout>
-      <SearchLayout
+      <CategorySearchGrid
         coverPhoto={coverPhoto}
         title={beverageCategory.name}
         categoryPhotos={beverageCategory.c_categoryPhotos}

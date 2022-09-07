@@ -1,42 +1,72 @@
-import { Image } from "@yext/pages/components";
 import * as React from "react";
-import { CategoryPhoto, ComplexImage } from "../types/kg";
-import CategoryLayout from "./CategoryLayout";
-import SearchResults from "./search/SearchResults";
+import { useSearchPageSetupEffect } from "../hooks/useLoadStateFromUrl";
+import { CategoryLink, ComplexImage } from "../types/kg";
+import { SelectableFilter } from "@yext/search-headless-react";
+import { useEffect, useState } from "react";
+import useWindowDimensions from "../hooks/useWindowDimensions";
+import MobileFiltersView from "./search/mobile/MobileFiltersView";
+import MobileBeverageResultsView from "./search/mobile/MobileBeverageResultsView";
+import BeverageResultsView from "./search/BeverageResultsView";
+import { useSearchActions } from "@yext/search-headless-react";
+import { BreadcrumbsProps } from "./Breadcrumbs";
 
 interface SearchLayoutProps {
   coverPhoto?: ComplexImage;
   title?: string;
-  categoryPhotos?: CategoryPhoto[];
-  categoryPhotoContainerCss?: string;
-  verticalSearch?: boolean;
+  initialFilter?: SelectableFilter;
+  breadcrumbs?: BreadcrumbsProps;
+  categories?: CategoryLink[];
 }
 
 const SearchLayout = ({
   coverPhoto,
   title,
-  categoryPhotos,
-  categoryPhotoContainerCss,
-  verticalSearch = false,
+  initialFilter,
+  breadcrumbs,
+  categories,
 }: SearchLayoutProps): JSX.Element => {
+  useSearchPageSetupEffect(initialFilter);
+
+  const windowDimensions = useWindowDimensions();
+
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  // using Tailwind md breakpoint
+
+  const searchActions = useSearchActions();
+
+  const handleBottomButton = () => {
+    if (filtersOpen) {
+      searchActions.executeVerticalQuery();
+    }
+    setFiltersOpen(!filtersOpen);
+  };
+
   return (
     <>
-      {coverPhoto && (
-        <div className="flex justify-center">
-          {/* TODO: Consider box shadow and rounding image edges */}
-          <div className="my-8 flex h-44 w-96 justify-center sm:h-[21.75rem] sm:w-[42.75rem]">
-            <Image layout="fill" image={coverPhoto} />
-          </div>
-        </div>
-      )}
-      {categoryPhotos && (
-        <CategoryLayout
-          title={title}
-          categoryPhotos={categoryPhotos}
-          containerCss={categoryPhotoContainerCss}
+      {filtersOpen ? (
+        <MobileFiltersView
+          bottomButtonOnClick={handleBottomButton}
+          categories={categories}
         />
+      ) : (
+        windowDimensions &&
+        // using tailwind md breakpoint
+        (windowDimensions?.width < 768 ? (
+          <MobileBeverageResultsView
+            title={title}
+            coverPhoto={coverPhoto}
+            bottomButtonOnClick={handleBottomButton}
+            breadcrumbs={breadcrumbs}
+          />
+        ) : (
+          <BeverageResultsView
+            title={title}
+            coverPhoto={coverPhoto}
+            breadcrumbs={breadcrumbs}
+            categories={categories}
+          />
+        ))
       )}
-      {verticalSearch && <SearchResults />}
     </>
   );
 };

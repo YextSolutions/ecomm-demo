@@ -1,7 +1,6 @@
 import { SearchHeadlessProvider } from "@yext/search-headless-react";
 import * as React from "react";
 import searchConfig from "../../config/searchConfig";
-import { useLoadStateFromURL } from "../../hooks/useLoadStateFromUrl";
 
 interface SearchExperienceProps {
   verticalKey?: string;
@@ -26,8 +25,6 @@ const SearchExperience = ({
 };
 
 const StateManager = ({ children }: { children: React.ReactNode }) => {
-  useLoadStateFromURL();
-
   return <>{children}</>;
 };
 

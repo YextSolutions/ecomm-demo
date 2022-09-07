@@ -29,3 +29,8 @@ export interface EntityReference {
   entityId: string;
   name: string;
 }
+
+export interface CategoryLink {
+  name: string;
+  slug: string;
+}
