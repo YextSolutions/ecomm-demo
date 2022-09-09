@@ -29,9 +29,10 @@ export const config: TemplateConfig = {
       "c_subCategories.name",
       "c_subCategories.slug",
       "slug",
+      "c_searchSlug",
     ],
     filter: {
-      savedFilterIds: ["1233320565"],
+      entityTypes: ["ce_beverageCategory"],
     },
     localization: {
       locales: ["en"],
@@ -41,7 +42,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath: GetPath<TemplateProps> = (props) => {
-  return props.document.slug;
+  return props.document.c_searchSlug ?? props.document.slug;
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (

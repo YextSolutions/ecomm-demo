@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useSearchPageSetupEffect } from "../hooks/useLoadStateFromUrl";
+import { useSearchPageSetupEffect } from "../hooks/useSearchPageSetupEffect";
 import { CategoryLink, ComplexImage } from "../types/kg";
 import { SelectableFilter } from "@yext/search-headless-react";
 import { useEffect, useState } from "react";

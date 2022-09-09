@@ -46,19 +46,25 @@ export const BeverageCard = ({
               "w-16 md:w-10": autocomplete,
             })}
           >
-            <Image image={beverage.primaryPhoto} layout="fill" />
+            <Image image={beverage.primaryPhoto} />
           </div>
         </div>
       )}
-      <div className="flex h-20 flex-col justify-start">
-        <p className="text-black line-clamp-2">{beverage.name}</p>
-        {beverage.c_rating && <StarRating rating={beverage.c_rating} />}
+      <div>
+        <div
+          className={classNames("flex flex-col justify-start pb-2", {
+            "h-20 pb-0": !autocomplete,
+          })}
+        >
+          <p className="text-black line-clamp-2">{beverage.name}</p>
+          {beverage.c_rating && <StarRating rating={beverage.c_rating} />}
+        </div>
+        {priceRange &&
+          priceRange.min < Number.MAX_SAFE_INTEGER &&
+          priceRange.max > Number.MIN_SAFE_INTEGER && (
+            <div className="text-black">{`$${priceRange.min} - $${priceRange.max}`}</div>
+          )}
       </div>
-      {priceRange &&
-        priceRange.min < Number.MAX_SAFE_INTEGER &&
-        priceRange.max > Number.MIN_SAFE_INTEGER && (
-          <div className="">{`$${priceRange.min} - $${priceRange.max}`}</div>
-        )}
     </div>
   );
 };
