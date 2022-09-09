@@ -40,14 +40,14 @@ export const BeverageCard = ({
             "flex w-full justify-center": !autocomplete,
           })}
         >
-          <div
+          {/* <div
             className={classNames("mr-4  ", {
               "w-24": !autocomplete,
               "w-16 md:w-10": autocomplete,
             })}
-          >
-            <Image image={beverage.primaryPhoto} />
-          </div>
+          > */}
+          <Image image={beverage.primaryPhoto} />
+          {/* </div> */}
         </div>
       )}
       <div>
