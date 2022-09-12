@@ -26,7 +26,7 @@ const BeverageResultsView = ({
 
   return (
     <>
-      {/* {coverPhoto && <CoverPhoto image={coverPhoto} />} */}
+      {coverPhoto && <CoverPhoto image={coverPhoto} />}
       <BeverageResultsTitle title={title} breadcrumbs={breadcrumbs} />
       <div className="flex">
         <div className="pr-10">

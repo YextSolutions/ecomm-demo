@@ -1,5 +1,5 @@
-import { BreadcrumbLink } from "./components/Breadcrumbs";
 import { ParentCategory } from "./types/beverage_categories";
+import { CategoryLink } from "./types/kg";
 
 // TODO: modify to account for facets and filters
 export const setPathAndQueryParams = (
@@ -29,7 +29,7 @@ export const removeQueryParam = (name: string) => {
 
 export const flattenCategoryAncestors = (
   parentCategory: ParentCategory
-): BreadcrumbLink[] => {
+): CategoryLink[] => {
   if (!parentCategory) [];
 
   const links = [{ name: parentCategory.name, slug: parentCategory.slug }];
@@ -40,3 +40,5 @@ export const flattenCategoryAncestors = (
   }
   return links;
 };
+
+export const findBeverageCategory = () => {};
