@@ -26,7 +26,7 @@ const MobileBeverageResultsView = ({
 
   return (
     <>
-      {coverPhoto && <CoverPhoto image={coverPhoto} />}
+      {/* {coverPhoto && <CoverPhoto image={coverPhoto} />} */}
       <BeverageResultsTitle title={title} breadcrumbs={breadcrumbs} />
       <div className="pb-16">
         {searchLoading ? (
