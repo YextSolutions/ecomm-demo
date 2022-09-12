@@ -48,13 +48,13 @@ export const BeverageCard = ({
           <div
             className={classNames("mr-4", {
               "w-24": !autocomplete,
-              // "w-16 md:w-10": autocomplete,
+              "w-16 md:w-10": autocomplete,
             })}
           >
             {smallestThumbnail && (
-              <img
-                src={smallestThumbnail.url}
-                // image={smallestThumbnail}
+              <Image
+                // src={smallestThumbnail.url}
+                image={smallestThumbnail}
                 // imgOverrides={{ src: smallestThumbnail.url }}
               />
             )}
