@@ -26,6 +26,11 @@ export const BeverageCard = ({
     { min: Number.MAX_SAFE_INTEGER, max: Number.MIN_SAFE_INTEGER }
   );
 
+  const smallestThumbnail =
+    beverage.primaryPhoto?.image.thumbnails?.[
+      beverage.primaryPhoto?.image?.thumbnails?.length - 1
+    ];
+
   return (
     <div
       className={classNames("flex py-4 px-4 ", {
@@ -41,12 +46,18 @@ export const BeverageCard = ({
           })}
         >
           <div
-            className={classNames("mr-4  ", {
+            className={classNames("mr-4", {
               "w-24": !autocomplete,
-              "w-16 md:w-10": autocomplete,
+              // "w-16 md:w-10": autocomplete,
             })}
           >
-            <Image image={beverage.primaryPhoto} />
+            {smallestThumbnail && (
+              <img
+                src={smallestThumbnail.url}
+                // image={smallestThumbnail}
+                // imgOverrides={{ src: smallestThumbnail.url }}
+              />
+            )}
           </div>
         </div>
       )}
