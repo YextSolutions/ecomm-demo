@@ -31,6 +31,7 @@ export enum C_tag {
 }
 
 export interface Beverage {
+  slug: string;
   primaryPhoto?: ComplexImage;
   description?: string;
   name: string;

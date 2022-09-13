@@ -16,7 +16,9 @@ import { StarRating } from "../components/StarRating";
 import { v4 as uuid } from "uuid";
 import { useState } from "react";
 import classNames from "classnames";
-import { twMerge } from "tailwind-merge";
+import DetailTable from "../components/DetailTable";
+import { flattenCategories } from "../util";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export const config: TemplateConfig = {
   stream: {
@@ -29,7 +31,9 @@ export const config: TemplateConfig = {
       "c_usState",
       "c_originCountry",
       "c_beverageCategories.name",
+      "c_beverageCategories.slug",
       "c_beverageCategories.c_parentCategory.name",
+      "c_beverageCategories.c_parentCategory.slug",
       "c_variantBeverages.name",
       "c_variantBeverages.c_price",
       "c_variantBeverages.size",
@@ -60,38 +64,17 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
   };
 };
 
-// TODO: Category in details, breadcrumbs, links to product pages from search
+// TODO: links to product pages from search
 const Beverage: Template<TemplateRenderProps> = ({ document }) => {
   const [selectedVariant, setSelectedVariant] = useState(0);
 
-  const renderNameCell = (text: string, cssStyles?: string) => {
-    return (
-      <div
-        className={twMerge(
-          "border-x border-t border-black bg-gray-200 py-2 pl-1",
-          cssStyles
-        )}
-      >
-        {text}
-      </div>
-    );
-  };
-
-  const renderValueCell = (text: string, cssStyles?: string) => {
-    return (
-      <div
-        className={twMerge(
-          "border-t border-r border-black py-2 pl-1",
-          cssStyles
-        )}
-      >
-        {text}
-      </div>
-    );
-  };
-
   return (
     <PageLayout>
+      <Breadcrumbs
+        currentPage={document.name}
+        links={flattenCategories(document.c_beverageCategories)}
+        containerCss="py-8"
+      />
       <div className="flex py-8">
         <div className="w-40">
           <Image image={document.primaryPhoto} />
@@ -103,7 +86,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
           )}
         </div>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 py-8">
         {document.c_variantBeverages?.map((variant, i) => (
           <button
             key={uuid()}
@@ -117,20 +100,19 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
           </button>
         ))}
       </div>
-      <div className="py-4">
+      <div className="py-8">
         <div className="pb-2 text-2xl">Product Details</div>
-        <div className="grid grid-cols-2">
-          {renderNameCell("Category")}
-          {renderValueCell("Light Beer")}
-          {renderNameCell("Origin")}
-          {renderValueCell(
-            `${document.c_usState && `${document.c_usState},`} ${
+        <DetailTable
+          details={{
+            Category: flattenCategories(document.c_beverageCategories)?.[
+              document.c_beverageCategories.length - 1
+            ].name,
+            Origin: `${document.c_usState && `${document.c_usState},`} ${
               document.c_originCountry
-            }`
-          )}
-          {renderNameCell("ABV", "border-b")}
-          {renderValueCell(`${document.c_abv}%`, "border-b")}
-        </div>
+            }`,
+            ABV: `${document.c_abv}%`,
+          }}
+        />
       </div>
       <div className="py-8">
         <div className="text-2xl">Description</div>
