@@ -1,15 +1,46 @@
 import * as React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaShoppingBasket } from "react-icons/fa";
 import SearchIcon from "../icons/SearchIcon";
+import LocationModal from "./LocationModal";
 import ScreenOverlay from "./ScreenOverlay";
 import SearchBar from "./search/SearchBar";
 
 export const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [locationModalOpen, setLocationModalOpen] = useState(false);
+  const [deliveryAddress, setDeliveryAddress] = useState<string | undefined>();
+
+  useEffect(() => {
+    const deliveryAddress = localStorage.getItem("deliveryAddress");
+    if (deliveryAddress) {
+      setDeliveryAddress(deliveryAddress);
+    }
+  }, []);
 
   const toggleSearch = () => setSearchOpen(!searchOpen);
+  const toggleLocationModal = () => setLocationModalOpen(!locationModalOpen);
+
+  const renderDeliveryAddress = () => {
+    if (deliveryAddress) {
+      return (
+        <div>
+          Delivery:
+          <span className="pl-1 text-dark-orange">{deliveryAddress}</span>
+        </div>
+      );
+    } else {
+      return <div className="text-dark-orange">Select Delivery Address</div>;
+    }
+  };
+
+  const handleLocationSelected = (addressDisplayName: string) => {
+    setDeliveryAddress(addressDisplayName);
+    localStorage.setItem("deliveryAddress", addressDisplayName);
+  };
+
+  const handleClickOutOfModal = () => setLocationModalOpen(false);
 
   return (
     <div className="fixed top-0 w-full">
@@ -50,11 +81,18 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-12 w-full items-center justify-center bg-light-orange shadow-lg">
-        <span>
-          Deliver to <span className="text-dark-orange">61 9th Ave</span>
-        </span>
-      </div>
+      <button
+        className=" flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
+        onClick={toggleLocationModal}
+      >
+        {renderDeliveryAddress()}
+      </button>
+      {locationModalOpen && (
+        <LocationModal
+          onLocationSelected={handleLocationSelected}
+          onClickOutOfModal={handleClickOutOfModal}
+        />
+      )}
     </div>
   );
 };
