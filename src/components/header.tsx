@@ -1,9 +1,10 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaShoppingBasket } from "react-icons/fa";
 import SearchIcon from "../icons/SearchIcon";
 import LocationModal from "./LocationModal";
+import { LocationContext } from "./providers/LocationsProvider";
 import ScreenOverlay from "./ScreenOverlay";
 import SearchBar from "./search/SearchBar";
 
@@ -12,12 +13,13 @@ export const Header = () => {
   const [locationModalOpen, setLocationModalOpen] = useState(false);
   const [deliveryAddress, setDeliveryAddress] = useState<string | undefined>();
 
+  const { locationState } = useContext(LocationContext);
+
   useEffect(() => {
-    const deliveryAddress = localStorage.getItem("deliveryAddress");
-    if (deliveryAddress) {
-      setDeliveryAddress(deliveryAddress);
+    if (locationState.userLocation?.displayName) {
+      setDeliveryAddress(locationState.userLocation?.displayName);
     }
-  }, []);
+  }, [locationState.userLocation]);
 
   const toggleSearch = () => setSearchOpen(!searchOpen);
   const toggleLocationModal = () => setLocationModalOpen(!locationModalOpen);
@@ -33,11 +35,6 @@ export const Header = () => {
     } else {
       return <div className="text-dark-orange">Select Delivery Address</div>;
     }
-  };
-
-  const handleLocationSelected = (addressDisplayName: string) => {
-    setDeliveryAddress(addressDisplayName);
-    localStorage.setItem("deliveryAddress", addressDisplayName);
   };
 
   const handleClickOutOfModal = () => setLocationModalOpen(false);
@@ -88,10 +85,7 @@ export const Header = () => {
         {renderDeliveryAddress()}
       </button>
       {locationModalOpen && (
-        <LocationModal
-          onLocationSelected={handleLocationSelected}
-          onClickOutOfModal={handleClickOutOfModal}
-        />
+        <LocationModal onClickOutOfModal={handleClickOutOfModal} />
       )}
     </div>
   );

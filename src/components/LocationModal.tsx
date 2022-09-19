@@ -1,71 +1,83 @@
 import * as React from "react";
 import {
   useSearchActions,
+  provideHeadless,
+  useSearchState,
   SearchHeadlessProvider,
 } from "@yext/search-headless-react";
 import searchConfig from "../config/searchConfig";
-import { useEffect, useState } from "react";
-import { VerticalResults } from "@yext/search-ui-react";
-import { LatLong } from "@yext/search-headless-react";
+import { useContext, useEffect, useState } from "react";
 import LocationCard from "./search/LocationCard";
 import classNames from "classnames";
 import GoogleLocationSearch from "./GoogleLocationSearch";
+import {
+  LocationActionType,
+  LocationContext,
+} from "./providers/LocationsProvider";
 
-interface LocationSelectorProps {
-  addressLatLong?: LatLong;
+interface LocationSelectorDropdownProps {
+  hidden?: boolean;
 }
-
 const LocationSelectorDropdown = ({
-  addressLatLong,
-}: LocationSelectorProps) => {
+  hidden = false,
+}: LocationSelectorDropdownProps) => {
   const searchActions = useSearchActions();
+  const verticalResults = useSearchState((state) => state.vertical.results);
+  const { dispatch } = useContext(LocationContext);
+
+  const { locationState } = useContext(LocationContext);
 
   useEffect(() => {
-    if (addressLatLong) {
-      searchActions.setUserLocation(addressLatLong);
+    if (locationState.userLocation?.latLong) {
+      searchActions.setUserLocation(locationState.userLocation.latLong);
       searchActions.executeVerticalQuery();
     }
-  }, [addressLatLong]);
+  }, [locationState.userLocation?.latLong]);
+
+  const handleAllStoresClick = () => {
+    dispatch({ type: LocationActionType.ClearCheckedLocation });
+  };
 
   return (
     // TODO: add loading icon when stores are loading, maybe use local storage if address doesn't change
-    <VerticalResults
-      CardComponent={LocationCard}
-      customCssClasses={{
-        verticalResultsContainer: "overflow-y-auto h-[calc(100vh-170px)]",
-      }}
-    />
+    !hidden ? (
+      <div className="h-[calc(100vh-170px)] overflow-y-auto">
+        {/* TODO: add All Stores card */}
+        <div className="mx-4 flex items-center py-4">
+          <input
+            type="radio"
+            name="location"
+            // value={location.id}
+            onClick={handleAllStoresClick}
+            checked={!locationState.checkedLocation}
+            className="form-radio mr-3 text-orange  focus:outline-orange"
+          />
+          <label className="text-sm text-black">All Stores</label>
+        </div>
+        {verticalResults?.map((result) => (
+          <LocationCard result={result} />
+        ))}
+      </div>
+    ) : (
+      <></>
+    )
   );
 };
 
+const locationsSearcher = provideHeadless({
+  ...searchConfig,
+  verticalKey: "locations",
+  headlessId: "location-searcher",
+});
+
 interface LocationModalProps {
-  onLocationSelected?: (addressDisplayName: string) => void;
   onClickOutOfModal?: () => void;
 }
 
-const LocationModal = ({
-  onLocationSelected,
-  onClickOutOfModal,
-}: LocationModalProps) => {
+const LocationModal = ({ onClickOutOfModal }: LocationModalProps) => {
   const [addressInputOpen, setAddressInputOpen] = useState(true);
-  const [latLong, setLatLong] = useState<LatLong | undefined>();
 
-  useEffect(() => {
-    const latLongString = localStorage.getItem("latLong");
-    if (latLongString) {
-      const latLong = JSON.parse(latLongString);
-      setLatLong(latLong);
-    }
-  }, []);
-
-  const handleLocationSelected = (
-    latLong: LatLong,
-    addressDisplayName: string
-  ) => {
-    onLocationSelected && onLocationSelected(addressDisplayName);
-    setLatLong(latLong);
-    localStorage.setItem("latLong", JSON.stringify(latLong));
-  };
+  const { locationState } = useContext(LocationContext);
 
   const handleModalButtonClick = () => setAddressInputOpen(!addressInputOpen);
 
@@ -78,32 +90,25 @@ const LocationModal = ({
               "border-b-2 border-dark-orange": addressInputOpen,
             })}
             onClick={handleModalButtonClick}
+            disabled={addressInputOpen}
           >
             <div>Delivery Address</div>
           </button>
           <button
             className={classNames("mx-4 flex justify-center ", {
               "border-b-2 border-dark-orange": !addressInputOpen,
-              "text-gray-400": !latLong,
+              "text-gray-400": !locationState.userLocation,
             })}
             onClick={handleModalButtonClick}
-            disabled={!latLong}
+            disabled={!locationState.userLocation || !addressInputOpen}
           >
             Available Stores
           </button>
         </div>
-        {addressInputOpen && (
-          <GoogleLocationSearch onLocationSelected={handleLocationSelected} />
-        )}
-        {!addressInputOpen && (
-          <SearchHeadlessProvider
-            {...searchConfig}
-            headlessId="location-searcher"
-            verticalKey="locations"
-          >
-            <LocationSelectorDropdown addressLatLong={latLong} />
-          </SearchHeadlessProvider>
-        )}
+        <SearchHeadlessProvider searcher={locationsSearcher}>
+          {addressInputOpen && <GoogleLocationSearch />}
+          <LocationSelectorDropdown hidden={addressInputOpen} />
+        </SearchHeadlessProvider>
       </div>
       <div
         className="fixed top-28 -z-10 h-full w-full bg-gray-600 opacity-50"

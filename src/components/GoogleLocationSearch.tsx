@@ -3,24 +3,31 @@ import GooglePlacesAutocomplete, {
   geocodeByPlaceId,
   getLatLng,
 } from "react-google-places-autocomplete";
-import { LatLong } from "@yext/search-headless-react";
+import {
+  LocationActionType,
+  LocationContext,
+} from "./providers/LocationsProvider";
+import { useContext } from "react";
 
-interface GoogleLocationSearchProps {
-  onLocationSelected?: (latLong: LatLong, addressDisplayName: string) => void;
-}
+const GOOGLE_API_KEY = import.meta.env.YEXT_PUBLIC_GOOGLE_API_KEY;
 
-const GoogleLocationSearch = ({
-  onLocationSelected,
-}: GoogleLocationSearchProps) => {
+// TODO: fix TS errors
+const GoogleLocationSearch = () => {
+  const { dispatch } = useContext(LocationContext);
+
   const handleSelect = (data) => {
     geocodeByPlaceId(data.value.place_id)
       .then((results) => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        onLocationSelected &&
-          onLocationSelected(
-            { latitude: lat, longitude: lng },
-            data.label.split(",")[0]
-          );
+        dispatch({
+          type: LocationActionType.SetUserLocation,
+          payload: {
+            userLocation: {
+              displayName: data.label.split(",")[0],
+              latLong: { latitude: lat, longitude: lng },
+            },
+          },
+        });
       })
       .catch((error) => {
         console.log("Error", error);
@@ -29,7 +36,7 @@ const GoogleLocationSearch = ({
   return (
     <GooglePlacesAutocomplete
       // TODO: hide api key
-      apiKey={"AIzaSyCaEs3e2U_ejxhLNdt-qgD0OZ0yXMYFCFo"}
+      apiKey={GOOGLE_API_KEY}
       selectProps={{
         onChange: handleSelect,
         styles: {
