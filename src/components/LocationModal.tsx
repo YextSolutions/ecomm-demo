@@ -15,7 +15,6 @@ import {
 } from "./providers/LocationsProvider";
 import { VerticalResults } from "@yext/search-ui-react";
 import Location from "../types/locations";
-import { useLocationFilter } from "../hooks/useLocationFilter";
 
 interface LocationSelectorDropdownProps {
   hidden?: boolean;

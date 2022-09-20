@@ -11,11 +11,10 @@ import { useContext } from "react";
 
 const GOOGLE_API_KEY = import.meta.env.YEXT_PUBLIC_GOOGLE_API_KEY;
 
-// TODO: fix TS errors
 const GoogleLocationSearch = () => {
   const { dispatch } = useContext(LocationContext);
 
-  const handleSelect = (data) => {
+  const handleSelect = (data: any) => {
     geocodeByPlaceId(data.value.place_id)
       .then((results) => getLatLng(results[0]))
       .then(({ lat, lng }) => {
@@ -35,24 +34,22 @@ const GoogleLocationSearch = () => {
   };
   return (
     <GooglePlacesAutocomplete
-      // TODO: hide api key
       apiKey={GOOGLE_API_KEY}
       selectProps={{
         onChange: handleSelect,
         styles: {
-          container: (provided) => ({
+          container: (provided: any) => ({
             ...provided,
             maxWidth: "320px",
             margin: "0 auto",
-            // paddingTop: "1rem",
             paddingBottom: "1rem",
             borderColor: "black",
           }),
-          dropdownIndicator: (provided) => ({
-            // ...provided,
+          dropdownIndicator: (provided: any) => ({
+            ...provided,
             display: "none",
           }),
-          menu: (provided) => ({
+          menu: (provided: any) => ({
             ...provided,
             padding: "0",
             marginTop: "0",
