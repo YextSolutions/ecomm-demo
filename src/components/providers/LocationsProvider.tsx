@@ -72,7 +72,11 @@ export const LocationContext = createContext<{
   locationState: LocationState;
   dispatch: Dispatch<LocationActions>;
 }>({
-  locationState: {},
+  locationState: {
+    checkedLocation: {
+      addressLine1: "ALL",
+    },
+  },
   dispatch: () => null,
 });
 

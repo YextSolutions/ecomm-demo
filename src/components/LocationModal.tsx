@@ -35,7 +35,10 @@ const LocationSelectorDropdown = ({
   }, [locationState.userLocation?.latLong]);
 
   const handleAllStoresClick = () => {
-    dispatch({ type: LocationActionType.ClearCheckedLocation });
+    dispatch({
+      type: LocationActionType.SetAddressLine1,
+      payload: { checkedLocation: { addressLine1: "ALL" } },
+    });
   };
 
   return (
@@ -49,7 +52,7 @@ const LocationSelectorDropdown = ({
             name="location"
             // value={location.id}
             onClick={handleAllStoresClick}
-            checked={!locationState.checkedLocation}
+            checked={locationState.checkedLocation?.addressLine1 === "ALL"}
             className="form-radio mr-3 text-orange  focus:outline-orange"
           />
           <label className="text-sm text-black">All Stores</label>
