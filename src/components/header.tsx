@@ -21,6 +21,13 @@ export const Header = () => {
     }
   }, [locationState.userLocation]);
 
+  useEffect(() => {
+    if (locationModalOpen) {
+      // set modal open to false after 200 milliseconds
+      setTimeout(() => setLocationModalOpen(false), 200);
+    }
+  }, [locationState.checkedLocation?.addressLine1]);
+
   const toggleSearch = () => setSearchOpen(!searchOpen);
   const toggleLocationModal = () => setLocationModalOpen(!locationModalOpen);
 
