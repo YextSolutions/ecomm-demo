@@ -11,7 +11,7 @@ import { useContext } from "react";
 const LocationCard = ({ result }: CardProps<Location>) => {
   const location = result.rawData;
 
-  const { dispatch } = useContext(LocationContext);
+  const { dispatch, locationState } = useContext(LocationContext);
 
   const handleRadioClick = () => {
     if (location.address.line1) {
@@ -34,6 +34,10 @@ const LocationCard = ({ result }: CardProps<Location>) => {
           name="location"
           value={location.id}
           onClick={handleRadioClick}
+          checked={
+            location.address.line1 ===
+            locationState.checkedLocation?.addressLine1
+          }
           className="form-radio mr-3 text-orange  focus:outline-orange"
         />
         <label className="text-sm text-black">

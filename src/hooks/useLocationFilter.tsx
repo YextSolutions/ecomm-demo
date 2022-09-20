@@ -16,22 +16,31 @@ export const useLocationFilter = () => {
       filters?.filter((f) => f.filter.fieldId !== "c_soldAt.address.line1") ??
       [];
 
-    if (
-      locationState?.checkedLocation &&
-      locationState.checkedLocation?.addressLine1 !== "ALL"
-    ) {
-      filteredFilters.push(...filteredFilters, {
-        selected: true,
-        filter: {
-          fieldId: "c_soldAt.address.line1",
-          value: locationState.checkedLocation?.addressLine1,
-          kind: "fieldValue",
-          matcher: Matcher.Equals,
-        },
-      });
+    const triggerSearch = () => {
+      searchActions.setStaticFilters(filteredFilters);
+      searchActions.executeVerticalQuery();
+    };
+
+    if (locationState?.checkedLocation) {
+      if (locationState.checkedLocation?.addressLine1 !== "ALL") {
+        filteredFilters.push(...filteredFilters, {
+          selected: true,
+          filter: {
+            fieldId: "c_soldAt.address.line1",
+            value: locationState.checkedLocation?.addressLine1,
+            kind: "fieldValue",
+            matcher: Matcher.Equals,
+          },
+        });
+        triggerSearch();
+      } else if (
+        filters?.findIndex(
+          (f) => f.filter.fieldId === "c_soldAt.address.line1"
+        ) !== -1
+      ) {
+        triggerSearch();
+      }
     }
-    searchActions.setStaticFilters(filteredFilters);
-    searchActions.executeVerticalQuery();
   };
 
   useEffect(() => {
