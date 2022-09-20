@@ -4,7 +4,7 @@
     "entityIds": ["site"]
   },
   "source": "knowledgeGraph",
-  "fields": ["c_categoryPhotos", "c_coverPhotos"],
+  "fields": ["c_categoryPhotos", "c_coverPhotos", "c_homePhotos"],
   "localization": {
     "locales": ["en"],
     "primary": false

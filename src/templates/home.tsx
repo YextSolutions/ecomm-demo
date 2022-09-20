@@ -11,7 +11,9 @@ import {
 } from "@yext/pages";
 import PageLayout from "../components/PageLayout";
 import Site from "../types/Site";
-import CategorySearchGrid from "../components/search/CategorySearchGrid";
+import CoverPhotoHero from "../components/CoverPhotoHero";
+import SearchBar from "../components/search/SearchBar";
+import { CategorySearchGrid } from "../components/search/CategorySearchGrid";
 
 export const config: TemplateConfig = {
   name: "home",
@@ -44,21 +46,34 @@ export const getPath: GetPath<TemplateProps> = () => {
 const Home: Template<TemplateRenderProps> = ({ document }) => {
   const { _site } = document;
   const site: Site = _site;
-  const coverPhoto = site.c_coverPhotos?.find(
-    (photo) => photo.name === "Home"
-  )?.photo;
 
   return (
     <>
-      <PageLayout>
-        <CategorySearchGrid
-          coverPhoto={coverPhoto}
-          title={"Browse Categories"}
-          categoryPhotos={site.c_categoryPhotos}
-          categoryPhotoContainerCss={
-            "md:flex md:justify-center md:space-x-8 grid grid-cols-2 justify-items-center gap-2"
-          }
-        />
+      <PageLayout
+        header={false}
+        containerCss="pt-0 h-screen max-w-none px-0 md:px-0 mx-0 "
+      >
+        <CoverPhotoHero coverPhotos={site.c_homePhotos ?? []} />
+        <div className="flex h-16 items-center justify-center bg-orange md:grid-cols-2">
+          <div className="flex items-center">
+            <span className="text-4xl font-bold text-red">TOAST</span>
+          </div>
+        </div>
+        <div className="centered-container bg-light-orange py-8">
+          <div className="flex justify-center py-1 md:py-4 ">
+            <p className="text-2xl font-extrabold text-dark-orange md:text-4xl">
+              Shop Wine, Beer, Liquor, and More
+            </p>
+          </div>
+          <SearchBar />
+          <CategorySearchGrid
+            title={"Browse Categories"}
+            categoryPhotos={site.c_categoryPhotos}
+            categoryPhotoContainerCss={
+              "grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-2 "
+            }
+          />
+        </div>
       </PageLayout>
     </>
   );
