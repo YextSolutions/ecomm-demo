@@ -67,7 +67,7 @@ const SearchBar = (props: SearchBarProps) => {
             (result.name as Partial<HighlightedValue>);
 
           return title && result.name ? (
-            // TOOD: why doesn't this work?
+            // TODO: why doesn't this work?
             // <CategoryDropdownItem name={result.name} />
             <DropdownItem
               value={result.name}
