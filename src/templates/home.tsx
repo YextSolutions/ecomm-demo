@@ -59,7 +59,7 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
             <span className="text-4xl font-bold text-red">TOAST</span>
           </div>
         </div>
-        <div className="centered-container bg-light-orange py-8">
+        <div className=" bg-light-orange py-8 px-8">
           <div className="flex justify-center py-1 md:py-4 ">
             <p className="text-2xl font-extrabold text-dark-orange md:text-4xl">
               Shop Wine, Beer, Liquor, and More
