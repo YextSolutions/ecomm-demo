@@ -13,8 +13,11 @@ export const useLocationFilter = () => {
 
   const executeLocationFilterSearch = () => {
     const filteredFilters =
-      filters?.filter((f) => f.filter.fieldId !== "c_soldAt.address.line1") ??
-      [];
+      filters?.filter(
+        (f) =>
+          f.filter.kind === "fieldValue" &&
+          f.filter.fieldId !== "c_soldAt.address.line1"
+      ) ?? [];
 
     const triggerSearch = () => {
       searchActions.setStaticFilters(filteredFilters);
@@ -35,7 +38,9 @@ export const useLocationFilter = () => {
         triggerSearch();
       } else if (
         filters?.findIndex(
-          (f) => f.filter.fieldId === "c_soldAt.address.line1"
+          (f) =>
+            f.filter.kind === "fieldValue" &&
+            f.filter.fieldId === "c_soldAt.address.line1"
         ) !== -1
       ) {
         triggerSearch();

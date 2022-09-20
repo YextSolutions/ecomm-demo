@@ -56,7 +56,6 @@ export const Header = () => {
       <div className=" grid h-16 grid-cols-3 content-center bg-orange md:grid-cols-2">
         <div className="ml-4 flex items-center text-dark-orange">
           <AiOutlineMenu className="block md:hidden" size={30} />
-          {/* TODO: add links to search pages after they exist */}
           <a className="hidden pr-4 text-3xl font-semibold text-red md:block">
             TOAST
           </a>

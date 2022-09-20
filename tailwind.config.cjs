@@ -25,8 +25,16 @@ module.exports = {
         blue: "#17AABE",
         // gray: "#c4c4c442",
       },
+      transitionProperty: {
+        "fade-out": {
+          "transition-property": "opacity",
+          "transition-timing-function": "ease-in-out",
+          "transition-duration": "6000ms",
+        },
+      },
       animation: {
         shaker: "shaker 0.4s infinite",
+        "fade-in-out": "fade-in-out ease-in-out 33.5s infinite",
       },
       keyframes: {
         shaker: {
@@ -37,6 +45,23 @@ module.exports = {
             transform: "rotate(-20deg)",
           },
         },
+        "fade-in-out": {
+          "0%": {
+            opacity: 1,
+          },
+          "17.9%": {
+            opacity: 1,
+          },
+          "20%": {
+            opacity: 0,
+          },
+          "97%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
       },
     },
   },
@@ -45,5 +70,6 @@ module.exports = {
       strategy: "class",
     }),
     require("@tailwindcss/line-clamp"),
+    require("tailwindcss-animation-delay"),
   ],
 };

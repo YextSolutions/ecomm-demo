@@ -18,7 +18,7 @@ const CategoryLayout = ({
   return (
     <>
       <div className="py-4 ">
-        <span className="text-4xl font-extrabold text-dark-orange">
+        <span className="text-2xl font-extrabold text-dark-orange md:text-4xl">
           {title}
         </span>
         <div
