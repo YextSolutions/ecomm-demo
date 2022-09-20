@@ -4,7 +4,11 @@
     "entityIds": ["site"]
   },
   "source": "knowledgeGraph",
+<<<<<<< HEAD
   "fields": ["c_categoryPhotos", "c_coverPhotos"],
+=======
+  "fields": ["c_coverPhoto", "c_categoryPhotos"],
+>>>>>>> c30bded (home page)
   "localization": {
     "locales": ["en"],
     "primary": false
