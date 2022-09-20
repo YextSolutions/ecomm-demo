@@ -1,15 +1,50 @@
 import * as React from "react";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaShoppingBasket } from "react-icons/fa";
 import SearchIcon from "../icons/SearchIcon";
+import LocationModal from "./LocationModal";
+import { LocationContext } from "./providers/LocationsProvider";
 import ScreenOverlay from "./ScreenOverlay";
 import SearchBar from "./search/SearchBar";
 
 export const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [locationModalOpen, setLocationModalOpen] = useState(false);
+  const [deliveryAddress, setDeliveryAddress] = useState<string | undefined>();
+
+  const { locationState } = useContext(LocationContext);
+
+  useEffect(() => {
+    if (locationState.userLocation?.displayName) {
+      setDeliveryAddress(locationState.userLocation?.displayName);
+    }
+  }, [locationState.userLocation]);
+
+  useEffect(() => {
+    if (locationModalOpen) {
+      // set modal open to false after 200 milliseconds
+      setTimeout(() => setLocationModalOpen(false), 200);
+    }
+  }, [locationState.checkedLocation?.addressLine1]);
 
   const toggleSearch = () => setSearchOpen(!searchOpen);
+  const toggleLocationModal = () => setLocationModalOpen(!locationModalOpen);
+
+  const renderDeliveryAddress = () => {
+    if (deliveryAddress) {
+      return (
+        <div>
+          Delivery:
+          <span className="pl-1 text-dark-orange">{deliveryAddress}</span>
+        </div>
+      );
+    } else {
+      return <div className="text-dark-orange">Select Delivery Address</div>;
+    }
+  };
+
+  const handleClickOutOfModal = () => setLocationModalOpen(false);
 
   return (
     <div className="fixed top-0 w-full">
@@ -50,11 +85,15 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-12 w-full items-center justify-center bg-light-orange shadow-lg">
-        <span>
-          Deliver to <span className="text-dark-orange">61 9th Ave</span>
-        </span>
-      </div>
+      <button
+        className=" flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
+        onClick={toggleLocationModal}
+      >
+        {renderDeliveryAddress()}
+      </button>
+      {locationModalOpen && (
+        <LocationModal onClickOutOfModal={handleClickOutOfModal} />
+      )}
     </div>
   );
 };

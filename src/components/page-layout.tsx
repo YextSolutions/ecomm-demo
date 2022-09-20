@@ -1,6 +1,5 @@
 import * as React from "react";
 import Header from "./header";
-import LocationsProvider from "./providers/LocationsProvider";
 import SearchExperience from "./search/SearchExperience";
 
 type Props = {
@@ -10,12 +9,10 @@ type Props = {
 const PageLayout = ({ children }: Props) => {
   return (
     <SearchExperience verticalKey="beverages">
-      <LocationsProvider>
-        <div className="min-h-screen font-primary">
-          <Header />
-          <div className="centered-container pt-28">{children}</div>
-        </div>
-      </LocationsProvider>
+      <div className="min-h-screen font-primary">
+        <Header />
+        <div className="px-4">{children}</div>
+      </div>
     </SearchExperience>
   );
 };

@@ -5,9 +5,10 @@ import { v4 as uuid } from "uuid";
 
 interface StarRatingProps {
   rating: number;
+  starSize?: number;
 }
 
-export const StarRating = ({ rating }: StarRatingProps) => {
+export const StarRating = ({ rating, starSize = 16 }: StarRatingProps) => {
   const [numStars, setNumStars] = useState([0, 0]);
 
   useEffect(() => {
@@ -29,9 +30,9 @@ export const StarRating = ({ rating }: StarRatingProps) => {
   return (
     <div className="flex text-orange">
       {[...Array(numStars[0])].map((_) => (
-        <FaStar key={uuid()} size={16} />
+        <FaStar key={uuid()} size={starSize} />
       ))}
-      {numStars[1] === 1 && <FaStarHalf size={16} />}
+      {numStars[1] === 1 && <FaStarHalf size={starSize} />}
     </div>
   );
 };

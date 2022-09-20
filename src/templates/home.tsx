@@ -9,9 +9,15 @@ import {
   HeadConfig,
   TemplateProps,
 } from "@yext/pages";
+<<<<<<< HEAD
 import PageLayout from "../components/PageLayout";
 import Site from "../types/Site";
 import CategorySearchGrid from "../components/search/CategorySearchGrid";
+=======
+import PageLayout from "../components/page-layout";
+import Site from "../types/Site";
+import SearchLayout from "../components/SearchLayout";
+>>>>>>> c30bded (home page)
 
 export const config: TemplateConfig = {
   name: "home",
@@ -44,15 +50,23 @@ export const getPath: GetPath<TemplateProps> = () => {
 const Home: Template<TemplateRenderProps> = ({ document }) => {
   const { _site } = document;
   const site: Site = _site;
+<<<<<<< HEAD
   const coverPhoto = site.c_coverPhotos?.find(
     (photo) => photo.name === "Home"
   )?.photo;
+=======
+>>>>>>> c30bded (home page)
 
   return (
     <>
       <PageLayout>
+<<<<<<< HEAD
         <CategorySearchGrid
           coverPhoto={coverPhoto}
+=======
+        <SearchLayout
+          coverPhoto={site.c_coverPhoto}
+>>>>>>> c30bded (home page)
           title={"Browse Categories"}
           categoryPhotos={site.c_categoryPhotos}
           categoryPhotoContainerCss={

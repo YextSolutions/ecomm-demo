@@ -26,14 +26,14 @@ const BeverageFilters = ({
         <CategoryTiles title="CATEGORIES" categories={categories} />
       )}
       <StandardFacets {...standardFacetsProps} />
-      <NumericalFacets
-        includedFieldIds={["c_abv"]}
-        {...numericalFacetProps}
-        customCssClasses={{
-          rangeInputContainer: "hidden",
-          ...numericalFacetProps?.customCssClasses,
-        }}
-      />
+      {/* <NumericalFacets
+      // includedFieldIds={["c_abv"]}
+      // {...numericalFacetProps}
+      // customCssClasses={{
+      //   rangeInputContainer: "hidden",
+      //   ...numericalFacetProps?.customCssClasses,
+      // }}
+      /> */}
     </div>
   );
 };

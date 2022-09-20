@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { getRuntime } from "@yext/pages/util";
 
 function getWindowDimensions() {
-  if (typeof window !== "undefined") {
+  if (!getRuntime().isServerSide) {
     const { innerWidth: width, innerHeight: height } = window;
     return {
       width,

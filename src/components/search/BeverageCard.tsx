@@ -41,7 +41,7 @@ export const BeverageCard = ({
           })}
         >
           <div
-            className={classNames("mr-4  ", {
+            className={classNames("mr-4", {
               "w-24": !autocomplete,
               "w-16 md:w-10": autocomplete,
             })}

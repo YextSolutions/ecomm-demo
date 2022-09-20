@@ -1,8 +1,10 @@
 import { useSearchActions, useSearchState } from "@yext/search-headless-react";
 import { useEffect } from "react";
-import { SelectableFilter } from "@yext/search-headless-react";
+import { SelectableStaticFilter } from "@yext/search-headless-react";
 
-export const useSearchPageSetupEffect = (initialFilter?: SelectableFilter) => {
+export const useSearchPageSetupEffect = (
+  initialFilter?: SelectableStaticFilter
+) => {
   const searchActions = useSearchActions();
   const verticalKey = useSearchState((s) => s.vertical.verticalKey);
 

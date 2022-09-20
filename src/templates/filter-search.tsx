@@ -12,7 +12,7 @@ import {
 import "../index.css";
 import PageLayout from "../components/PageLayout";
 import SearchLayout from "../components/SearchLayout";
-import { Matcher } from "@yext/search-headless-react";
+import { Matcher, SelectableStaticFilter } from "@yext/search-headless-react";
 import Site from "../types/Site";
 import { flattenCategoryAncestors } from "../util";
 import { CategoryLink } from "../types/kg";
@@ -62,12 +62,14 @@ const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
   const coverPhoto = site.c_coverPhotos?.find(
     (photo) => photo.name === "Home"
   )?.photo;
-  // TODO: type
-  const initialFilter = {
-    fieldId: "c_beverageCategories.name",
-    value: document.name,
-    matcher: Matcher.Equals,
+  const initialFilter: SelectableStaticFilter = {
     selected: true,
+    filter: {
+      fieldId: "c_beverageCategories.name",
+      value: document.name,
+      matcher: Matcher.Equals,
+      kind: "fieldValue",
+    },
   };
   const links: CategoryLink[] | undefined = document.c_parentCategory?.[0]
     ? flattenCategoryAncestors(document.c_parentCategory[0])?.reverse()

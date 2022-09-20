@@ -1,7 +1,7 @@
 The following NPM packages may be included in this product:
 
- - @babel/runtime-corejs3@7.18.9
- - @babel/runtime@7.18.9
+- @babel/runtime-corejs3@7.18.9
+- @babel/runtime@7.18.9
 
 These packages each contain the following license and notice below:
 
@@ -28,11 +28,11 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @microsoft/api-documenter@7.19.5
+- @microsoft/api-documenter@7.19.5
 
 This package contains the following license and notice below:
 
@@ -61,12 +61,12 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - @microsoft/api-extractor-model@7.23.1
- - @microsoft/api-extractor@7.29.3
+- @microsoft/api-extractor-model@7.23.1
+- @microsoft/api-extractor@7.29.3
 
 These packages each contain the following license and notice below:
 
@@ -95,12 +95,12 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - @microsoft/tsdoc-config@0.16.1
- - @microsoft/tsdoc@0.14.1
+- @microsoft/tsdoc-config@0.16.1
+- @microsoft/tsdoc@0.14.1
 
 These packages each contain the following license and notice below:
 
@@ -127,27 +127,28 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - @nodelib/fs.scandir@2.1.5
- - @nodelib/fs.stat@2.0.5
- - @nodelib/fs.walk@1.2.8
- - fast-glob@3.2.11
+- @nodelib/fs.scandir@2.1.5
+- @nodelib/fs.stat@2.0.5
+- @nodelib/fs.walk@1.2.8
+- fast-glob@3.2.11
 
 These packages each contain the following license and notice below:
 
-The MIT License (MIT)
+Copyright (c) Microsoft Corporation. All rights reserved.
 
 Copyright (c) Denis Malinochkin
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
@@ -160,13 +161,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
-The following NPM package may be included in this product:
+The following NPM packages may be included in this product:
 
- - @popperjs/core@2.11.6
+- @popperjs/core@2.11.6
 
-This package contains the following license and notice below:
+These packages each contain the following license and notice below:
 
 The MIT License (MIT)
 
@@ -189,192 +190,192 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @react-aria/ssr@3.3.0
+- @react-aria/ssr@3.3.0
 
 This package contains the following license and notice below:
 
 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+Version 2.0, January 2004
+http://www.apache.org/licenses/
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
-   1. Definitions.
+1.  Definitions.
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+    "License" shall mean the terms and conditions for use, reproduction,
+    and distribution as defined by Sections 1 through 9 of this document.
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+    "Licensor" shall mean the copyright owner or entity authorized by
+    the copyright owner that is granting the License.
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity. For the purposes of this definition,
-      "control" means (i) the power, direct or indirect, to cause the
-      direction or management of such entity, whether by contract or
-      otherwise, or (ii) ownership of fifty percent (50%) or more of the
-      outstanding shares, or (iii) beneficial ownership of such entity.
+    "Legal Entity" shall mean the union of the acting entity and all
+    other entities that control, are controlled by, or are under common
+    control with that entity. For the purposes of this definition,
+    "control" means (i) the power, direct or indirect, to cause the
+    direction or management of such entity, whether by contract or
+    otherwise, or (ii) ownership of fifty percent (50%) or more of the
+    outstanding shares, or (iii) beneficial ownership of such entity.
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+    "You" (or "Your") shall mean an individual or Legal Entity
+    exercising permissions granted by this License.
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+    "Source" form shall mean the preferred form for making modifications,
+    including but not limited to software source code, documentation
+    source, and configuration files.
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form, including but
-      not limited to compiled object code, generated documentation,
-      and conversions to other media types.
+    "Object" form shall mean any form resulting from mechanical
+    transformation or translation of a Source form, including but
+    not limited to compiled object code, generated documentation,
+    and conversions to other media types.
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License, as indicated by a
-      copyright notice that is included in or attached to the work
-      (an example is provided in the Appendix below).
+    "Work" shall mean the work of authorship, whether in Source or
+    Object form, made available under the License, as indicated by a
+    copyright notice that is included in or attached to the work
+    (an example is provided in the Appendix below).
 
-      "Derivative Works" shall mean any work, whether in Source or Object
-      form, that is based on (or derived from) the Work and for which the
-      editorial revisions, annotations, elaborations, or other modifications
-      represent, as a whole, an original work of authorship. For the purposes
-      of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
-      the Work and Derivative Works thereof.
+    "Derivative Works" shall mean any work, whether in Source or Object
+    form, that is based on (or derived from) the Work and for which the
+    editorial revisions, annotations, elaborations, or other modifications
+    represent, as a whole, an original work of authorship. For the purposes
+    of this License, Derivative Works shall not include works that remain
+    separable from, or merely link (or bind by name) to the interfaces of,
+    the Work and Derivative Works thereof.
 
-      "Contribution" shall mean any work of authorship, including
-      the original version of the Work and any modifications or additions
-      to that Work or Derivative Works thereof, that is intentionally
-      submitted to Licensor for inclusion in the Work by the copyright owner
-      or by an individual or Legal Entity authorized to submit on behalf of
-      the copyright owner. For the purposes of this definition, "submitted"
-      means any form of electronic, verbal, or written communication sent
-      to the Licensor or its representatives, including but not limited to
-      communication on electronic mailing lists, source code control systems,
-      and issue tracking systems that are managed by, or on behalf of, the
-      Licensor for the purpose of discussing and improving the Work, but
-      excluding communication that is conspicuously marked or otherwise
-      designated in writing by the copyright owner as "Not a Contribution."
+    "Contribution" shall mean any work of authorship, including
+    the original version of the Work and any modifications or additions
+    to that Work or Derivative Works thereof, that is intentionally
+    submitted to Licensor for inclusion in the Work by the copyright owner
+    or by an individual or Legal Entity authorized to submit on behalf of
+    the copyright owner. For the purposes of this definition, "submitted"
+    means any form of electronic, verbal, or written communication sent
+    to the Licensor or its representatives, including but not limited to
+    communication on electronic mailing lists, source code control systems,
+    and issue tracking systems that are managed by, or on behalf of, the
+    Licensor for the purpose of discussing and improving the Work, but
+    excluding communication that is conspicuously marked or otherwise
+    designated in writing by the copyright owner as "Not a Contribution."
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received by Licensor and
-      subsequently incorporated within the Work.
+    "Contributor" shall mean Licensor and any individual or Legal Entity
+    on behalf of whom a Contribution has been received by Licensor and
+    subsequently incorporated within the Work.
 
-   2. Grant of Copyright License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      copyright license to reproduce, prepare Derivative Works of,
-      publicly display, publicly perform, sublicense, and distribute the
-      Work and such Derivative Works in Source or Object form.
+2.  Grant of Copyright License. Subject to the terms and conditions of
+    this License, each Contributor hereby grants to You a perpetual,
+    worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+    copyright license to reproduce, prepare Derivative Works of,
+    publicly display, publicly perform, sublicense, and distribute the
+    Work and such Derivative Works in Source or Object form.
 
-   3. Grant of Patent License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      (except as stated in this section) patent license to make, have made,
-      use, offer to sell, sell, import, and otherwise transfer the Work,
-      where such license applies only to those patent claims licensable
-      by such Contributor that are necessarily infringed by their
-      Contribution(s) alone or by combination of their Contribution(s)
-      with the Work to which such Contribution(s) was submitted. If You
-      institute patent litigation against any entity (including a
-      cross-claim or counterclaim in a lawsuit) alleging that the Work
-      or a Contribution incorporated within the Work constitutes direct
-      or contributory patent infringement, then any patent licenses
-      granted to You under this License for that Work shall terminate
-      as of the date such litigation is filed.
+3.  Grant of Patent License. Subject to the terms and conditions of
+    this License, each Contributor hereby grants to You a perpetual,
+    worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+    (except as stated in this section) patent license to make, have made,
+    use, offer to sell, sell, import, and otherwise transfer the Work,
+    where such license applies only to those patent claims licensable
+    by such Contributor that are necessarily infringed by their
+    Contribution(s) alone or by combination of their Contribution(s)
+    with the Work to which such Contribution(s) was submitted. If You
+    institute patent litigation against any entity (including a
+    cross-claim or counterclaim in a lawsuit) alleging that the Work
+    or a Contribution incorporated within the Work constitutes direct
+    or contributory patent infringement, then any patent licenses
+    granted to You under this License for that Work shall terminate
+    as of the date such litigation is filed.
 
-   4. Redistribution. You may reproduce and distribute copies of the
-      Work or Derivative Works thereof in any medium, with or without
-      modifications, and in Source or Object form, provided that You
-      meet the following conditions:
+4.  Redistribution. You may reproduce and distribute copies of the
+    Work or Derivative Works thereof in any medium, with or without
+    modifications, and in Source or Object form, provided that You
+    meet the following conditions:
 
-      (a) You must give any other recipients of the Work or
-          Derivative Works a copy of this License; and
+    (a) You must give any other recipients of the Work or
+    Derivative Works a copy of this License; and
 
-      (b) You must cause any modified files to carry prominent notices
-          stating that You changed the files; and
+    (b) You must cause any modified files to carry prominent notices
+    stating that You changed the files; and
 
-      (c) You must retain, in the Source form of any Derivative Works
-          that You distribute, all copyright, patent, trademark, and
-          attribution notices from the Source form of the Work,
-          excluding those notices that do not pertain to any part of
-          the Derivative Works; and
+    (c) You must retain, in the Source form of any Derivative Works
+    that You distribute, all copyright, patent, trademark, and
+    attribution notices from the Source form of the Work,
+    excluding those notices that do not pertain to any part of
+    the Derivative Works; and
 
-      (d) If the Work includes a "NOTICE" text file as part of its
-          distribution, then any Derivative Works that You distribute must
-          include a readable copy of the attribution notices contained
-          within such NOTICE file, excluding those notices that do not
-          pertain to any part of the Derivative Works, in at least one
-          of the following places: within a NOTICE text file distributed
-          as part of the Derivative Works; within the Source form or
-          documentation, if provided along with the Derivative Works; or,
-          within a display generated by the Derivative Works, if and
-          wherever such third-party notices normally appear. The contents
-          of the NOTICE file are for informational purposes only and
-          do not modify the License. You may add Your own attribution
-          notices within Derivative Works that You distribute, alongside
-          or as an addendum to the NOTICE text from the Work, provided
-          that such additional attribution notices cannot be construed
-          as modifying the License.
+    (d) If the Work includes a "NOTICE" text file as part of its
+    distribution, then any Derivative Works that You distribute must
+    include a readable copy of the attribution notices contained
+    within such NOTICE file, excluding those notices that do not
+    pertain to any part of the Derivative Works, in at least one
+    of the following places: within a NOTICE text file distributed
+    as part of the Derivative Works; within the Source form or
+    documentation, if provided along with the Derivative Works; or,
+    within a display generated by the Derivative Works, if and
+    wherever such third-party notices normally appear. The contents
+    of the NOTICE file are for informational purposes only and
+    do not modify the License. You may add Your own attribution
+    notices within Derivative Works that You distribute, alongside
+    or as an addendum to the NOTICE text from the Work, provided
+    that such additional attribution notices cannot be construed
+    as modifying the License.
 
-      You may add Your own copyright statement to Your modifications and
-      may provide additional or different license terms and conditions
-      for use, reproduction, or distribution of Your modifications, or
-      for any such Derivative Works as a whole, provided Your use,
-      reproduction, and distribution of the Work otherwise complies with
-      the conditions stated in this License.
+    You may add Your own copyright statement to Your modifications and
+    may provide additional or different license terms and conditions
+    for use, reproduction, or distribution of Your modifications, or
+    for any such Derivative Works as a whole, provided Your use,
+    reproduction, and distribution of the Work otherwise complies with
+    the conditions stated in this License.
 
-   5. Submission of Contributions. Unless You explicitly state otherwise,
-      any Contribution intentionally submitted for inclusion in the Work
-      by You to the Licensor shall be under the terms and conditions of
-      this License, without any additional terms or conditions.
-      Notwithstanding the above, nothing herein shall supersede or modify
-      the terms of any separate license agreement you may have executed
-      with Licensor regarding such Contributions.
+5.  Submission of Contributions. Unless You explicitly state otherwise,
+    any Contribution intentionally submitted for inclusion in the Work
+    by You to the Licensor shall be under the terms and conditions of
+    this License, without any additional terms or conditions.
+    Notwithstanding the above, nothing herein shall supersede or modify
+    the terms of any separate license agreement you may have executed
+    with Licensor regarding such Contributions.
 
-   6. Trademarks. This License does not grant permission to use the trade
-      names, trademarks, service marks, or product names of the Licensor,
-      except as required for reasonable and customary use in describing the
-      origin of the Work and reproducing the content of the NOTICE file.
+6.  Trademarks. This License does not grant permission to use the trade
+    names, trademarks, service marks, or product names of the Licensor,
+    except as required for reasonable and customary use in describing the
+    origin of the Work and reproducing the content of the NOTICE file.
 
-   7. Disclaimer of Warranty. Unless required by applicable law or
-      agreed to in writing, Licensor provides the Work (and each
-      Contributor provides its Contributions) on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-      implied, including, without limitation, any warranties or conditions
-      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
-      PARTICULAR PURPOSE. You are solely responsible for determining the
-      appropriateness of using or redistributing the Work and assume any
-      risks associated with Your exercise of permissions under this License.
+7.  Disclaimer of Warranty. Unless required by applicable law or
+    agreed to in writing, Licensor provides the Work (and each
+    Contributor provides its Contributions) on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied, including, without limitation, any warranties or conditions
+    of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+    PARTICULAR PURPOSE. You are solely responsible for determining the
+    appropriateness of using or redistributing the Work and assume any
+    risks associated with Your exercise of permissions under this License.
 
-   8. Limitation of Liability. In no event and under no legal theory,
-      whether in tort (including negligence), contract, or otherwise,
-      unless required by applicable law (such as deliberate and grossly
-      negligent acts) or agreed to in writing, shall any Contributor be
-      liable to You for damages, including any direct, indirect, special,
-      incidental, or consequential damages of any character arising as a
-      result of this License or out of the use or inability to use the
-      Work (including but not limited to damages for loss of goodwill,
-      work stoppage, computer failure or malfunction, or any and all
-      other commercial damages or losses), even if such Contributor
-      has been advised of the possibility of such damages.
+8.  Limitation of Liability. In no event and under no legal theory,
+    whether in tort (including negligence), contract, or otherwise,
+    unless required by applicable law (such as deliberate and grossly
+    negligent acts) or agreed to in writing, shall any Contributor be
+    liable to You for damages, including any direct, indirect, special,
+    incidental, or consequential damages of any character arising as a
+    result of this License or out of the use or inability to use the
+    Work (including but not limited to damages for loss of goodwill,
+    work stoppage, computer failure or malfunction, or any and all
+    other commercial damages or losses), even if such Contributor
+    has been advised of the possibility of such damages.
 
-   9. Accepting Warranty or Additional Liability. While redistributing
-      the Work or Derivative Works thereof, You may choose to offer,
-      and charge a fee for, acceptance of support, warranty, indemnity,
-      or other liability obligations and/or rights consistent with this
-      License. However, in accepting such obligations, You may act only
-      on Your own behalf and on Your sole responsibility, not on behalf
-      of any other Contributor, and only if You agree to indemnify,
-      defend, and hold each Contributor harmless for any liability
-      incurred by, or claims asserted against, such Contributor by reason
-      of your accepting any such warranty or additional liability.
+9.  Accepting Warranty or Additional Liability. While redistributing
+    the Work or Derivative Works thereof, You may choose to offer,
+    and charge a fee for, acceptance of support, warranty, indemnity,
+    or other liability obligations and/or rights consistent with this
+    License. However, in accepting such obligations, You may act only
+    on Your own behalf and on Your sole responsibility, not on behalf
+    of any other Contributor, and only if You agree to indemnify,
+    defend, and hold each Contributor harmless for any liability
+    incurred by, or claims asserted against, such Contributor by reason
+    of your accepting any such warranty or additional liability.
 
-   END OF TERMS AND CONDITIONS
+END OF TERMS AND CONDITIONS
 
-   APPENDIX: How to apply the Apache License to your work.
+APPENDIX: How to apply the Apache License to your work.
 
       To apply the Apache License to your work, attach the following
       boilerplate notice, with the fields enclosed by brackets "[]"
@@ -385,25 +386,233 @@ Apache License
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2019 Adobe
+Copyright 2019 Adobe
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
        http://www.apache.org/licenses/LICENSE-2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @reduxjs/toolkit@1.8.5
+- @reduxjs/toolkit@1.8.5
+
+This package contains the following license and notice below:
+
+MIT License
+
+Copyright (c) 2018 Mark Erikson
+
+1.  Definitions.
+
+    "License" shall mean the terms and conditions for use, reproduction,
+    and distribution as defined by Sections 1 through 9 of this document.
+
+    "Licensor" shall mean the copyright owner or entity authorized by
+    the copyright owner that is granting the License.
+
+    "Legal Entity" shall mean the union of the acting entity and all
+    other entities that control, are controlled by, or are under common
+    control with that entity. For the purposes of this definition,
+    "control" means (i) the power, direct or indirect, to cause the
+    direction or management of such entity, whether by contract or
+    otherwise, or (ii) ownership of fifty percent (50%) or more of the
+    outstanding shares, or (iii) beneficial ownership of such entity.
+
+    "You" (or "Your") shall mean an individual or Legal Entity
+    exercising permissions granted by this License.
+
+    "Source" form shall mean the preferred form for making modifications,
+    including but not limited to software source code, documentation
+    source, and configuration files.
+
+    "Object" form shall mean any form resulting from mechanical
+    transformation or translation of a Source form, including but
+    not limited to compiled object code, generated documentation,
+    and conversions to other media types.
+
+    "Work" shall mean the work of authorship, whether in Source or
+    Object form, made available under the License, as indicated by a
+    copyright notice that is included in or attached to the work
+    (an example is provided in the Appendix below).
+
+    "Derivative Works" shall mean any work, whether in Source or Object
+    form, that is based on (or derived from) the Work and for which the
+    editorial revisions, annotations, elaborations, or other modifications
+    represent, as a whole, an original work of authorship. For the purposes
+    of this License, Derivative Works shall not include works that remain
+    separable from, or merely link (or bind by name) to the interfaces of,
+    the Work and Derivative Works thereof.
+
+    "Contribution" shall mean any work of authorship, including
+    the original version of the Work and any modifications or additions
+    to that Work or Derivative Works thereof, that is intentionally
+    submitted to Licensor for inclusion in the Work by the copyright owner
+    or by an individual or Legal Entity authorized to submit on behalf of
+    the copyright owner. For the purposes of this definition, "submitted"
+    means any form of electronic, verbal, or written communication sent
+    to the Licensor or its representatives, including but not limited to
+    communication on electronic mailing lists, source code control systems,
+    and issue tracking systems that are managed by, or on behalf of, the
+    Licensor for the purpose of discussing and improving the Work, but
+    excluding communication that is conspicuously marked or otherwise
+    designated in writing by the copyright owner as "Not a Contribution."
+
+    "Contributor" shall mean Licensor and any individual or Legal Entity
+    on behalf of whom a Contribution has been received by Licensor and
+    subsequently incorporated within the Work.
+
+2.  Grant of Copyright License. Subject to the terms and conditions of
+    this License, each Contributor hereby grants to You a perpetual,
+    worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+    copyright license to reproduce, prepare Derivative Works of,
+    publicly display, publicly perform, sublicense, and distribute the
+    Work and such Derivative Works in Source or Object form.
+
+3.  Grant of Patent License. Subject to the terms and conditions of
+    this License, each Contributor hereby grants to You a perpetual,
+    worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+    (except as stated in this section) patent license to make, have made,
+    use, offer to sell, sell, import, and otherwise transfer the Work,
+    where such license applies only to those patent claims licensable
+    by such Contributor that are necessarily infringed by their
+    Contribution(s) alone or by combination of their Contribution(s)
+    with the Work to which such Contribution(s) was submitted. If You
+    institute patent litigation against any entity (including a
+    cross-claim or counterclaim in a lawsuit) alleging that the Work
+    or a Contribution incorporated within the Work constitutes direct
+    or contributory patent infringement, then any patent licenses
+    granted to You under this License for that Work shall terminate
+    as of the date such litigation is filed.
+
+4.  Redistribution. You may reproduce and distribute copies of the
+    Work or Derivative Works thereof in any medium, with or without
+    modifications, and in Source or Object form, provided that You
+    meet the following conditions:
+
+    (a) You must give any other recipients of the Work or
+    Derivative Works a copy of this License; and
+
+    (b) You must cause any modified files to carry prominent notices
+    stating that You changed the files; and
+
+    (c) You must retain, in the Source form of any Derivative Works
+    that You distribute, all copyright, patent, trademark, and
+    attribution notices from the Source form of the Work,
+    excluding those notices that do not pertain to any part of
+    the Derivative Works; and
+
+    (d) If the Work includes a "NOTICE" text file as part of its
+    distribution, then any Derivative Works that You distribute must
+    include a readable copy of the attribution notices contained
+    within such NOTICE file, excluding those notices that do not
+    pertain to any part of the Derivative Works, in at least one
+    of the following places: within a NOTICE text file distributed
+    as part of the Derivative Works; within the Source form or
+    documentation, if provided along with the Derivative Works; or,
+    within a display generated by the Derivative Works, if and
+    wherever such third-party notices normally appear. The contents
+    of the NOTICE file are for informational purposes only and
+    do not modify the License. You may add Your own attribution
+    notices within Derivative Works that You distribute, alongside
+    or as an addendum to the NOTICE text from the Work, provided
+    that such additional attribution notices cannot be construed
+    as modifying the License.
+
+    You may add Your own copyright statement to Your modifications and
+    may provide additional or different license terms and conditions
+    for use, reproduction, or distribution of Your modifications, or
+    for any such Derivative Works as a whole, provided Your use,
+    reproduction, and distribution of the Work otherwise complies with
+    the conditions stated in this License.
+
+5.  Submission of Contributions. Unless You explicitly state otherwise,
+    any Contribution intentionally submitted for inclusion in the Work
+    by You to the Licensor shall be under the terms and conditions of
+    this License, without any additional terms or conditions.
+    Notwithstanding the above, nothing herein shall supersede or modify
+    the terms of any separate license agreement you may have executed
+    with Licensor regarding such Contributions.
+
+6.  Trademarks. This License does not grant permission to use the trade
+    names, trademarks, service marks, or product names of the Licensor,
+    except as required for reasonable and customary use in describing the
+    origin of the Work and reproducing the content of the NOTICE file.
+
+7.  Disclaimer of Warranty. Unless required by applicable law or
+    agreed to in writing, Licensor provides the Work (and each
+    Contributor provides its Contributions) on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied, including, without limitation, any warranties or conditions
+    of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+    PARTICULAR PURPOSE. You are solely responsible for determining the
+    appropriateness of using or redistributing the Work and assume any
+    risks associated with Your exercise of permissions under this License.
+
+8.  Limitation of Liability. In no event and under no legal theory,
+    whether in tort (including negligence), contract, or otherwise,
+    unless required by applicable law (such as deliberate and grossly
+    negligent acts) or agreed to in writing, shall any Contributor be
+    liable to You for damages, including any direct, indirect, special,
+    incidental, or consequential damages of any character arising as a
+    result of this License or out of the use or inability to use the
+    Work (including but not limited to damages for loss of goodwill,
+    work stoppage, computer failure or malfunction, or any and all
+    other commercial damages or losses), even if such Contributor
+    has been advised of the possibility of such damages.
+
+9.  Accepting Warranty or Additional Liability. While redistributing
+    the Work or Derivative Works thereof, You may choose to offer,
+    and charge a fee for, acceptance of support, warranty, indemnity,
+    or other liability obligations and/or rights consistent with this
+    License. However, in accepting such obligations, You may act only
+    on Your own behalf and on Your sole responsibility, not on behalf
+    of any other Contributor, and only if You agree to indemnify,
+    defend, and hold each Contributor harmless for any liability
+    incurred by, or claims asserted against, such Contributor by reason
+    of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+Copyright 2019 Adobe
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+---
+
+The following NPM package may be included in this product:
+
+- @reduxjs/toolkit@1.8.5
 
 This package contains the following license and notice below:
 
@@ -429,11 +638,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @restart/hooks@0.4.7
+- @restart/hooks@0.4.7
 
 This package contains the following license and notice below:
 
@@ -459,11 +668,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @restart/ui@1.3.1
+- @restart/ui@1.3.1
 
 This package contains the following license and notice below:
 
@@ -489,11 +698,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @rushstack/node-core-library@3.50.2
+- @rushstack/node-core-library@3.50.2
 
 This package contains the following license and notice below:
 
@@ -522,11 +731,11 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @rushstack/rig-package@0.3.14
+- @rushstack/rig-package@0.3.14
 
 This package contains the following license and notice below:
 
@@ -555,11 +764,11 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @rushstack/ts-command-line@4.12.2
+- @rushstack/ts-command-line@4.12.2
 
 This package contains the following license and notice below:
 
@@ -588,12 +797,12 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - @tailwindcss/forms@0.5.2
- - tailwindcss@3.1.8
+- @tailwindcss/forms@0.5.2
+- tailwindcss@3.1.8
 
 These packages each contain the following license and notice below:
 
@@ -619,11 +828,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @tailwindcss/line-clamp@0.4.0
+- @tailwindcss/line-clamp@0.4.0
 
 This package contains the following license and notice below:
 
@@ -649,11 +858,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @types/argparse@1.0.38
+- @types/argparse@1.0.38
 
 This package contains the following license and notice below:
 
@@ -679,14 +888,14 @@ MIT License
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - @types/node@12.20.24
- - @types/prop-types@15.7.5
- - @types/react@17.0.48
- - @types/scheduler@0.16.2
+- @types/node@12.20.24
+- @types/prop-types@15.7.5
+- @types/react@17.0.48
+- @types/scheduler@0.16.2
 
 These packages each contain the following license and notice below:
 
@@ -712,38 +921,43 @@ MIT License
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @types/warning@3.0.0
+- @types/warning@3.0.0
 
 This package contains the following license and notice below:
 
 # Installation
+
 > `npm install --save @types/warning`
 
 # Summary
+
 This package contains type definitions for warning (https://github.com/BerkeleyTrue/warning).
 
 # Details
+
 Files were exported from https://www.github.com/DefinitelyTyped/DefinitelyTyped/tree/types-2.0/warning
 
 Additional Details
- * Last updated: Thu, 01 Dec 2016 00:24:42 GMT
- * File structure: ProperModule
- * Library Dependencies: none
- * Module Dependencies: none
- * Global values: warning
+
+- Last updated: Thu, 01 Dec 2016 00:24:42 GMT
+- File structure: ProperModule
+- Library Dependencies: none
+- Module Dependencies: none
+- Global values: warning
 
 # Credits
+
 These definitions were written by Chi Vinh Le <https://github.com/cvle>.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @yext/analytics@0.2.0
+- @yext/analytics@0.2.0
 
 This package contains the following license and notice below:
 
@@ -780,11 +994,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @yext/search-core@1.9.0
+- @yext/search-core@1.9.0
 
 This package contains the following license and notice below:
 
@@ -824,18 +1038,18 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @yext/search-headless-react@1.4.0
+- @yext/search-headless-react@1.4.0
 
 This package contains the following license and notice below:
 
 Contains information from the language-subtag-registry JSON Database (https://github.com/mattcg/language-subtag-registry/tree/master/data/json)
 which is made available under the ODC Attribution License (https://github.com/mattcg/language-subtag-registry/blob/master/LICENSE.md).
 
-The Search Headless React files listed in this repository are licensed under the below license. All other features and products are subject to 
+The Search Headless React files listed in this repository are licensed under the below license. All other features and products are subject to
 separate agreements and certain functionality requires paid subscriptions to Yext products.
 
 BSD 3-Clause License
@@ -868,11 +1082,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @yext/search-headless@1.4.0
+- @yext/search-headless@1.4.0
 
 This package contains the following license and notice below:
 
@@ -912,11 +1126,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - @yext/search-ui-react@1.0.0-beta.269
+- @yext/search-ui-react@1.0.0-beta.269
 
 This package contains the following license and notice below:
 
@@ -956,11 +1170,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - acorn-node@1.8.2
+- acorn-node@1.8.2
 
 This package contains the following license and notice below:
 
@@ -1060,11 +1274,11 @@ The code in the `lib/dynamic-import` folder is licensed as MIT:
 
 Find the source code at https://github.com/kesne/acorn-dynamic-import.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - acorn-walk@7.2.0
+- acorn-walk@7.2.0
 
 This package contains the following license and notice below:
 
@@ -1088,11 +1302,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - acorn@7.4.1
+- acorn@7.4.1
 
 This package contains the following license and notice below:
 
@@ -1118,11 +1332,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - ajv@6.12.6
+- ajv@6.12.6
 
 This package contains the following license and notice below:
 
@@ -1148,11 +1362,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - anymatch@3.1.2
+- anymatch@3.1.2
 
 This package contains the following license and notice below:
 
@@ -1172,11 +1386,11 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - arg@5.0.2
+- arg@5.0.2
 
 This package contains the following license and notice below:
 
@@ -1202,11 +1416,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - argparse@1.0.10
+- argparse@1.0.10
 
 This package contains the following license and notice below:
 
@@ -1232,12 +1446,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - binary-extensions@2.2.0
- - is-binary-path@2.1.0
+- binary-extensions@2.2.0
+- is-binary-path@2.1.0
 
 These packages each contain the following license and notice below:
 
@@ -1251,12 +1465,12 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - braces@3.0.2
- - normalize-path@3.0.0
+- braces@3.0.2
+- normalize-path@3.0.0
 
 These packages each contain the following license and notice below:
 
@@ -1282,11 +1496,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - camelcase-css@2.0.1
+- camelcase-css@2.0.1
 
 This package contains the following license and notice below:
 
@@ -1312,11 +1526,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - chokidar@3.5.3
+- chokidar@3.5.3
 
 This package contains the following license and notice below:
 
@@ -1342,11 +1556,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - classnames@2.3.1
+- classnames@2.3.1
 
 This package contains the following license and notice below:
 
@@ -1372,11 +1586,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - color-name@1.1.4
+- color-name@1.1.4
 
 This package contains the following license and notice below:
 
@@ -1389,21 +1603,23 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - colors@1.2.5
+- colors@1.2.5
 
 This package contains the following license and notice below:
 
 MIT License
 
 Original Library
-  - Copyright (c) Marak Squires
+
+- Copyright (c) Marak Squires
 
 Additional Functionality
- - Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+- Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1423,11 +1639,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - commander@2.20.3
+- commander@2.20.3
 
 This package contains the following license and notice below:
 
@@ -1454,11 +1670,11 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - core-js-pure@3.24.1
+- core-js-pure@3.24.1
 
 This package contains the following license and notice below:
 
@@ -1482,11 +1698,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - cross-fetch@3.1.5
+- cross-fetch@3.1.5
 
 This package contains the following license and notice below:
 
@@ -1512,12 +1728,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - cssesc@3.0.0
- - punycode@2.1.1
+- cssesc@3.0.0
+- punycode@2.1.1
 
 These packages each contain the following license and notice below:
 
@@ -1542,11 +1758,11 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - csstype@3.1.0
+- csstype@3.1.0
 
 This package contains the following license and notice below:
 
@@ -1570,13 +1786,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - defined@1.0.0
- - detective@5.2.1
- - minimist@1.2.6
+- defined@1.0.0
+- detective@5.2.1
+- minimist@1.2.6
 
 These packages each contain the following license and notice below:
 
@@ -1599,11 +1815,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - dequal@2.0.3
+- dequal@2.0.3
 
 This package contains the following license and notice below:
 
@@ -1629,11 +1845,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - didyoumean@1.2.2
+- didyoumean@1.2.2
 
 This package contains the following license and notice below:
 
@@ -1652,18 +1868,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - dlv@1.1.3
+- dlv@1.1.3
 
 This package contains the following license and notice below:
 
 # `dlv(obj, keypath)` [![NPM](https://img.shields.io/npm/v/dlv.svg)](https://npmjs.com/package/dlv) [![Build](https://travis-ci.org/developit/dlv.svg?branch=master)](https://travis-ci.org/developit/dlv)
 
 > Safely get a dot-notated path within a nested object, with ability to return a default if the full key path does not exist or the value is undefined
-
 
 ### Why?
 
@@ -1673,75 +1888,70 @@ You could write this yourself, but then you'd have to write [tests].
 
 Supports ES Modules, CommonJS and globals.
 
-
 ### Installation
 
 `npm install --save dlv`
-
 
 ### Usage
 
 `delve(object, keypath, [default])`
 
 ```js
-import delve from 'dlv';
+import delve from "dlv";
 
 let obj = {
-	a: {
-		b: {
-			c: 1,
-			d: undefined,
-			e: null
-		}
-	}
+  a: {
+    b: {
+      c: 1,
+      d: undefined,
+      e: null,
+    },
+  },
 };
 
 //use string dot notation for keys
-delve(obj, 'a.b.c') === 1;
+delve(obj, "a.b.c") === 1;
 
 //or use an array key
-delve(obj, ['a', 'b', 'c']) === 1;
+delve(obj, ["a", "b", "c"]) === 1;
 
-delve(obj, 'a.b') === obj.a.b;
+delve(obj, "a.b") === obj.a.b;
 
 //returns undefined if the full key path does not exist and no default is specified
-delve(obj, 'a.b.f') === undefined;
+delve(obj, "a.b.f") === undefined;
 
 //optional third parameter for default if the full key in path is missing
-delve(obj, 'a.b.f', 'foo') === 'foo';
+delve(obj, "a.b.f", "foo") === "foo";
 
 //or if the key exists but the value is undefined
-delve(obj, 'a.b.d', 'foo') === 'foo';
+delve(obj, "a.b.d", "foo") === "foo";
 
 //Non-truthy defined values are still returned if they exist at the full keypath
-delve(obj, 'a.b.e', 'foo') === null;
+delve(obj, "a.b.e", "foo") === null;
 
 //undefined obj or key returns undefined, unless a default is supplied
-delve(undefined, 'a.b.c') === undefined;
-delve(undefined, 'a.b.c', 'foo') === 'foo';
-delve(obj, undefined, 'foo') === 'foo';
+delve(undefined, "a.b.c") === undefined;
+delve(undefined, "a.b.c", "foo") === "foo";
+delve(obj, undefined, "foo") === "foo";
 ```
-
 
 ### Setter Counterparts
 
 - [dset](https://github.com/lukeed/dset) by [@lukeed](https://github.com/lukeed) is the spiritual "set" counterpart of `dlv` and very fast.
 - [bury](https://github.com/kalmbach/bury) by [@kalmbach](https://github.com/kalmbach) does the opposite of `dlv` and is implemented in a very similar manner.
 
-
 ### License
 
 [MIT](https://oss.ninja/mit/developit/)
 
-
 [preact]: https://github.com/developit/preact
 [tests]: https://github.com/developit/dlv/blob/master/test.js
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - dom-helpers@5.2.1
+- dom-helpers@5.2.1
 
 This package contains the following license and notice below:
 
@@ -1767,11 +1977,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - encoding@0.1.13
+- encoding@0.1.13
 
 This package contains the following license and notice below:
 
@@ -1792,11 +2002,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - esprima@4.0.1
+- esprima@4.0.1
 
 This package contains the following license and notice below:
 
@@ -1805,11 +2015,11 @@ Copyright JS Foundation and other contributors, https://js.foundation/
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
-  * Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  * Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
+- Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+- Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in the
+  documentation and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -1822,12 +2032,12 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - fast-deep-equal@3.1.3
- - json-schema-traverse@0.4.1
+- fast-deep-equal@3.1.3
+- json-schema-traverse@0.4.1
 
 These packages each contain the following license and notice below:
 
@@ -1853,11 +2063,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - fast-json-stable-stringify@2.1.0
+- fast-json-stable-stringify@2.1.0
 
 This package contains the following license and notice below:
 
@@ -1883,11 +2093,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - fastq@1.13.0
+- fastq@1.13.0
 
 This package contains the following license and notice below:
 
@@ -1905,11 +2115,11 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - fetch-everywhere@1.0.5
+- fetch-everywhere@1.0.5
 
 This package contains the following license and notice below:
 
@@ -1935,13 +2145,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - fill-range@7.0.1
- - is-number@7.0.0
- - micromatch@4.0.5
+- fill-range@7.0.1
+- is-number@7.0.0
+- micromatch@4.0.5
 
 These packages each contain the following license and notice below:
 
@@ -1967,11 +2177,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - fs-extra@7.0.1
+- fs-extra@7.0.1
 
 This package contains the following license and notice below:
 
@@ -1981,21 +2191,21 @@ Copyright (c) 2011-2017 JP Richardson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
 (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
- merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
+merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
 WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
 OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - function-bind@1.1.1
+- function-bind@1.1.1
 
 This package contains the following license and notice below:
 
@@ -2019,11 +2229,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - glob-parent@5.1.2
+- glob-parent@5.1.2
 
 This package contains the following license and notice below:
 
@@ -2043,11 +2253,11 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - glob-parent@6.0.2
+- glob-parent@6.0.2
 
 This package contains the following license and notice below:
 
@@ -2067,11 +2277,11 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - graceful-fs@4.2.10
+- graceful-fs@4.2.10
 
 This package contains the following license and notice below:
 
@@ -2091,11 +2301,11 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - has@1.0.3
+- has@1.0.3
 
 This package contains the following license and notice below:
 
@@ -2122,11 +2332,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - iconv-lite@0.6.3
+- iconv-lite@0.6.3
 
 This package contains the following license and notice below:
 
@@ -2151,11 +2361,11 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - immer@9.0.15
+- immer@9.0.15
 
 This package contains the following license and notice below:
 
@@ -2181,12 +2391,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - import-lazy@4.0.0
- - quick-lru@5.1.1
+- import-lazy@4.0.0
+- quick-lru@5.1.1
 
 These packages each contain the following license and notice below:
 
@@ -2200,13 +2410,13 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - invariant@2.2.4
- - prop-types@15.8.1
- - warning@4.0.3
+- invariant@2.2.4
+- prop-types@15.8.1
+- warning@4.0.3
 
 These packages each contain the following license and notice below:
 
@@ -2232,11 +2442,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - is-core-module@2.10.0
+- is-core-module@2.10.0
 
 This package contains the following license and notice below:
 
@@ -2261,11 +2471,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - is-extglob@2.1.1
+- is-extglob@2.1.1
 
 This package contains the following license and notice below:
 
@@ -2291,11 +2501,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - is-glob@4.0.3
+- is-glob@4.0.3
 
 This package contains the following license and notice below:
 
@@ -2321,13 +2531,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - is-stream@1.1.0
- - object-assign@4.1.1
- - pify@2.3.0
+- is-stream@1.1.0
+- object-assign@4.1.1
+- pify@2.3.0
 
 These packages each contain the following license and notice below:
 
@@ -2353,11 +2563,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - jju@1.4.0
+- jju@1.4.0
 
 This package contains the following license and notice below:
 
@@ -2383,11 +2593,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - js-levenshtein@1.1.6
+- js-levenshtein@1.1.6
 
 This package contains the following license and notice below:
 
@@ -2413,11 +2623,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - js-tokens@4.0.0
+- js-tokens@4.0.0
 
 This package contains the following license and notice below:
 
@@ -2443,11 +2653,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - js-yaml@3.13.1
+- js-yaml@3.13.1
 
 This package contains the following license and notice below:
 
@@ -2473,11 +2683,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - jsonfile@4.0.0
+- jsonfile@4.0.0
 
 This package contains the following license and notice below:
 
@@ -2487,21 +2697,21 @@ Copyright (c) 2012-2015, JP Richardson <jprichardson@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
 (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
- merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
+merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
 WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
 OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - lilconfig@2.0.6
+- lilconfig@2.0.6
 
 This package contains the following license and notice below:
 
@@ -2527,11 +2737,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - lodash.get@4.4.2
+- lodash.get@4.4.2
 
 This package contains the following license and notice below:
 
@@ -2583,11 +2793,11 @@ maintained libraries used by this software which have their own
 licenses; we recommend you read them, as their terms may differ from the
 terms above.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - lodash.isequal@4.5.0
+- lodash.isequal@4.5.0
 
 This package contains the following license and notice below:
 
@@ -2639,11 +2849,11 @@ maintained libraries used by this software which have their own
 licenses; we recommend you read them, as their terms may differ from the
 terms above.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - lodash@4.17.21
+- lodash@4.17.21
 
 This package contains the following license and notice below:
 
@@ -2695,11 +2905,11 @@ maintained libraries used by this software which have their own
 licenses; we recommend you read them, as their terms may differ from the
 terms above.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - loose-envify@1.4.0
+- loose-envify@1.4.0
 
 This package contains the following license and notice below:
 
@@ -2725,13 +2935,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - lru-cache@6.0.0
- - semver@7.3.7
- - yallist@4.0.0
+- lru-cache@6.0.0
+- semver@7.3.7
+- yallist@4.0.0
 
 These packages each contain the following license and notice below:
 
@@ -2751,11 +2961,11 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - merge2@1.4.1
+- merge2@1.4.1
 
 This package contains the following license and notice below:
 
@@ -2781,11 +2991,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - mini-svg-data-uri@1.4.4
+- mini-svg-data-uri@1.4.4
 
 This package contains the following license and notice below:
 
@@ -2811,11 +3021,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - nanoid@3.3.4
+- nanoid@3.3.4
 
 This package contains the following license and notice below:
 
@@ -2840,12 +3050,12 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - node-fetch@1.7.3
- - node-fetch@2.6.7
+- node-fetch@1.7.3
+- node-fetch@2.6.7
 
 These packages each contain the following license and notice below:
 
@@ -2871,11 +3081,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - object-hash@3.0.0
+- object-hash@3.0.0
 
 This package contains the following license and notice below:
 
@@ -2901,11 +3111,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - path-parse@1.0.7
+- path-parse@1.0.7
 
 This package contains the following license and notice below:
 
@@ -2931,11 +3141,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - performance-now@2.1.0
+- performance-now@2.1.0
 
 This package contains the following license and notice below:
 
@@ -2947,11 +3157,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - picocolors@1.0.0
+- picocolors@1.0.0
 
 This package contains the following license and notice below:
 
@@ -2971,11 +3181,11 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - picomatch@2.3.1
+- picomatch@2.3.1
 
 This package contains the following license and notice below:
 
@@ -3001,11 +3211,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - postcss-import@14.1.0
+- postcss-import@14.1.0
 
 This package contains the following license and notice below:
 
@@ -3030,11 +3240,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - postcss-js@4.0.0
+- postcss-js@4.0.0
 
 This package contains the following license and notice below:
 
@@ -3059,11 +3269,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - postcss-load-config@3.1.4
+- postcss-load-config@3.1.4
 
 This package contains the following license and notice below:
 
@@ -3088,11 +3298,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - postcss-nested@5.0.6
+- postcss-nested@5.0.6
 
 This package contains the following license and notice below:
 
@@ -3117,11 +3327,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - postcss-selector-parser@6.0.10
+- postcss-selector-parser@6.0.10
 
 This package contains the following license and notice below:
 
@@ -3148,11 +3358,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - postcss-value-parser@4.2.0
+- postcss-value-parser@4.2.0
 
 This package contains the following license and notice below:
 
@@ -3179,11 +3389,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - postcss@8.4.16
+- postcss@8.4.16
 
 This package contains the following license and notice below:
 
@@ -3208,12 +3418,12 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - queue-microtask@1.2.3
- - run-parallel@1.2.0
+- queue-microtask@1.2.3
+- run-parallel@1.2.0
 
 These packages each contain the following license and notice below:
 
@@ -3238,11 +3448,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - raf@3.4.1
+- raf@3.4.1
 
 This package contains the following license and notice below:
 
@@ -3254,11 +3464,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - react-collapsed@3.3.2
+- react-collapsed@3.3.2
 
 This package contains the following license and notice below:
 
@@ -3284,15 +3494,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - react-dom@17.0.2
- - react-is@16.13.1
- - react@17.0.2
- - scheduler@0.20.2
- - use-sync-external-store@1.2.0
+- react-dom@17.0.2
+- react-is@16.13.1
+- react@17.0.2
+- scheduler@0.20.2
+- use-sync-external-store@1.2.0
 
 These packages each contain the following license and notice below:
 
@@ -3318,11 +3528,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - react-icons@4.4.0
+- react-icons@4.4.0
 
 This package contains the following license and notice below:
 
@@ -3335,6 +3545,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
+
 Icons are taken from the other projects
 so please check each project licences accordingly.
 
@@ -3404,11 +3615,11 @@ License: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
 Tabler Icons - https://github.com/tabler/tabler-icons
 License: MIT https://opensource.org/licenses/MIT
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - react-lifecycles-compat@3.0.4
+- react-lifecycles-compat@3.0.4
 
 This package contains the following license and notice below:
 
@@ -3434,11 +3645,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - read-cache@1.0.0
+- read-cache@1.0.0
 
 This package contains the following license and notice below:
 
@@ -3463,11 +3674,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - readdirp@3.6.0
+- readdirp@3.6.0
 
 This package contains the following license and notice below:
 
@@ -3493,11 +3704,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - recent-searches@1.0.5
+- recent-searches@1.0.5
 
 This package contains the following license and notice below:
 
@@ -3508,7 +3719,6 @@ This package contains the following license and notice below:
 </h1>
 <p align="center" style="font-size: 1.2rem;">A zero dependency JavaScript module that helps anyone build recent searches functionality into their search bar.
 </p>
-
 
 <hr />
 
@@ -3525,9 +3735,11 @@ This package contains the following license and notice below:
 Building recent searches experience can be trickier than you think (expiry of queries, ranking of recent queries, handling storage etc...)
 
 ## Solution
+
 recent-searches module helps you build that experience without having to focus on the edge cases and technical details. If available, uses [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store suggestions cross sessions and in the rare cases where it might not be available uses a fallback memory storage, thus loosing it's cross session functionality.
 
-__The module handles:__
+**The module handles:**
+
 - Searching and retrieving recent searches
 - Ranking of searches and decaying their popularity (with different ranking options)
 - Saving and expiring of searches through LocalStorage or MemoryStorage
@@ -3548,34 +3760,32 @@ __The module handles:__
 ## Installation
 
 recent-searches is published on npm's public registry, you can install it as a dependancy of your project with the following command.
+
 ```
 npm install --save recent-searches
 ```
 
 ## Usage
 
-> [Standalone codesandbox example](https://codesandbox.io/s/8k21924m5l) <br/>
-> [Algolia react-instantsearch codesandbox example](https://codesandbox.io/s/m18wjy69) <br/>
-> [Algolia InstantSearch.js codesandbox example](https://codesandbox.io/s/62j3k7097r)
-Initializing the module
+> [Standalone codesandbox example](https://codesandbox.io/s/8k21924m5l) <br/> > [Algolia react-instantsearch codesandbox example](https://codesandbox.io/s/m18wjy69) <br/> > [Algolia InstantSearch.js codesandbox example](https://codesandbox.io/s/62j3k7097r)
+> Initializing the module
 
 ```ts
-import RecentSearches from 'recent-searches'
+import RecentSearches from "recent-searches";
 
 const searches = new RecentSearches({
   ttl: number, // Optional: ttl of searches in milliseconds, default to 24h (1000 * 60 * 60 * 24)
   limit: number, // Optional: max number of entries that will be persisted, default is 50
   namespace: string, // Optional: custom localStorage namespace
-  ranking: string // Optional: ranking strategy of recent searches, "PROXIMITY" | "TIME" | "PROXIMITY_AND_TIME", default is "PROXIMITY_AND_TIME"
-})
-
+  ranking: string, // Optional: ranking strategy of recent searches, "PROXIMITY" | "TIME" | "PROXIMITY_AND_TIME", default is "PROXIMITY_AND_TIME"
+});
 ```
 
 Setting and retrieving relevant searches.
 
 ```ts
 // Retrieve searches for a given query
-const previousSearchesForJohn = searches.getRecentSearches("John")
+const previousSearchesForJohn = searches.getRecentSearches("John");
 /* 
   [ 
     {query: "John", data: {...}, timestamp: ...},
@@ -3584,8 +3794,7 @@ const previousSearchesForJohn = searches.getRecentSearches("John")
 */
 
 // To set a recent search
-searches.setRecentSearch("John", resultData)
-
+searches.setRecentSearch("John", resultData);
 ```
 
 If you built something using recent-searches that you want to show, feel free to send us a link and we'll include it to the documentation!
@@ -3631,11 +3840,11 @@ MIT
 [examples]: https://codesandbox.io/search?refinementList%5Btags%5D%5B0%5D=recent-searches%3Aexample&page=1
 [yt-playlist]: https://www.youtube.com/playlist?list=PLV5CVI1eNcJh5CTgArGVwANebCrAh2OUE
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - redux-thunk@2.4.1
+- redux-thunk@2.4.1
 
 This package contains the following license and notice below:
 
@@ -3661,11 +3870,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - redux@4.2.0
+- redux@4.2.0
 
 This package contains the following license and notice below:
 
@@ -3691,11 +3900,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - regenerator-runtime@0.13.9
+- regenerator-runtime@0.13.9
 
 This package contains the following license and notice below:
 
@@ -3721,11 +3930,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - reselect@4.1.6
+- reselect@4.1.6
 
 This package contains the following license and notice below:
 
@@ -3751,13 +3960,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - resolve@1.17.0
- - resolve@1.19.0
- - resolve@1.22.1
+- resolve@1.17.0
+- resolve@1.19.0
+- resolve@1.22.1
 
 These packages each contain the following license and notice below:
 
@@ -3783,11 +3992,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - reusify@1.0.4
+- reusify@1.0.4
 
 This package contains the following license and notice below:
 
@@ -3813,11 +4022,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - safer-buffer@2.1.2
+- safer-buffer@2.1.2
 
 This package contains the following license and notice below:
 
@@ -3843,12 +4052,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM packages may be included in this product:
 
- - source-map-js@1.0.2
- - source-map@0.6.1
+- source-map-js@1.0.2
+- source-map@0.6.1
 
 These packages each contain the following license and notice below:
 
@@ -3858,14 +4067,14 @@ All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
-* Redistributions of source code must retain the above copyright notice, this
+- Redistributions of source code must retain the above copyright notice, this
   list of conditions and the following disclaimer.
 
-* Redistributions in binary form must reproduce the above copyright notice,
+- Redistributions in binary form must reproduce the above copyright notice,
   this list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
 
-* Neither the names of the Mozilla Foundation nor the names of project
+- Neither the names of the Mozilla Foundation nor the names of project
   contributors may be used to endorse or promote products derived from this
   software without specific prior written permission.
 
@@ -3880,11 +4089,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - sprintf-js@1.0.3
+- sprintf-js@1.0.3
 
 This package contains the following license and notice below:
 
@@ -3893,12 +4102,13 @@ All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
-* Redistributions of source code must retain the above copyright
+
+- Redistributions of source code must retain the above copyright
   notice, this list of conditions and the following disclaimer.
-* Redistributions in binary form must reproduce the above copyright
+- Redistributions in binary form must reproduce the above copyright
   notice, this list of conditions and the following disclaimer in the
   documentation and/or other materials provided with the distribution.
-* Neither the name of this software nor the names of its contributors may be
+- Neither the name of this software nor the names of its contributors may be
   used to endorse or promote products derived from this software without
   specific prior written permission.
 
@@ -3913,11 +4123,11 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - string-argv@0.3.1
+- string-argv@0.3.1
 
 This package contains the following license and notice below:
 
@@ -3943,11 +4153,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - strip-json-comments@3.1.1
+- strip-json-comments@3.1.1
 
 This package contains the following license and notice below:
 
@@ -3961,11 +4171,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - supports-preserve-symlinks-flag@1.0.0
+- supports-preserve-symlinks-flag@1.0.0
 
 This package contains the following license and notice below:
 
@@ -3991,11 +4201,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - tailwind-merge@1.6.0
+- tailwind-merge@1.6.0
 
 This package contains the following license and notice below:
 
@@ -4021,11 +4231,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - timsort@0.3.0
+- timsort@0.3.0
 
 This package contains the following license and notice below:
 
@@ -4051,11 +4261,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - tiny-warning@1.0.3
+- tiny-warning@1.0.3
 
 This package contains the following license and notice below:
 
@@ -4081,11 +4291,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - to-regex-range@5.0.1
+- to-regex-range@5.0.1
 
 This package contains the following license and notice below:
 
@@ -4111,21 +4321,21 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - tr46@0.0.3
+- tr46@0.0.3
 
 This package contains the following license and notice below:
 
 (MIT)
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - typescript@4.7.4
+- typescript@4.7.4
 
 This package contains the following license and notice below:
 
@@ -4133,7 +4343,7 @@ Apache License
 
 Version 2.0, January 2004
 
-http://www.apache.org/licenses/ 
+http://www.apache.org/licenses/
 
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
@@ -4185,11 +4395,11 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 
 END OF TERMS AND CONDITIONS
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - uncontrollable@7.2.1
+- uncontrollable@7.2.1
 
 This package contains the following license and notice below:
 
@@ -4215,11 +4425,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - universalify@0.1.2
+- universalify@0.1.2
 
 This package contains the following license and notice below:
 
@@ -4244,11 +4454,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - uri-js@4.4.1
+- uri-js@4.4.1
 
 This package contains the following license and notice below:
 
@@ -4256,19 +4466,19 @@ Copyright 2011 Gary Court. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
-1.	Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
 
-2.	Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY GARY COURT "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GARY COURT OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those of the authors and should not be interpreted as representing official policies, either expressed or implied, of Gary Court.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - use-isomorphic-layout-effect@1.1.2
+- use-isomorphic-layout-effect@1.1.2
 
 This package contains the following license and notice below:
 
@@ -4294,11 +4504,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - util-deprecate@1.0.2
+- util-deprecate@1.0.2
 
 This package contains the following license and notice below:
 
@@ -4327,11 +4537,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - uuid@8.3.2
+- uuid@8.3.2
 
 This package contains the following license and notice below:
 
@@ -4345,11 +4555,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - validator@13.7.0
+- validator@13.7.0
 
 This package contains the following license and notice below:
 
@@ -4374,11 +4584,11 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - webidl-conversions@3.0.1
+- webidl-conversions@3.0.1
 
 This package contains the following license and notice below:
 
@@ -4395,11 +4605,11 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - whatwg-fetch@3.6.2
+- whatwg-fetch@3.6.2
 
 This package contains the following license and notice below:
 
@@ -4424,11 +4634,11 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - whatwg-url@5.0.0
+- whatwg-url@5.0.0
 
 This package contains the following license and notice below:
 
@@ -4454,11 +4664,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - xtend@4.0.2
+- xtend@4.0.2
 
 This package contains the following license and notice below:
 
@@ -4483,11 +4693,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - yaml@1.10.2
+- yaml@1.10.2
 
 This package contains the following license and notice below:
 
@@ -4505,11 +4715,11 @@ OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
 TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
 THIS SOFTWARE.
 
------------
+---
 
 The following NPM package may be included in this product:
 
- - z-schema@5.0.3
+- z-schema@5.0.3
 
 This package contains the following license and notice below:
 
@@ -4536,6 +4746,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
------------
+---
 
 This file was generated with generate-license-file! https://www.npmjs.com/package/generate-license-file

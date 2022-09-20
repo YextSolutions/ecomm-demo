@@ -1,15 +1,21 @@
 import * as React from "react";
 import { v4 as uuid } from "uuid";
 import { CategoryLink } from "../types/kg";
+import { twMerge } from "tailwind-merge";
 
 export interface BreadcrumbsProps {
   currentPage: string;
   links?: CategoryLink[];
+  containerCss?: string;
 }
 
-const Breadcrumbs = ({ links, currentPage }: BreadcrumbsProps) => {
+const Breadcrumbs = ({
+  links,
+  currentPage,
+  containerCss,
+}: BreadcrumbsProps) => {
   return (
-    <div className="py-2 text-sm">
+    <div className={twMerge("py-2 text-sm", containerCss)}>
       <span>
         <a className="text-dark-orange" href="/">
           Toast

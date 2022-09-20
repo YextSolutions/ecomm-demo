@@ -67,7 +67,7 @@ const SearchBar = (props: SearchBarProps) => {
             (result.name as Partial<HighlightedValue>);
 
           return title && result.name ? (
-            // TOOD: why doesn't this work?
+            // TODO: why doesn't this work?
             // <CategoryDropdownItem name={result.name} />
             <DropdownItem
               value={result.name}
@@ -99,8 +99,10 @@ const SearchBar = (props: SearchBarProps) => {
 
       return title && result.name ? (
         <DropdownItem value={result.name}>
-          <BeverageCard result={result} autocomplete />
-          <div className="mx-2.5 h-px bg-gray-200" />
+          <a href={result.rawData.slug}>
+            <BeverageCard result={result} autocomplete />
+            <div className="mx-2.5 h-px bg-gray-200" />
+          </a>
         </DropdownItem>
       ) : (
         <></>
