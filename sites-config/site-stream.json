@@ -4,7 +4,14 @@
     "entityIds": ["site"]
   },
   "source": "knowledgeGraph",
-  "fields": ["c_categoryPhotos", "c_coverPhotos", "c_homePhotos"],
+  "fields": [
+    "c_categoryPhotos",
+    "c_coverPhotos",
+    "c_homePhotos",
+    "c_featuredCollections.name",
+    "c_featuredCollections.c_associatedBeverages.name",
+    "c_featuredCollections.c_associatedBeverages.primaryPhoto"
+  ],
   "localization": {
     "locales": ["en"],
     "primary": false

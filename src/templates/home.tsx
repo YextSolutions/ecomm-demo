@@ -47,6 +47,10 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
   const { _site } = document;
   const site: Site = _site;
 
+  React.useEffect(() => {
+    console.log("site", site);
+  }, []);
+
   return (
     <>
       <PageLayout
