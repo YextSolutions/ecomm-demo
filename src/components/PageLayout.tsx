@@ -2,7 +2,7 @@ import * as React from "react";
 import LocationsProvider from "./providers/LocationsProvider";
 import SearchExperience from "./search/SearchExperience";
 import { twMerge } from "tailwind-merge";
-import Header from "./Header";
+import Header from "./header";
 
 type Props = {
   children?: React.ReactNode;
