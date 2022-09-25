@@ -6,7 +6,7 @@ import {
 } from "@yext/search-headless-react";
 import searchConfig from "../config/searchConfig";
 import { useContext, useEffect, useState } from "react";
-import LocationCard from "./search/LocationCard";
+import LocationCard from "./search/cards/LocationCard";
 import classNames from "classnames";
 import GoogleLocationSearch from "./GoogleLocationSearch";
 import {

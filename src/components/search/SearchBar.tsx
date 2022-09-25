@@ -16,7 +16,7 @@ import searchConfig from "../../config/searchConfig";
 import { Beverage } from "../../types/beverages";
 import BeverageCategory from "../../types/beverage_categories";
 import { removeQueryParam, setPathAndQueryParams } from "../../util";
-import { BeverageCard } from "./BeverageCard";
+import { BeverageCard } from "./cards/BeverageCard";
 
 const SearchBar = (props: SearchBarProps) => {
   const searchActions = useSearchActions();
@@ -128,7 +128,6 @@ const SearchBar = (props: SearchBarProps) => {
     <SB
       {...props}
       hideRecentSearches
-      customCssClasses={{ searchBarContainer: "py-6 px-3 md:py-0 md:px-0" }}
       onSearch={handleSearch}
       visualAutocompleteConfig={{
         renderEntityPreviews,

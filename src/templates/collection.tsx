@@ -13,7 +13,7 @@ import "../index.css";
 import { Image } from "@yext/pages/components";
 import PageLayout from "../components/PageLayout";
 import BeverageCollection from "../types/beverage_collection";
-import { BeverageCard } from "../components/search/BeverageCard";
+import { BeverageCard } from "../components/search/cards/BeverageCard";
 import { v4 as uuid } from "uuid";
 import { Source } from "@yext/search-core";
 

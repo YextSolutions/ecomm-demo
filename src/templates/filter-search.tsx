@@ -11,7 +11,7 @@ import {
 } from "@yext/pages";
 import "../index.css";
 import PageLayout from "../components/PageLayout";
-import SearchLayout from "../components/SearchLayout";
+import SearchLayout from "../components/search/SearchLayout";
 import { Matcher, SelectableStaticFilter } from "@yext/search-headless-react";
 import Site from "../types/Site";
 import { flattenCategoryAncestors } from "../util";

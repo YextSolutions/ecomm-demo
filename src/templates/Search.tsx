@@ -10,7 +10,7 @@ import {
 } from "@yext/pages";
 import "../index.css";
 import PageLayout from "../components/PageLayout";
-import SearchLayout from "../components/SearchLayout";
+import SearchLayout from "../components/search/SearchLayout";
 import Site from "../types/Site";
 
 export const getPath: GetPath<TemplateProps> = (props) => {

@@ -1,10 +1,10 @@
 import * as React from "react";
 import { CardProps } from "@yext/search-ui-react";
-import Location from "../../types/locations";
+import Location from "../../../types/locations";
 import {
   LocationActionType,
   LocationContext,
-} from "../providers/LocationsProvider";
+} from "../../providers/LocationsProvider";
 import { useContext } from "react";
 
 // TODO: use context to set location filter
