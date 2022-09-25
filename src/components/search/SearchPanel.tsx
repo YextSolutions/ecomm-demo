@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 
 const SearchPanel = () => {
   return (
-    <div className="absolute left-0 right-0 z-[100] flex flex-col items-center">
+    <div className="absolute left-4 right-4 z-[100] flex flex-col items-center ">
       <div
         className="my-8 flex flex-col items-center rounded-xl bg-light-orange/90  
         "

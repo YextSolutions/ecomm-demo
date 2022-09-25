@@ -10,7 +10,9 @@
     "c_homePhotos",
     "c_featuredCollections.name",
     "c_featuredCollections.c_associatedBeverages.name",
-    "c_featuredCollections.c_associatedBeverages.primaryPhoto"
+    "c_featuredCollections.c_associatedBeverages.primaryPhoto",
+    "c_featuredCollections.c_associatedBeverages.slug",
+    "c_featuredCollections.slug"
   ],
   "localization": {
     "locales": ["en"],

@@ -76,9 +76,12 @@ export const Header = () => {
             <SearchBar />
           </div>
         </div>
-        <div className="flex items-center justify-center text-3xl text-red md:hidden">
+        <a
+          className="flex items-center justify-center text-3xl text-red md:hidden"
+          href="/"
+        >
           TOAST
-        </div>
+        </a>
         <div className="mr-4 flex items-center justify-end text-dark-orange">
           <FaShoppingBasket className="mr-3" size={30} />
           <div className="w-8 md:hidden">
