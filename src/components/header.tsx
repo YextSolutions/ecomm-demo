@@ -50,13 +50,20 @@ export const Header = () => {
     <div className="fixed top-0 w-full">
       {searchOpen && (
         <ScreenOverlay>
-          <SearchBar />
+          <SearchBar
+            customCssClasses={{
+              searchBarContainer: "py-6 px-3 md:py-0 md:px-0",
+            }}
+          />
         </ScreenOverlay>
       )}
       <div className=" grid h-16 grid-cols-3 content-center bg-orange md:grid-cols-2">
         <div className="ml-4 flex items-center text-dark-orange">
           <AiOutlineMenu className="block md:hidden" size={30} />
-          <a className="hidden pr-4 text-3xl font-semibold text-red md:block">
+          <a
+            className="hidden pr-4 text-3xl font-semibold text-red md:block"
+            href="/"
+          >
             TOAST
           </a>
           <div className="ml-4 hidden gap-8 text-sm text-black md:flex">
@@ -69,9 +76,12 @@ export const Header = () => {
             <SearchBar />
           </div>
         </div>
-        <div className="flex items-center justify-center text-3xl text-red md:hidden">
+        <a
+          className="flex items-center justify-center text-3xl text-red md:hidden"
+          href="/"
+        >
           TOAST
-        </div>
+        </a>
         <div className="mr-4 flex items-center justify-end text-dark-orange">
           <FaShoppingBasket className="mr-3" size={30} />
           <div className="w-8 md:hidden">

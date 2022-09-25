@@ -2,6 +2,7 @@ import * as React from "react";
 import { ComplexImageType, Image, ImageType } from "@yext/pages/components";
 import classNames from "classnames";
 import { v4 as uuid } from "uuid";
+import SearchPanel from "./search/SearchPanel";
 
 interface CoverPhotoHeroProps {
   coverPhotos: ComplexImageType[] | ImageType[];
@@ -32,6 +33,7 @@ const CoverPhotoHero = ({ coverPhotos }: CoverPhotoHeroProps) => {
           </div>
         );
       })}
+      <SearchPanel />
     </div>
   );
 };

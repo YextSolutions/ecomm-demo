@@ -22,3 +22,7 @@
   font-family: "Sora";
   src: url(./assets/fonts/Sora-VariableFont_wght.ttf);
 }
+
+.slick-dots li button:before {
+  color: #f85e00 !important;
+}
