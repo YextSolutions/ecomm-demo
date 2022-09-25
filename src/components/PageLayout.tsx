@@ -1,8 +1,8 @@
 import * as React from "react";
-import Header from "./Header";
 import LocationsProvider from "./providers/LocationsProvider";
 import SearchExperience from "./search/SearchExperience";
 import { twMerge } from "tailwind-merge";
+import Header from "./Header";
 
 type Props = {
   children?: React.ReactNode;
