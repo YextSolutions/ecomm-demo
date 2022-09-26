@@ -72,10 +72,6 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
     document.c_variantBeverages.sort((a, b) => a.c_price - b.c_price)[0]
   );
 
-  React.useEffect(() => {
-    console.log("document", document);
-  }, [document]);
-
   return (
     <PageLayout>
       <div className="pb-16">
@@ -112,6 +108,17 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
               </button>
             ))}
         </div>
+        <div className="hidden md:flex">
+          <ProductCounter
+            cartVariant={{
+              id: selectedVariant?.id,
+              price: Number(selectedVariant.c_price),
+              size: selectedVariant.size,
+              name: document.name,
+              photo: document.primaryPhoto,
+            }}
+          />
+        </div>
         <div className="py-8">
           <div className="pb-2 text-2xl">Product Details</div>
           <DetailTable
@@ -130,13 +137,14 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
           <div className="text-2xl">Description</div>
           <p>{document.description}</p>
         </div>
-        <div className="fixed bottom-0 left-0 right-0 flex h-16 items-center justify-center border-t bg-white">
+        <div className="fixed bottom-0 left-0 right-0 flex h-16 items-center justify-center border-t bg-white md:hidden">
           <ProductCounter
             cartVariant={{
               id: selectedVariant?.id,
               price: Number(selectedVariant.c_price),
               size: selectedVariant.size,
               name: document.name,
+              photo: document.primaryPhoto,
             }}
           />
         </div>

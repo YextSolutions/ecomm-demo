@@ -1,3 +1,4 @@
+import { ImageType } from "@yext/pages/components";
 import { getRuntime } from "@yext/pages/util";
 import * as React from "react";
 import { createContext, useEffect, useReducer, Dispatch } from "react";
@@ -5,10 +6,11 @@ import { deepEqual } from "../../util";
 import { ProviderProps } from "./AppProvider";
 
 export interface CartVariant {
-  variantId: string;
+  id: string;
   name: string;
   price: number;
   size: string;
+  photo?: ImageType;
 }
 
 export interface CartState {
@@ -45,7 +47,7 @@ export type CartActions = AddItem | RemoveItem | SetCartFromStorage;
 export const cartReducer = (state: CartState, action: CartActions) => {
   // const itemInCart = state.cartItems.find(
   //   (item) =>
-  //     item.cartVariant.variantId === action.payload.cartVariant.variantId
+  //     item.cartVariant.id === action.payload.cartVariant.id
   // );
   switch (action.type) {
     case CartActionTypes.SetCartFromStorage:
@@ -53,8 +55,7 @@ export const cartReducer = (state: CartState, action: CartActions) => {
     case CartActionTypes.AddItem:
       // eslint-disable-next-line no-case-declarations
       const itemToAdd = state.cartItems.find(
-        (item) =>
-          item.cartVariant.variantId === action.payload.cartVariant.variantId
+        (item) => item.cartVariant.id === action.payload.cartVariant.id
       );
       if (itemToAdd) {
         itemToAdd.quantity += action.payload.quantity;
@@ -69,16 +70,13 @@ export const cartReducer = (state: CartState, action: CartActions) => {
     case CartActionTypes.RemoveItem:
       // eslint-disable-next-line no-case-declarations
       const itemToRemove = state.cartItems.find(
-        (item) =>
-          item.cartVariant.variantId === action.payload.cartVariant.variantId
+        (item) => item.cartVariant.id === action.payload.cartVariant.id
       );
       if (itemToRemove) {
         itemToRemove.quantity--;
         if (itemToRemove.quantity === 0) {
           state.cartItems = state.cartItems.filter(
-            (item) =>
-              item.cartVariant.variantId !==
-              action.payload.cartVariant.variantId
+            (item) => item.cartVariant.id !== action.payload.cartVariant.id
           );
         }
         return { ...state, totalPrice: calculateTotalPrice(state.cartItems) };
