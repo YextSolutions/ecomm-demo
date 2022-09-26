@@ -47,7 +47,7 @@ export const Header = () => {
   const handleClickOutOfModal = () => setLocationModalOpen(false);
 
   return (
-    <div className="fixed top-0 w-full">
+    <div className="fixed top-0 z-50 w-full">
       {searchOpen && (
         <ScreenOverlay>
           <SearchBar
@@ -95,7 +95,7 @@ export const Header = () => {
         </div>
       </div>
       <button
-        className=" flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
+        className="flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
         onClick={toggleLocationModal}
       >
         {renderDeliveryAddress()}

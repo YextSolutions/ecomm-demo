@@ -1,8 +1,8 @@
 import * as React from "react";
-import LocationsProvider from "./providers/LocationsProvider";
 import SearchExperience from "./search/SearchExperience";
 import { twMerge } from "tailwind-merge";
 import Header from "./header";
+import AppProvider from "./providers/AppProvider";
 
 type Props = {
   children?: React.ReactNode;
@@ -13,7 +13,7 @@ type Props = {
 const PageLayout = ({ children, header = true, containerCss }: Props) => {
   return (
     <SearchExperience verticalKey="beverages">
-      <LocationsProvider>
+      <AppProvider>
         <div className="min-h-screen font-primary">
           {header && <Header />}
           <div
@@ -25,7 +25,7 @@ const PageLayout = ({ children, header = true, containerCss }: Props) => {
             {children}
           </div>
         </div>
-      </LocationsProvider>
+      </AppProvider>
     </SearchExperience>
   );
 };
