@@ -3,6 +3,7 @@ import { createContext, useEffect, useReducer, Dispatch } from "react";
 import { getRuntime } from "@yext/pages/util";
 import { LatLong } from "@yext/search-headless-react";
 import { deepEqual } from "../../util";
+import { ProviderProps } from "./AppProvider";
 
 export interface LocationState {
   userLocation?: {
@@ -63,10 +64,6 @@ export const locationReducer = (
       return state;
   }
 };
-
-export interface ProviderProps {
-  children: React.ReactNode;
-}
 
 export const LocationContext = createContext<{
   locationState: LocationState;

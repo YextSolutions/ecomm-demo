@@ -4,16 +4,19 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FaShoppingBasket } from "react-icons/fa";
 import SearchIcon from "../icons/SearchIcon";
 import LocationModal from "./LocationModal";
+import { CartContext } from "./providers/CartProvider";
 import { LocationContext } from "./providers/LocationsProvider";
 import ScreenOverlay from "./ScreenOverlay";
 import SearchBar from "./search/SearchBar";
 
 export const Header = () => {
+  const [totalCartItems, setTotalCartItems] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
   const [locationModalOpen, setLocationModalOpen] = useState(false);
   const [deliveryAddress, setDeliveryAddress] = useState<string | undefined>();
 
   const { locationState } = useContext(LocationContext);
+  const { cartState } = useContext(CartContext);
 
   useEffect(() => {
     if (locationState.userLocation?.displayName) {
@@ -27,6 +30,14 @@ export const Header = () => {
       setTimeout(() => setLocationModalOpen(false), 200);
     }
   }, [locationState.checkedLocation?.addressLine1]);
+
+  useEffect(() => {
+    setTotalCartItems(
+      cartState.cartItems
+        .map((item) => item.quantity)
+        .reduce((a, b) => a + b, 0)
+    );
+  }, [cartState]);
 
   const toggleSearch = () => setSearchOpen(!searchOpen);
   const toggleLocationModal = () => setLocationModalOpen(!locationModalOpen);
@@ -47,7 +58,7 @@ export const Header = () => {
   const handleClickOutOfModal = () => setLocationModalOpen(false);
 
   return (
-    <div className="fixed top-0 w-full">
+    <div className="fixed top-0 z-50 w-full">
       {searchOpen && (
         <ScreenOverlay>
           <SearchBar
@@ -83,7 +94,16 @@ export const Header = () => {
           TOAST
         </a>
         <div className="mr-4 flex items-center justify-end text-dark-orange">
-          <FaShoppingBasket className="mr-3" size={30} />
+          <a href="/cart">
+            <div className="relative">
+              <FaShoppingBasket className="mr-3" size={30} />
+              {totalCartItems > 0 && (
+                <div className="text-xxs absolute -bottom-0.5 right-0 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-red font-bold text-white">
+                  {totalCartItems}
+                </div>
+              )}
+            </div>
+          </a>
           <div className="w-8 md:hidden">
             <button
               className="flex h-8 w-8 items-center"
@@ -95,7 +115,7 @@ export const Header = () => {
         </div>
       </div>
       <button
-        className=" flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
+        className="flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
         onClick={toggleLocationModal}
       >
         {renderDeliveryAddress()}

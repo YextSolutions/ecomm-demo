@@ -63,7 +63,9 @@ export const BeverageCard = ({
           {priceRange &&
             priceRange.min < Number.MAX_SAFE_INTEGER &&
             priceRange.max > Number.MIN_SAFE_INTEGER && (
-              <div className="text-black">{`$${priceRange.min} - $${priceRange.max}`}</div>
+              <div className="text-black">{`$${priceRange.min.toFixed(
+                2
+              )} - $${priceRange.max.toFixed(2)}`}</div>
             )}
         </div>
       </div>
