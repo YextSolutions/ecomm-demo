@@ -72,6 +72,33 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
     document.c_variantBeverages.sort((a, b) => a.c_price - b.c_price)[0]
   );
 
+  const getDetailTableData = () => {
+    const data: { key: string; value: string }[] = [
+      {
+        key: "Category",
+        value: flattenCategories(document.c_beverageCategories)?.[
+          document.c_beverageCategories.length - 1
+        ].name,
+      },
+    ];
+    if (document.c_originCountry) {
+      const origin = document.c_usState
+        ? `${document.c_usState}, ${document.c_originCountry} `
+        : document.c_originCountry;
+      data.push({
+        key: "Origin",
+        value: origin,
+      });
+    }
+    if (document.c_abv) {
+      data.push({
+        key: "ABV",
+        value: `${document.c_abv}%`,
+      });
+    }
+    return data;
+  };
+
   return (
     <PageLayout>
       <div className="pb-16">
@@ -121,22 +148,14 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
         </div>
         <div className="py-8">
           <div className="pb-2 text-2xl">Product Details</div>
-          <DetailTable
-            details={{
-              Category: flattenCategories(document.c_beverageCategories)?.[
-                document.c_beverageCategories.length - 1
-              ].name,
-              Origin: `${document.c_usState && `${document.c_usState},`} ${
-                document.c_originCountry
-              }`,
-              ABV: `${document.c_abv}%`,
-            }}
-          />
+          <DetailTable details={getDetailTableData()} />
         </div>
-        <div className="py-8">
-          <div className="text-2xl">Description</div>
-          <p>{document.description}</p>
-        </div>
+        {document.description && (
+          <div className="py-8">
+            <div className="text-2xl">Description</div>
+            <p>{document.description}</p>
+          </div>
+        )}
         <div className="fixed bottom-0 left-0 right-0 flex h-16 items-center justify-center border-t bg-white md:hidden">
           <ProductCounter
             cartVariant={{

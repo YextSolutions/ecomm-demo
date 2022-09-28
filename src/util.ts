@@ -55,7 +55,7 @@ export const flattenCategories = (
         .map((link) => link.name)
         .indexOf(category.c_parentCategory?.[0].name);
       if (parentIndex === -1) {
-        links.push(category.c_parentCategory?.[0]);
+        links.push({ name: category.name, slug: category.slug });
       } else {
         links.splice(parentIndex + 1, 0, {
           name: category.name,
