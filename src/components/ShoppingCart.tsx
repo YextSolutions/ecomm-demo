@@ -4,6 +4,7 @@ import { CartActionTypes, CartContext } from "./providers/CartProvider";
 import { Image } from "@yext/pages/components";
 import { v4 as uuid } from "uuid";
 import Counter from "./Counter";
+import PlaceholderIcon from "../icons/PlaceholderIcon";
 
 const ShoppingCart = () => {
   const { cartState, dispatch } = useContext(CartContext);
@@ -53,7 +54,10 @@ const ShoppingCart = () => {
               {item.cartVariant.photo && (
                 <div className="w-16 px-2 md:w-24">
                   {/* TODO: Add Placeholder Image */}
-                  <Image image={item.cartVariant.photo} />
+                  <Image
+                    image={item.cartVariant.photo}
+                    placeholder={<PlaceholderIcon />}
+                  />
                 </div>
               )}
               <div className="ml-4 flex flex-col">

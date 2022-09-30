@@ -17,6 +17,7 @@
     "node": ">=17"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.3",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@yext/search-core": "2.0.0",
     "@yext/search-headless": "^2.0.0",

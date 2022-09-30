@@ -3,12 +3,23 @@ import { ComplexImageType, Image, ImageType } from "@yext/pages/components";
 import classNames from "classnames";
 import { v4 as uuid } from "uuid";
 import SearchPanel from "./search/SearchPanel";
+import { Transition } from "@headlessui/react";
 
 interface CoverPhotoHeroProps {
   coverPhotos: ComplexImageType[] | ImageType[];
 }
 
 const CoverPhotoHero = ({ coverPhotos }: CoverPhotoHeroProps) => {
+  const [showSearch, setShowSearch] = React.useState(false);
+
+  // use effect hook that sets showSearch to true 300 milliseconds after the component mounts
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowSearch(true);
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <div className="relative max-h-[900px] min-h-[600px] w-full">
       {coverPhotos.map((coverPhoto, index) => {
@@ -33,7 +44,17 @@ const CoverPhotoHero = ({ coverPhotos }: CoverPhotoHeroProps) => {
           </div>
         );
       })}
-      <SearchPanel />
+      <Transition
+        show={showSearch}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-500"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <SearchPanel />
+      </Transition>
     </div>
   );
 };
