@@ -28,9 +28,6 @@ const SearchLayout = ({
 }: SearchLayoutProps): JSX.Element => {
   useSearchPageSetupEffect(initialFilter);
   useLocationFilter();
-
-  const windowDimensions = useWindowDimensions();
-
   const [filtersOpen, setFiltersOpen] = useState(false);
   // using Tailwind md breakpoint
 
@@ -51,23 +48,14 @@ const SearchLayout = ({
           categories={categories}
         />
       ) : (
-        windowDimensions &&
-        // using tailwind md breakpoint
-        (windowDimensions?.width < 768 ? (
-          <MobileBeverageResultsView
-            title={title}
-            coverPhoto={coverPhoto}
-            bottomButtonOnClick={handleBottomButton}
-            breadcrumbs={breadcrumbs}
-          />
-        ) : (
-          <BeverageResultsView
-            title={title}
-            coverPhoto={coverPhoto}
-            breadcrumbs={breadcrumbs}
-            categories={categories}
-          />
-        ))
+        <BeverageResultsView
+          title={title}
+          coverPhoto={coverPhoto}
+          breadcrumbs={breadcrumbs}
+          categories={categories}
+          bottomButtonOnClick={handleBottomButton}
+        />
+        // ))
       )}
     </>
   );
