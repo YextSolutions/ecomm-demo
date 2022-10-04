@@ -15,7 +15,7 @@ const metersToMiles = (meters: number) => {
 const LocationMapCard: CardComponent<Location> = ({
   result,
 }: CardProps<Location>) => {
-  const { address, id } = result.rawData;
+  const { address, id, slug } = result.rawData;
 
   const { dispatch, locationState } = useContext(LocationContext);
 
@@ -44,12 +44,12 @@ const LocationMapCard: CardComponent<Location> = ({
           {metersToMiles(result.distanceFromFilter ?? result.distance ?? 0)} mi
         </p>
         <a
-          target="_blank"
-          href={`/location/${result.id}`}
+          // target="_blank"
+          href={slug}
           className="text-blue-700 text-xs hover:underline"
           rel="noreferrer"
         >
-          View Location Website
+          View Location
         </a>
       </div>
       <div className="flex gap-1 align-baseline">
