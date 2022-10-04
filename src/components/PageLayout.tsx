@@ -8,17 +8,26 @@ type Props = {
   children?: React.ReactNode;
   header?: boolean;
   containerCss?: string;
+  verticalKey?: string;
+  hideLocationPicker?: boolean;
 };
 
-const PageLayout = ({ children, header = true, containerCss }: Props) => {
+const PageLayout = ({
+  children,
+  header = true,
+  containerCss,
+  verticalKey,
+  hideLocationPicker,
+}: Props) => {
   return (
-    <SearchExperience verticalKey="beverages">
+    <SearchExperience verticalKey={verticalKey}>
       <AppProvider>
         <div className="min-h-screen font-primary">
-          {header && <Header />}
+          {header && <Header hideLocationPicker={hideLocationPicker} />}
           <div
             className={twMerge(
-              "mx-auto max-w-screen-xl px-5 pt-28 md:px-14",
+              "mx-auto max-w-screen-xl px-5 pt-28 md:px-14" +
+                `${hideLocationPicker ? " pt-16" : ""}`,
               containerCss
             )}
           >

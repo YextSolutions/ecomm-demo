@@ -4,6 +4,7 @@ import { Beverage } from "../../../types/beverages";
 import { Image } from "@yext/pages/components";
 import { StarRating } from "../../StarRating";
 import classNames from "classnames";
+import PlaceholderIcon from "../../../icons/PlaceholderIcon";
 
 interface BeverageCardProps<T> extends CardProps<T> {
   autocomplete?: boolean;
@@ -47,7 +48,10 @@ export const BeverageCard = ({
                 "w-16 md:w-10": autocomplete,
               })}
             >
-              <Image image={beverage.primaryPhoto} />
+              <Image
+                image={beverage.primaryPhoto}
+                placeholder={PlaceholderIcon}
+              />
             </div>
           </div>
         )}

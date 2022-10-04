@@ -11,16 +11,15 @@ interface SearchExperienceProps {
   headlessId?: string;
 }
 
-const searcher = provideHeadless({
-  ...searchConfig,
-  verticalKey: "beverages",
-});
-
 const SearchExperience = ({
-  verticalKey,
+  verticalKey = "beverages",
   children,
   headlessId,
 }: SearchExperienceProps) => {
+  const searcher = provideHeadless({
+    ...searchConfig,
+    verticalKey: verticalKey,
+  });
   return (
     <SearchHeadlessProvider
       searcher={searcher}

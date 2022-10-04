@@ -3,7 +3,6 @@ import "../index.css";
 import {
   Template,
   GetPath,
-  TemplateConfig,
   TemplateRenderProps,
   GetHeadConfig,
   HeadConfig,
@@ -15,10 +14,6 @@ import CoverPhotoHero from "../components/CoverPhotoHero";
 import BeverageCarousel from "../components/BeverageCarousel";
 import { v4 as uuid } from "uuid";
 import CategoryTile from "../components/CategoryTile";
-
-export const config: TemplateConfig = {
-  name: "home",
-};
 
 export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps

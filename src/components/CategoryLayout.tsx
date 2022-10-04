@@ -3,6 +3,7 @@ import { Image } from "@yext/pages/components";
 import { twMerge } from "tailwind-merge";
 import { v4 as uuid } from "uuid";
 import { CategoryPhoto } from "../types/kg";
+import PlaceholderIcon from "../icons/PlaceholderIcon";
 
 interface CategoryContainerProps {
   categoryPhotos: CategoryPhoto[];
@@ -34,7 +35,11 @@ const CategoryLayout = ({
               href={catPhoto.slug}
             >
               <div className="flex h-44 w-40">
-                <Image layout="fill" image={catPhoto.photo} />
+                <Image
+                  layout="fill"
+                  image={catPhoto.photo}
+                  placeholder={<PlaceholderIcon />}
+                />
               </div>
               <div className="pt-1.5 text-blue group-hover:underline">
                 {catPhoto.name.toUpperCase()}
