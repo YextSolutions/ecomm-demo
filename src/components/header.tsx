@@ -9,7 +9,11 @@ import { LocationContext } from "./providers/LocationsProvider";
 import ScreenOverlay from "./ScreenOverlay";
 import SearchBar from "./search/SearchBar";
 
-export const Header = () => {
+interface HeaderProps {
+  hideLocationPicker?: boolean;
+}
+
+export const Header = ({ hideLocationPicker }: HeaderProps) => {
   const [totalCartItems, setTotalCartItems] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
   const [locationModalOpen, setLocationModalOpen] = useState(false);
@@ -81,6 +85,7 @@ export const Header = () => {
             <a href="/wine">WINE</a>
             <a href="/beer">BEER</a>
             <a href="/liquor">LIQUOR</a>
+            <a href="/locations">LOCATIONS</a>
             <a>OTHER</a>
           </div>
           <div className="hidden px-6 md:flex md:pt-6">
@@ -98,7 +103,7 @@ export const Header = () => {
             <div className="relative">
               <FaShoppingBasket className="mr-3" size={30} />
               {totalCartItems > 0 && (
-                <div className="text-xxs absolute -bottom-0.5 right-0 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-red font-bold text-white">
+                <div className="absolute -bottom-0.5 right-0 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-red text-xxs font-bold text-white">
                   {totalCartItems}
                 </div>
               )}
@@ -114,14 +119,18 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <button
-        className="flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
-        onClick={toggleLocationModal}
-      >
-        {renderDeliveryAddress()}
-      </button>
-      {locationModalOpen && (
-        <LocationModal onClickOutOfModal={handleClickOutOfModal} />
+      {!hideLocationPicker && (
+        <>
+          <button
+            className="flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
+            onClick={toggleLocationModal}
+          >
+            {renderDeliveryAddress()}
+          </button>
+          {locationModalOpen && (
+            <LocationModal onClickOutOfModal={handleClickOutOfModal} />
+          )}
+        </>
       )}
     </div>
   );

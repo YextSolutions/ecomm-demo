@@ -139,7 +139,6 @@ const CartProvider = ({ children }: ProviderProps) => {
         localStorage.setItem("cart", JSON.stringify(cartState));
       }
     }
-    console.log("cartState", cartState);
   }, [cartState]);
 
   return (
