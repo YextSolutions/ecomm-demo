@@ -9,7 +9,8 @@ const MapPin: CardComponent<Location> = ({ result }: CardProps<Location>) => {
   const [showCard, setShowCard] = useState(false);
   const { address } = result.rawData;
   return (
-    <div className="relative z-10">
+    // TODO: edit in the Pages module
+    <div className="relative">
       <Transition
         show={showCard}
         enter="transition-opacity duration-750"

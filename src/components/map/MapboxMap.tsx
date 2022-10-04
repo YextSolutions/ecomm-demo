@@ -1,5 +1,5 @@
 // MapboxMap.tsx
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import {
   useSearchState,
@@ -10,6 +10,7 @@ import mapboxgl, { Map } from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Location from "../../types/locations";
 import { CardComponent } from "@yext/search-ui-react";
+import { ShakerLoader } from "../ShakerLoader";
 
 interface Coordinate {
   latitude?: number;
@@ -26,21 +27,23 @@ interface MapProps<TEntity> {
   PinComponent?: CardComponent<TEntity>;
   getCoordinate: CoordinateGetter<TEntity>;
   defaultCenter?: mapboxgl.LngLatLike;
+  showLoader?: boolean;
 }
 
 function MapboxMap<TEntity>({
-  mapboxAccessToken,
   PinComponent,
   getCoordinate,
   mapboxStyle = "mapbox://styles/mapbox/streets-v11",
   defaultCenter = [-122.33, 47.6],
+  showLoader,
 }: MapProps<TEntity>): JSX.Element {
-  mapboxgl.accessToken = mapboxAccessToken;
+  const [mapLoading, setMapLoading] = useState(true);
 
   //TODO: Don't just cast this, use TS Generics
   const results = useSearchState(
     (s) => s.vertical.results
   ) as any as Result<Location>[];
+  const resultsLoading = useSearchState((s) => s.searchStatus.isLoading);
 
   const searchActions = useSearchActions();
 
@@ -56,7 +59,7 @@ function MapboxMap<TEntity>({
         container: mapContainer.current || "",
         style: mapboxStyle,
         interactive: true,
-        // center: center,
+        center: defaultCenter,
         zoom: 9,
       });
       map.current.addControl(new mapboxgl.NavigationControl());
@@ -64,6 +67,12 @@ function MapboxMap<TEntity>({
     searchActions.setVerticalLimit(50);
     searchActions.executeVerticalQuery();
   }, []);
+
+  useEffect(() => {
+    if (resultsLoading) {
+      setMapLoading(true);
+    }
+  }, [resultsLoading]);
 
   useEffect(() => {
     if (results && map.current) {
@@ -106,12 +115,18 @@ function MapboxMap<TEntity>({
           maxZoom: 15,
         });
       }
+      setMapLoading(false);
     }
   }, [results]);
 
   return (
-    <div className="h-full w-full">
+    <div className="relative h-full w-full">
       <div ref={mapContainer} className="map-container h-full w-full" />
+      {mapLoading && showLoader && (
+        <div className="absolute top-0 right-0 left-0 bottom-0 flex items-center bg-white opacity-90">
+          <ShakerLoader />
+        </div>
+      )}
     </div>
   );
 }

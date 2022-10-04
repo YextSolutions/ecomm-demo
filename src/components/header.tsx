@@ -46,16 +46,16 @@ export const Header = ({ hideLocationPicker }: HeaderProps) => {
   const toggleSearch = () => setSearchOpen(!searchOpen);
   const toggleLocationModal = () => setLocationModalOpen(!locationModalOpen);
 
-  const renderDeliveryAddress = () => {
-    if (deliveryAddress) {
+  const renderDeliveryFromAddress = () => {
+    if (locationState.checkedLocation?.addressLine1) {
       return (
         <div>
-          Delivery:
-          <span className="pl-1 text-dark-orange">{deliveryAddress}</span>
+          Delivery From:
+          <span className="pl-1 text-dark-orange">
+            {locationState.checkedLocation?.addressLine1}
+          </span>
         </div>
       );
-    } else {
-      return <div className="text-dark-orange">Select Delivery Address</div>;
     }
   };
 
@@ -122,10 +122,10 @@ export const Header = ({ hideLocationPicker }: HeaderProps) => {
       {!hideLocationPicker && (
         <>
           <button
-            className="flex h-12 w-full items-center justify-center bg-light-orange shadow-lg"
+            className="flex h-12 w-full items-center justify-center gap-4 bg-light-orange shadow-lg"
             onClick={toggleLocationModal}
           >
-            {renderDeliveryAddress()}
+            {renderDeliveryFromAddress()}
           </button>
           {locationModalOpen && (
             <LocationModal onClickOutOfModal={handleClickOutOfModal} />

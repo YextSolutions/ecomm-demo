@@ -16,9 +16,15 @@ export interface LocationState {
 }
 
 export enum LocationActionType {
+  SetLocationState,
   SetUserLocation,
   SetAddressLine1,
   ClearCheckedLocation,
+}
+
+export interface SetLocationState {
+  type: LocationActionType.SetLocationState;
+  payload: LocationState;
 }
 
 export interface SetUserLocation {
@@ -47,13 +53,16 @@ export interface ClearCheckedLocation {
 export type LocationActions =
   | SetUserLocation
   | SetAddressLine1
-  | ClearCheckedLocation;
+  | ClearCheckedLocation
+  | SetLocationState;
 
 export const locationReducer = (
   state: LocationState,
   action: LocationActions
 ): LocationState => {
   switch (action.type) {
+    case LocationActionType.SetLocationState:
+      return action.payload;
     case LocationActionType.SetUserLocation:
       return { ...state, userLocation: action.payload.userLocation };
     case LocationActionType.SetAddressLine1:
@@ -84,10 +93,10 @@ const LocationsProvider = ({ children }: ProviderProps) => {
     if (!getRuntime().isServerSide) {
       const storageState: {
         userLocation?: { displayName: string; latLong: LatLong };
-      } = JSON.parse(localStorage.getItem("userLocation") || "{}");
+      } = JSON.parse(localStorage.getItem("locationState") || "{}");
       if (storageState) {
         dispatch({
-          type: LocationActionType.SetUserLocation,
+          type: LocationActionType.SetLocationState,
           payload: storageState,
         });
       }
@@ -98,17 +107,14 @@ const LocationsProvider = ({ children }: ProviderProps) => {
     if (!getRuntime().isServerSide) {
       if (
         !deepEqual(
-          locationState.userLocation,
-          JSON.parse(localStorage.getItem("userLocation") || "{}")?.userLocation
+          locationState,
+          JSON.parse(localStorage.getItem("locationState") || "{}")
         )
       ) {
-        localStorage.setItem(
-          "userLocation",
-          JSON.stringify({ userLocation: locationState.userLocation })
-        );
+        localStorage.setItem("locationState", JSON.stringify(locationState));
       }
     }
-  }, [locationState.userLocation]);
+  }, [locationState]);
 
   return (
     <LocationContext.Provider value={{ locationState, dispatch }}>

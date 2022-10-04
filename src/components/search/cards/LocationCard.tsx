@@ -33,7 +33,7 @@ const LocationCard = ({ result }: CardProps<Location>) => {
           type="radio"
           name="location"
           value={location.id}
-          onClick={handleRadioClick}
+          onChange={handleRadioClick}
           checked={
             location.address.line1 ===
             locationState.checkedLocation?.addressLine1
