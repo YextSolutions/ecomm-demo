@@ -23,6 +23,22 @@ const sortConfig: Record<string, { label: string; sortBy: SortBy }> = {
       type: SortType.Field,
     },
   },
+  price_desc: {
+    label: "Price: High to Low",
+    sortBy: {
+      field: "c_variantBeverages.c_price",
+      direction: Direction.Descending,
+      type: SortType.Field,
+    },
+  },
+  price_asc: {
+    label: "Price: Low to High",
+    sortBy: {
+      field: "c_variantBeverages.c_price",
+      direction: Direction.Ascending,
+      type: SortType.Field,
+    },
+  },
 };
 
 interface SortingDrawerProps {
