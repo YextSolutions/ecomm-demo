@@ -56,6 +56,12 @@ export const Header = ({ hideLocationPicker }: HeaderProps) => {
           </span>
         </div>
       );
+    } else {
+      return (
+        <div className="text-dark-orange hover:underline">
+          Choose a location near you!
+        </div>
+      );
     }
   };
 
