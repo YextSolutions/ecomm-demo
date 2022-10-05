@@ -18,9 +18,7 @@ const Tile = ({ title, slug, containerCss, titleCss }: TileProps) => {
           titleCss
         )}
       >
-        <a href="/beer">
-          <div className="px-6 py-1 ">{title}</div>
-        </a>
+        <div className="px-6 py-1 ">{title}</div>
       </div>
     </a>
   );
