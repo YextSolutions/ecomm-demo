@@ -20,6 +20,7 @@ import DetailTable from "../components/DetailTable";
 import { flattenCategories } from "../util";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ProductCounter from "../components/ProductCounter";
+import ToastMessage from "../components/ToastMessage";
 
 export const config: TemplateConfig = {
   stream: {
@@ -66,8 +67,8 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
   };
 };
 
-// TODO: links to product pages from search
 const Beverage: Template<TemplateRenderProps> = ({ document }) => {
+  const [showToast, setShowToast] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(
     document.c_variantBeverages.sort((a, b) => a.c_price - b.c_price)[0]
   );
@@ -97,6 +98,13 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
       });
     }
     return data;
+  };
+
+  const showToastMessage = () => {
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
   };
 
   return (
@@ -144,6 +152,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
               name: document.name,
               photo: document.primaryPhoto,
             }}
+            addedToCart={showToastMessage}
           />
         </div>
         <div className="py-8">
@@ -165,9 +174,15 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
               name: document.name,
               photo: document.primaryPhoto,
             }}
+            addedToCart={showToastMessage}
           />
         </div>
       </div>
+      <ToastMessage
+        show={showToast}
+        message="Added to Cart"
+        onClose={() => setShowToast(false)}
+      />
     </PageLayout>
   );
 };
