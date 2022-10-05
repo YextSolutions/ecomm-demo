@@ -9,9 +9,10 @@ import {
 
 export interface ProductCounterProps {
   cartVariant: CartVariant;
+  addedToCart?: () => void;
 }
 
-const ProductCounter = ({ cartVariant }: ProductCounterProps) => {
+const ProductCounter = ({ cartVariant, addedToCart }: ProductCounterProps) => {
   const { cartState, dispatch } = useContext(CartContext);
   const [displaySum, setDisplaySum] = useState(
     cartState.cartItems.find((item) => item.cartVariant.id === cartVariant.id)
@@ -23,6 +24,7 @@ const ProductCounter = ({ cartVariant }: ProductCounterProps) => {
   };
 
   const handleAddToCart = () => {
+    addedToCart && addedToCart();
     dispatch({
       type: CartActionTypes.AddItem,
       payload: { cartVariant, quantity: displaySum },
