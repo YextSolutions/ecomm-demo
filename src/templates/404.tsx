@@ -26,7 +26,9 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
 const FourOhFour: Template<TemplateRenderProps> = () => {
   return (
     <PageLayout>
-      <h2 className="text-2xl font-bold text-dark-orange">Page Not Found</h2>
+      <h2 className="py-4 text-2xl font-bold text-dark-orange">
+        Page Not Found!
+      </h2>
     </PageLayout>
   );
 };
