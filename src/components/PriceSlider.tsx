@@ -4,6 +4,7 @@ import {
   Matcher,
   useSearchActions,
   SelectableStaticFilter,
+  useSearchState,
 } from "@yext/search-headless-react";
 import { Range, getTrackBackground } from "react-range";
 import { twMerge } from "tailwind-merge";
@@ -40,9 +41,22 @@ export const PriceSlider = ({
   ]);
 
   const searchActions = useSearchActions();
+  const filters = useSearchState((state) => state.filters.static);
 
   const setPriceFilter = (values: number[]): void => {
     const [priceMin, priceMax] = values;
+
+    const filteredFilters =
+      filters?.reduce((fieldValueFilters: SelectableStaticFilter[], ssf) => {
+        if (
+          ssf.filter.kind === "fieldValue" &&
+          ssf.filter.fieldId !== "c_variantBeverages.c_price"
+        ) {
+          fieldValueFilters.push(ssf);
+        }
+        return fieldValueFilters;
+      }, []) ?? [];
+
     const priceFilter: SelectableStaticFilter = {
       selected: true,
       filter: {
@@ -62,7 +76,7 @@ export const PriceSlider = ({
       },
     };
 
-    searchActions.setStaticFilters([priceFilter]);
+    searchActions.setStaticFilters([...filteredFilters, priceFilter]);
     searchActions.executeVerticalQuery();
   };
 
@@ -129,7 +143,7 @@ export const PriceSlider = ({
           )}
         />
       </div>
-      <div className="mt-6 flex justify-between">
+      <div className="mt-6 flex justify-between gap-8 md:justify-start">
         <div className="flex">
           <div className="flex h-8 items-center border-t border-l border-b ">
             $

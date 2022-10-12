@@ -56,12 +56,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
 };
 
 const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
-  const { _site } = document;
-  const site: Site = _site;
-  // TODO: get correct photo
-  const coverPhoto = site.c_coverPhotos?.find(
-    (photo) => photo.name === "Home"
-  )?.photo;
   const initialFilter: SelectableStaticFilter = {
     selected: true,
     filter: {
@@ -78,7 +72,6 @@ const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <PageLayout>
       <SearchLayout
-        coverPhoto={coverPhoto}
         initialFilter={initialFilter}
         title={document.name}
         breadcrumbs={{
