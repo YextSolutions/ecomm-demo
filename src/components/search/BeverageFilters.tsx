@@ -8,6 +8,7 @@ import {
 import CategoryTiles from "./CategoryTiles";
 import { CategoryLink } from "../../types/kg";
 import SortingDropdown from "./SortingDropdown";
+import PriceSlider from "../PriceSlider";
 
 interface BeverageFiltersProps {
   standardFacetsProps?: StandardFacetsProps;
@@ -26,6 +27,13 @@ const BeverageFilters = ({
         <CategoryTiles title="CATEGORIES" categories={categories} />
       )}
       <StandardFacets {...standardFacetsProps} />
+      <PriceSlider
+        title="PRICE RANGE"
+        customCssClasses={{
+          title: "font-bold",
+          sliderContainer: "px-4 md:px-0",
+        }}
+      />
       <NumericalFacets
         includedFieldIds={["c_abv"]}
         {...numericalFacetProps}
