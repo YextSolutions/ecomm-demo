@@ -10,7 +10,6 @@ import {
 import * as React from "react";
 import PageLayout from "../components/PageLayout";
 import "../index.css";
-import { SearchBar } from "@yext/search-ui-react";
 import StaticMap from "../components/map/StaticMap";
 
 // Documentation Here: https://hitchhikers.yext.com/docs/pages/templates/?target=exports

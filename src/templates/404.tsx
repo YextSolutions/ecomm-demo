@@ -6,6 +6,8 @@ import {
   Template,
 } from "@yext/pages";
 import * as React from "react";
+import "../index.css";
+
 import PageLayout from "../components/PageLayout";
 
 // The path must be exactly 404.html
