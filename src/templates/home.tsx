@@ -53,7 +53,6 @@ const Home: Template<TemplateRenderProps> = ({
               <CategoryTile title="Liquor" slug="/liquor" titleCss="text-2xl" />
             </div>
           </div>
-          {/* add a banner div with Beer, Wine, and Liquor links */}
           {site.c_featuredCollections &&
             site.c_featuredCollections.map((collection) => (
               <BeverageCarousel

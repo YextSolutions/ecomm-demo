@@ -16,6 +16,9 @@ import { Image } from "@yext/pages/components";
 import Location, { Coordinate, Day } from "../types/locations";
 import Hours, { sortByDay } from "../components/Hours";
 import Breadcrumbs from "../components/Breadcrumbs";
+import Site from "../types/Site";
+import BeverageCarousel from "../components/BeverageCarousel";
+import { v4 as uuid } from "uuid";
 
 export const config: TemplateConfig = {
   stream: {
@@ -69,6 +72,9 @@ function getGoogleMapsLink(coordinates: Coordinate) {
   return `https://www.google.com/maps/search/?api=1&query=${coordinates.latitude},${coordinates.longitude}`;
 }
 
+// create a type that is a combination of Location and Site
+type LocationWithSite = Location & { _site: Site };
+
 const LocationTemplate: Template<TemplateRenderProps> = ({
   document,
 }: TemplateRenderProps) => {
@@ -81,7 +87,8 @@ const LocationTemplate: Template<TemplateRenderProps> = ({
     mainPhone,
     emails,
     description,
-  } = document as Location;
+    _site,
+  } = document as LocationWithSite;
 
   const coverPhoto: ComplexImageType | undefined = photoGallery?.[0];
 
@@ -208,6 +215,20 @@ const LocationTemplate: Template<TemplateRenderProps> = ({
             )}
             <p className="pt-2">{emails?.[0]}</p>
           </div>
+        </div>
+        <div className="pt-8">
+          {_site.c_featuredCollections &&
+            _site.c_featuredCollections.map((collection) => (
+              <BeverageCarousel
+                key={uuid()}
+                title={collection.name}
+                beverages={collection.c_associatedBeverages}
+                limit={8}
+                viewAllLink={collection.slug}
+              />
+            ))}
+        </div>
+        <div className="grid grid-cols-1 gap-x-4 gap-y-8 pt-8 pb-4 md:grid-cols-2">
           <div>
             {yextDisplayCoordinate && (
               <StaticMap
