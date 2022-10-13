@@ -30,6 +30,7 @@ export const config: TemplateConfig = {
       "emails",
       "mainPhone",
       "description",
+      "slug",
     ],
     filter: {
       entityTypes: ["location"],
@@ -42,7 +43,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return document.slug ? document.slug : document.id.toString();
+  return document.slug;
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
