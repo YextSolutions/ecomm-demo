@@ -1,30 +1,27 @@
-export interface Interval {
-  start?: any;
-  end?: any;
-}
+type OpenIntervals = {
+  start: string;
+  end: string;
+};
 
-export interface DayHour {
-  openIntervals?: Interval[];
-  isClosed?: boolean;
-}
+export type Day = {
+  isClosed: boolean;
+  openIntervals: OpenIntervals[];
+};
 
 export interface HolidayHours {
   date: string;
-  openIntervals?: Interval[];
+  openIntervals?: OpenIntervals[];
   isClosed?: boolean;
   isRegularHours?: boolean;
 }
-
-export interface Hours {
-  monday?: DayHour;
-  tuesday?: DayHour;
-  wednesday?: DayHour;
-  thursday?: DayHour;
-  friday?: DayHour;
-  saturday?: DayHour;
-  sunday?: DayHour;
-  holidayHours?: HolidayHours[];
-  reopenDate?: string;
+export interface Week extends Record<string, any> {
+  monday?: Day;
+  tuesday?: Day;
+  wednesday?: Day;
+  thursday?: Day;
+  friday?: Day;
+  saturday?: Day;
+  sunday?: Day;
 }
 
 export enum PickupAndDeliveryServices {
@@ -38,7 +35,7 @@ export enum PickupAndDeliveryServices {
 }
 
 export interface Address {
-  line1?: string;
+  line1: string;
   line2?: string;
   line3?: string;
   sublocality?: string;
@@ -71,8 +68,8 @@ export interface ComplexImage {
 }
 
 export interface Coordinate {
-  latitude?: number;
-  longitude?: number;
+  latitude: number;
+  longitude: number;
 }
 
 export interface EntityReference {
@@ -260,35 +257,35 @@ export interface ComplexVideo {
 }
 
 interface Location {
-  accessHours?: Hours;
+  accessHours?: Week;
   bingWebsiteOverride?: string;
   blackOwnedBusiness?: boolean;
-  brunchHours?: Hours;
+  brunchHours?: Week;
   covid19InformationUrl?: string;
   covidMessaging?: string;
-  deliveryHours?: Hours;
-  dineInHours?: Hours;
-  driveThroughHours?: Hours;
+  deliveryHours?: Week;
+  dineInHours?: Week;
+  driveThroughHours?: Week;
   facebookWebsiteOverride?: string;
   fullyVaccinatedStaff?: boolean;
   geomodifier?: string;
-  happyHours?: Hours;
+  happyHours?: Week;
   holidayHoursConversationEnabled?: boolean;
-  kitchenHours?: Hours;
+  kitchenHours?: Week;
   landingPageUrl?: string;
   linkedInUrl?: string;
   neighborhood?: string;
   nudgeEnabled?: boolean;
-  onlineServiceHours?: Hours;
+  onlineServiceHours?: Week;
   phoneticName?: string;
   pickupAndDeliveryServices?: PickupAndDeliveryServices[];
-  pickupHours?: Hours;
+  pickupHours?: Week;
   primaryConversationContact?: any;
   proofOfVaccinationRequired?: boolean;
   reviewResponseConversationEnabled?: boolean;
-  seniorHours?: Hours;
+  seniorHours?: Week;
   slug?: string;
-  takeoutHours?: Hours;
+  takeoutHours?: Week;
   what3WordsAddress?: string;
   yelpWebsiteOverride?: string;
   additionalHoursText?: string;
@@ -299,7 +296,7 @@ interface Location {
   associations?: string[];
   brands?: string[];
   description?: string;
-  hours?: Hours;
+  hours?: Week;
   logo?: ComplexImage;
   name: string;
   categories?: any;
@@ -324,7 +321,7 @@ interface Location {
   languages?: string[];
   localPhone?: any;
   locationType?: LocationType;
-  mainPhone?: any;
+  mainPhone?: string;
   menuUrl?: MenuUrl;
   mobilePhone?: any;
   orderUrl?: OrderUrl;
@@ -350,7 +347,7 @@ interface Location {
   walkableCoordinate?: Coordinate;
   websiteUrl?: WebsiteUrl;
   yearEstablished?: number;
-  yextDisplayCoordinate?: Coordinate;
+  yextDisplayCoordinate: Coordinate;
   yextDropoffCoordinate?: Coordinate;
   yextPickupCoordinate?: Coordinate;
   yextRoutableCoordinate?: Coordinate;
