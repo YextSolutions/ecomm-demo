@@ -19,7 +19,7 @@ export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps
 > = (): HeadConfig => {
   return {
-    title: "Toast Locations",
+    title: "Toast | Locations",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };

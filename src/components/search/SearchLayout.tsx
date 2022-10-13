@@ -1,16 +1,15 @@
 import * as React from "react";
 import { useSearchPageSetupEffect } from "../../hooks/useSearchPageSetupEffect";
-import { CategoryLink, ComplexImage } from "../../types/kg";
+import { CategoryLink } from "../../types/kg";
 import { SelectableStaticFilter } from "@yext/search-headless-react";
 import { useState } from "react";
 import MobileFiltersView from "./mobile/MobileFiltersView";
-import BeverageResultsView from "./BeverageResultsView";
+import BeverageResults from "./BeverageResults";
 import { useSearchActions } from "@yext/search-headless-react";
 import { BreadcrumbsProps } from "../Breadcrumbs";
 import { useLocationFilter } from "../../hooks/useLocationFilter";
 
 interface SearchLayoutProps {
-  coverPhoto?: ComplexImage;
   title?: string;
   initialFilter?: SelectableStaticFilter;
   breadcrumbs?: BreadcrumbsProps;
@@ -18,7 +17,6 @@ interface SearchLayoutProps {
 }
 
 const SearchLayout = ({
-  coverPhoto,
   title,
   initialFilter,
   breadcrumbs,
@@ -46,14 +44,12 @@ const SearchLayout = ({
           categories={categories}
         />
       ) : (
-        <BeverageResultsView
+        <BeverageResults
           title={title}
-          coverPhoto={coverPhoto}
           breadcrumbs={breadcrumbs}
           categories={categories}
           bottomButtonOnClick={handleBottomButton}
         />
-        // ))
       )}
     </>
   );
