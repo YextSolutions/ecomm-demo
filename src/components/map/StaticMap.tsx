@@ -1,8 +1,8 @@
 import * as React from "react";
 
 type Coordinates = {
-  latitude: string;
-  longitude: string;
+  latitude: string | number;
+  longitude: string | number;
 };
 
 const StaticMap = (props: Coordinates) => {
