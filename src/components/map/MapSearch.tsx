@@ -54,7 +54,6 @@ const MapSearch = () => {
             <div
               className={classNames(
                 "h-full w-full overflow-auto border-r border-slate-300 bg-slate-50 shadow-md"
-                // { hidden: !searchPanelOpen }
               )}
             >
               <div className="fixed top-28 z-20 w-full border-b border-slate-300 bg-light-orange shadow-lg md:top-16 md:w-96">
