@@ -19,7 +19,7 @@ import Location from "../types/locations";
 interface LocationSelectorDropdownProps {
   hidden?: boolean;
 }
-const LocationSelectorDropdown = ({
+export const LocationSelectorDropdown = ({
   hidden = false,
 }: LocationSelectorDropdownProps) => {
   const searchActions = useSearchActions();
@@ -82,7 +82,7 @@ const LocationModal = ({ onClickOutOfModal }: LocationModalProps) => {
 
   return (
     <>
-      <div className=" w-full bg-white md:mx-auto md:max-w-xl">
+      <div className="w-full bg-white md:mx-auto md:max-w-xl">
         <div className="grid grid-cols-2 py-4">
           <button
             className={classNames("mx-4 flex justify-center ", {

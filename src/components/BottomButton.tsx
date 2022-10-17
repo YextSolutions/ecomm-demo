@@ -10,7 +10,7 @@ const BottomButton = ({
   handleClick,
 }: BottomButtonProps): JSX.Element => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-20 flex h-16 w-full items-center justify-center border-t bg-white">
+    <div className="fixed bottom-0 left-0 right-0 z-10 flex h-16 w-full items-center justify-center border-t bg-white">
       <button
         className="h-10 w-80 rounded bg-blue"
         onClick={() => handleClick()}
