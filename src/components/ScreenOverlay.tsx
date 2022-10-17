@@ -6,7 +6,7 @@ interface ScreenOverlayProps {
 
 const ScreenOverlay = ({ children }: ScreenOverlayProps): JSX.Element => {
   return (
-    <div className="fixed top-16 bottom-0 left-0 z-50 w-screen bg-white">
+    <div className="fixed top-[84px] bottom-0 left-0 z-50 w-screen bg-white">
       {children}
     </div>
   );
