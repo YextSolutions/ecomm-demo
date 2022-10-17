@@ -1,68 +1,73 @@
 import * as React from "react";
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
-import { LocationContext } from "./providers/LocationsProvider";
+import {
+  LocationActionType,
+  LocationContext,
+} from "./providers/LocationsProvider";
 import {
   provideHeadless,
   SearchHeadlessProvider,
+  useSearchActions,
 } from "@yext/search-headless-react";
 import GoogleLocationSearch from "./GoogleLocationSearch";
-import { LocationSelectorDropdown } from "./LocationModal";
+import { VerticalResults } from "@yext/search-ui-react";
 import searchConfig from "../config/searchConfig";
 import classNames from "classnames";
-
-// import {
-//   ChartBarIcon,
-//   CheckCircleIcon,
-//   CursorArrowRaysIcon,
-//   PhoneIcon,
-//   PlayIcon,
-//   ShieldCheckIcon,
-//   Squares2X2Icon,
-// } from "@heroicons/react/24/outline";
-
-// const solutions = [
-//   {
-//     name: "Analytics",
-//     description:
-//       "Get a better understanding of where your traffic is coming from.",
-//     href: "#",
-//     icon: ChartBarIcon,
-//   },
-//   {
-//     name: "Engagement",
-//     description: "Speak directly to your customers in a more meaningful way.",
-//     href: "#",
-//     icon: CursorArrowRaysIcon,
-//   },
-//   {
-//     name: "Security",
-//     description: "Your customers' data will be safe and secure.",
-//     href: "#",
-//     icon: ShieldCheckIcon,
-//   },
-//   {
-//     name: "Integrations",
-//     description: "Connect with third-party tools that you're already using.",
-//     href: "#",
-//     icon: Squares2X2Icon,
-//   },
-// ];
-// const callsToAction = [
-//   { name: "Watch Demo", href: "#", icon: PlayIcon },
-//   { name: "View All Products", href: "#", icon: CheckCircleIcon },
-//   { name: "Contact Sales", href: "#", icon: PhoneIcon },
-// ];
-
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
+import LocationCard from "./search/cards/LocationCard";
 
 const locationsSearcher = provideHeadless({
   ...searchConfig,
   verticalKey: "locations",
   headlessId: "location-searcher",
 });
+
+interface LocationSelectorDropdownProps {
+  hidden?: boolean;
+}
+export const LocationSelectorDropdown = ({
+  hidden = false,
+}: LocationSelectorDropdownProps) => {
+  const searchActions = useSearchActions();
+  const { dispatch } = useContext(LocationContext);
+
+  const { locationState } = useContext(LocationContext);
+
+  useEffect(() => {
+    if (locationState.userLocation?.latLong) {
+      searchActions.setUserLocation(locationState.userLocation.latLong);
+      searchActions.executeVerticalQuery();
+    }
+  }, [locationState.userLocation?.latLong]);
+
+  const handleAllStoresClick = () => {
+    dispatch({
+      type: LocationActionType.SetAddressLine1,
+      payload: { checkedLocation: { addressLine1: "ALL" } },
+    });
+  };
+
+  return (
+    // TODO: add loading icon when stores are loading, maybe use local storage if address doesn't change
+    !hidden ? (
+      <div className="h-[calc(100vh-170px)] overflow-y-auto">
+        <div className="mx-4 flex items-center py-4">
+          <input
+            type="radio"
+            name="location"
+            onClick={handleAllStoresClick}
+            checked={locationState.checkedLocation?.addressLine1 === "ALL"}
+            className="form-radio mr-3 text-orange  focus:outline-orange"
+          />
+          <label className="text-sm text-black">All Stores</label>
+        </div>
+        <VerticalResults<Location> CardComponent={LocationCard} />
+      </div>
+    ) : (
+      <></>
+    )
+  );
+};
 
 const DeliveryPopover = () => {
   const { locationState } = useContext(LocationContext);
@@ -91,63 +96,79 @@ const DeliveryPopover = () => {
 
   return (
     <Popover className="relative z-20">
-      {({ open }) => (
-        <>
-          <div className="relative ">
-            <div
-              className={classNames(
-                "flex w-full items-center justify-center  bg-light-orange py-4",
-                { "shadow-lg": !open }
-              )}
-            >
-              <Popover.Button className="group inline-flex items-center focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2">
-                {renderDeliveryFromAddress()}
-              </Popover.Button>
-            </div>
-          </div>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-200"
-            enterFrom="opacity-0 -translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition ease-in duration-150"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 -translate-y-1"
-          >
-            <Popover.Panel className="absolute inset-x-0 z-30 transform ">
-              <div className="fixed -z-10  h-[calc(100vh-140px)] w-screen bg-gray-600 opacity-50"></div>
-              <div className="w-full bg-white md:mx-auto md:max-w-xl ">
-                <div className="grid grid-cols-2  py-4 ">
-                  <button
-                    className={classNames("mx-4 flex justify-center ", {
-                      "border-b-2 border-dark-orange": addressInputOpen,
-                    })}
-                    onClick={handleModalButtonClick}
-                    disabled={addressInputOpen}
-                  >
-                    <div>Delivery Address</div>
-                  </button>
-                  <button
-                    className={classNames("mx-4 flex justify-center ", {
-                      "border-b-2 border-dark-orange": !addressInputOpen,
-                      "text-gray-400": !locationState.userLocation,
-                    })}
-                    onClick={handleModalButtonClick}
-                    disabled={!locationState.userLocation || !addressInputOpen}
-                  >
-                    Available Stores
-                  </button>
-                </div>
-                <SearchHeadlessProvider searcher={locationsSearcher}>
-                  {addressInputOpen && <GoogleLocationSearch />}
-                  <LocationSelectorDropdown hidden={addressInputOpen} />
-                </SearchHeadlessProvider>
+      {({ open, close }) => {
+        useEffect(() => {
+          if (open) {
+            document.body.style.overflow = "hidden";
+          }
+          // cleanup function that runs when component unmounts and sets overflow back to normal
+          return () => {
+            document.body.style.overflow = "unset";
+          };
+        }, [open]);
+
+        return (
+          <>
+            <div className="relative">
+              <div
+                className={classNames(
+                  "flex w-full items-center justify-center  bg-light-orange py-4",
+                  { "shadow-lg": !open }
+                )}
+              >
+                <Popover.Button className="group inline-flex items-center focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2">
+                  {renderDeliveryFromAddress()}
+                </Popover.Button>
               </div>
-              {/* <div className="fixed z-50 h-[calc(100vh-140px)] w-screen bg-gray-600 opacity-50"></div> */}
-            </Popover.Panel>
-          </Transition>
-        </>
-      )}
+            </div>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="opacity-0 -translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 -translate-y-1"
+            >
+              <Popover.Panel className="absolute inset-x-0 z-30 transform ">
+                <div
+                  className="fixed -z-10 min-h-screen w-screen bg-gray-600 opacity-50"
+                  onClick={() => close()}
+                ></div>
+                <div className="w-full bg-white md:mx-auto md:max-w-xl ">
+                  <div className="grid grid-cols-2  py-4 ">
+                    <button
+                      className={classNames("mx-4 flex justify-center ", {
+                        "border-b-2 border-dark-orange": addressInputOpen,
+                      })}
+                      onClick={handleModalButtonClick}
+                      disabled={addressInputOpen}
+                    >
+                      <div>Delivery Address</div>
+                    </button>
+                    <button
+                      className={classNames("mx-4 flex justify-center ", {
+                        "border-b-2 border-dark-orange": !addressInputOpen,
+                        "text-gray-400": !locationState.userLocation,
+                      })}
+                      onClick={handleModalButtonClick}
+                      disabled={
+                        !locationState.userLocation || !addressInputOpen
+                      }
+                    >
+                      Available Stores
+                    </button>
+                  </div>
+                  <SearchHeadlessProvider searcher={locationsSearcher}>
+                    {addressInputOpen && <GoogleLocationSearch />}
+                    <LocationSelectorDropdown hidden={addressInputOpen} />
+                  </SearchHeadlessProvider>
+                </div>
+              </Popover.Panel>
+            </Transition>
+          </>
+        );
+      }}
     </Popover>
   );
 };
