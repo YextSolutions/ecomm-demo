@@ -48,15 +48,15 @@ const MapSearch = () => {
         </Switch>
         <div className="px-2">Map</div>
       </div>
-      <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col md:min-h-[calc(100vh-64px)]">
-        <div className="flex max-h-[calc(100vh-112px)] w-full flex-row overflow-y-auto md:max-h-[calc(100vh-64px)]">
+      <div className="relative flex min-h-[calc(100vh-132px)] w-full flex-col md:min-h-[calc(100vh-96px)]">
+        <div className="flex max-h-[calc(100vh-132px)] w-full flex-row overflow-y-auto md:max-h-[calc(100vh-96px)]">
           {searchPanelOpen && (
             <div
               className={classNames(
                 "h-full w-full overflow-auto border-r border-slate-300 bg-slate-50 shadow-md"
               )}
             >
-              <div className="fixed top-28 z-20 w-full border-b border-slate-300 bg-light-orange shadow-lg md:top-16 md:w-96">
+              <div className="fixed top-[132px] z-20 w-full border-b border-slate-300 bg-light-orange shadow-lg md:top-24 md:w-96">
                 <h3 className="pl-4 font-semibold text-dark-orange  md:pt-4">
                   Find a Location
                 </h3>
@@ -79,7 +79,7 @@ const MapSearch = () => {
                   }}
                 />
               </div>
-              <div className="fixed top-[224px] bottom-0 z-10 flex w-full flex-col overflow-y-auto md:static md:w-96">
+              <div className="fixed top-[245px] bottom-0 z-10 flex w-full flex-col overflow-y-auto md:static md:w-96">
                 <VerticalResults<Location>
                   displayAllOnNoResults={false}
                   customCssClasses={{
