@@ -1,67 +1,19 @@
 import * as React from "react";
 import {
-  useSearchActions,
   provideHeadless,
   SearchHeadlessProvider,
 } from "@yext/search-headless-react";
 import searchConfig from "../config/searchConfig";
-import { useContext, useEffect, useState } from "react";
-import LocationCard from "./search/cards/LocationCard";
+import { useContext, useState } from "react";
 import classNames from "classnames";
 import GoogleLocationSearch from "./GoogleLocationSearch";
 import {
-  LocationActionType,
   LocationContext,
 } from "./providers/LocationsProvider";
-import { VerticalResults } from "@yext/search-ui-react";
-import Location from "../types/locations";
 
-interface LocationSelectorDropdownProps {
-  hidden?: boolean;
-}
-export const LocationSelectorDropdown = ({
-  hidden = false,
-}: LocationSelectorDropdownProps) => {
-  const searchActions = useSearchActions();
-  const { dispatch } = useContext(LocationContext);
+import { LocationSelectorDropdown } from "./DeliveryPopover";
 
-  const { locationState } = useContext(LocationContext);
 
-  useEffect(() => {
-    if (locationState.userLocation?.latLong) {
-      searchActions.setUserLocation(locationState.userLocation.latLong);
-      searchActions.executeVerticalQuery();
-    }
-  }, [locationState.userLocation?.latLong]);
-
-  const handleAllStoresClick = () => {
-    dispatch({
-      type: LocationActionType.SetAddressLine1,
-      payload: { checkedLocation: { addressLine1: "ALL" } },
-    });
-  };
-
-  return (
-    // TODO: add loading icon when stores are loading, maybe use local storage if address doesn't change
-    !hidden ? (
-      <div className="h-[calc(100vh-170px)] overflow-y-auto">
-        <div className="mx-4 flex items-center py-4">
-          <input
-            type="radio"
-            name="location"
-            onClick={handleAllStoresClick}
-            checked={locationState.checkedLocation?.addressLine1 === "ALL"}
-            className="form-radio mr-3 text-orange  focus:outline-orange"
-          />
-          <label className="text-sm text-black">All Stores</label>
-        </div>
-        <VerticalResults<Location> CardComponent={LocationCard} />
-      </div>
-    ) : (
-      <></>
-    )
-  );
-};
 
 const locationsSearcher = provideHeadless({
   ...searchConfig,
