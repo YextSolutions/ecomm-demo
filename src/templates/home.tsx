@@ -21,6 +21,9 @@ export const config: TemplateConfig = {
     $id: "home",
     fields: [
       "c_featuredCollections.name",
+
+      "c_featuredCollections.slug",
+
       "c_featuredCollections.c_associatedBeverages.primaryPhoto",
       "c_featuredCollections.c_associatedBeverages.slug",
       "c_featuredCollections.c_associatedBeverages.name",
