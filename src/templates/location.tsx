@@ -216,7 +216,7 @@ const LocationTemplate: Template<TemplateRenderProps> = ({
             <p className="pt-2">{emails?.[0]}</p>
           </div>
         </div>
-        <div className="pt-8">
+        {/* <div className="pt-8">
           {_site.c_featuredCollections &&
             _site.c_featuredCollections.map((collection) => (
               <BeverageCarousel
@@ -227,7 +227,7 @@ const LocationTemplate: Template<TemplateRenderProps> = ({
                 viewAllLink={collection.slug}
               />
             ))}
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 gap-x-4 gap-y-8 pt-8 pb-4 md:grid-cols-2">
           <div>
             {yextDisplayCoordinate && (
