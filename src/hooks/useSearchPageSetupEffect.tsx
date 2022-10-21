@@ -13,6 +13,8 @@ export const useSearchPageSetupEffect = (
       new URLSearchParams(window.location.search)
     );
 
+    searchActions.setReferrerPageUrl(window.location.pathname);
+
     if (initialFilter) {
       searchActions.setStaticFilters([initialFilter]);
     } else {
