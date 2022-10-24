@@ -54,10 +54,7 @@ const ShoppingCart = () => {
               {item.cartVariant.photo && (
                 <div className="w-16 px-2 md:w-24">
                   {/* TODO: Add Placeholder Image */}
-                  <Image
-                    image={item.cartVariant.photo}
-                    placeholder={<PlaceholderIcon />}
-                  />
+                  <Image image={item.cartVariant.photo} />
                 </div>
               )}
               <div className="ml-4 flex flex-col">

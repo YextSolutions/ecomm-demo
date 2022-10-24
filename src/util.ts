@@ -46,8 +46,10 @@ export const flattenCategoryAncestors = (
 };
 
 export const flattenCategories = (
-  categories: ParentCategory[]
+  categories?: ParentCategory[]
 ): CategoryLink[] => {
+  if (!categories) return [];
+
   const links: CategoryLink[] = [];
   categories.forEach((category) => {
     if (category.c_parentCategory?.[0]) {
