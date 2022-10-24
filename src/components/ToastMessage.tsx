@@ -10,7 +10,7 @@ interface ToastMessageProps {
 
 const ToastMessage = ({ message, onClose, show }: ToastMessageProps) => {
   return (
-    <div className="fixed right-4 top-32 ">
+    <div className="fixed top-40 right-4 ">
       <Transition
         show={show}
         enter="transform transition ease-in-out duration-500 sm:duration-700"

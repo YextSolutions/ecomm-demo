@@ -32,7 +32,7 @@ const ProductCounter = ({ cartVariant, addedToCart }: ProductCounterProps) => {
   };
 
   return (
-    <>
+    <div className="flex ">
       <Counter
         count={displaySum}
         handleCountChange={handleDisplaySumChange}
@@ -43,10 +43,10 @@ const ProductCounter = ({ cartVariant, addedToCart }: ProductCounterProps) => {
         onClick={() => handleAddToCart()}
       >
         <p className="text-center text-base font-bold text-white">
-          ADD TO CART - ${(cartVariant.price * displaySum).toFixed(2)}
+          Add to cart - ${(cartVariant.price * displaySum).toFixed(2)}
         </p>
       </button>
-    </>
+    </div>
   );
 };
 

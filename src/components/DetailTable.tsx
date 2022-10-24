@@ -11,10 +11,12 @@ const DetailTable = ({ details }: DetailTableProps) => {
       <tbody>
         {details.map((detail) => (
           <tr key={uuid()}>
-            <td className="border border-black bg-gray-200 pl-3 font-bold">
+            <td className="border border-gray-300 bg-gray-100 pl-3 font-medium text-gray-900">
               {detail.key}
             </td>
-            <td className="border border-black pl-3">{detail.value}</td>
+            <td className="border border-gray-300 pl-3 text-gray-900">
+              {detail.value}
+            </td>
           </tr>
         ))}
       </tbody>
