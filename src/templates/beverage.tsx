@@ -10,17 +10,19 @@ import {
   TemplateConfig,
 } from "@yext/pages";
 import "../index.css";
-import { Image } from "@yext/pages/components";
+import { ComplexImageType, Image, ImageType } from "@yext/pages/components";
 import PageLayout from "../components/PageLayout";
 import { StarRating } from "../components/StarRating";
 import { v4 as uuid } from "uuid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 import DetailTable from "../components/DetailTable";
 import { flattenCategories } from "../util";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ProductCounter from "../components/ProductCounter";
 import ToastMessage from "../components/ToastMessage";
+import { RadioGroup } from "@headlessui/react";
+import PlaceholderIcon from "../icons/PlaceholderIcon";
 
 export const config: TemplateConfig = {
   stream: {
@@ -40,6 +42,7 @@ export const config: TemplateConfig = {
       "c_variantBeverages.name",
       "c_variantBeverages.c_price",
       "c_variantBeverages.size",
+      "c_variantBeverages.primaryPhoto",
       "c_abv",
       "slug",
     ],
@@ -68,37 +71,33 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
 };
 
 const Beverage: Template<TemplateRenderProps> = ({ document }) => {
+  const {
+    name,
+    description,
+    c_originCountry,
+    c_usState,
+    c_rating,
+    c_beverageCategories,
+    c_abv,
+    c_variantBeverages,
+    primaryPhoto,
+  } = document;
+
   const [showToast, setShowToast] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(
-    document.c_variantBeverages.sort((a, b) => a.c_price - b.c_price)[0]
+    c_variantBeverages.sort((a, b) => a.c_price - b.c_price)[0]
   );
+  const [beverageImage, setBeverageImage] = useState<
+    ComplexImageType | ImageType | undefined
+  >();
 
-  const getDetailTableData = () => {
-    const data: { key: string; value: string }[] = [
-      {
-        key: "Category",
-        value: flattenCategories(document.c_beverageCategories)?.[
-          document.c_beverageCategories.length - 1
-        ].name,
-      },
-    ];
-    if (document.c_originCountry) {
-      const origin = document.c_usState
-        ? `${document.c_usState}, ${document.c_originCountry} `
-        : document.c_originCountry;
-      data.push({
-        key: "Origin",
-        value: origin,
-      });
+  useEffect(() => {
+    if (selectedVariant && selectedVariant.primaryPhoto) {
+      setBeverageImage(selectedVariant.primaryPhoto);
+    } else {
+      setBeverageImage(primaryPhoto);
     }
-    if (document.c_abv) {
-      data.push({
-        key: "ABV",
-        value: `${document.c_abv}%`,
-      });
-    }
-    return data;
-  };
+  }, [selectedVariant, primaryPhoto]);
 
   const showToastMessage = () => {
     setShowToast(true);
@@ -107,82 +106,162 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
     }, 3000);
   };
 
+  const getDetailTableData = () => {
+    const data: { key: string; value: string }[] = [
+      {
+        key: "Category",
+        value:
+          flattenCategories(c_beverageCategories)?.[
+            document.c_beverageCategories.length - 1
+          ].name,
+      },
+    ];
+    if (c_originCountry) {
+      const origin = c_usState
+        ? `${c_usState}, ${c_originCountry} `
+        : c_originCountry;
+      data.push({
+        key: "Origin",
+        value: origin,
+      });
+    }
+    if (c_abv) {
+      data.push({
+        key: "ABV",
+        value: `${c_abv}%`,
+      });
+    }
+    return data;
+  };
+
   return (
     <PageLayout>
-      <div className="pb-16">
-        <Breadcrumbs
-          currentPage={document.name}
-          links={flattenCategories(document.c_beverageCategories)}
-          containerCss="py-8"
+      <div className="bg-white">
+        <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+          {/* Product details */}
+          <div className="lg:max-w-lg ">
+            <Breadcrumbs
+              currentPage={name}
+              links={flattenCategories(c_beverageCategories ?? [])}
+              containerCss="py-8"
+            />
+            <div>
+              <div className="mt-4">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                  {name}
+                </h1>
+              </div>
+              <StarRating rating={c_rating} starSize={32} />
+            </div>
+
+            {/* Product form */}
+            <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
+              <section aria-labelledby="options-heading">
+                <h2 id="options-heading" className="sr-only">
+                  Product options
+                </h2>
+
+                <form>
+                  <div className="pb-4 sm:flex sm:justify-between">
+                    {/* Size selector */}
+                    <RadioGroup
+                      value={selectedVariant}
+                      onChange={setSelectedVariant}
+                    >
+                      <RadioGroup.Label className="block text-sm font-medium text-gray-700">
+                        Size
+                      </RadioGroup.Label>
+                      <div className="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                        {c_variantBeverages?.map((variant) => (
+                          <RadioGroup.Option
+                            as="div"
+                            key={uuid()}
+                            value={variant}
+                            className={({ active }) =>
+                              classNames(
+                                active ? "ring-2 ring-orange" : "",
+                                "relative block cursor-pointer rounded-lg border border-gray-300 p-4 focus:outline-none"
+                              )
+                            }
+                          >
+                            {({ active, checked }) => (
+                              <>
+                                <RadioGroup.Label
+                                  as="p"
+                                  className="text-base font-medium text-gray-900"
+                                >
+                                  {variant.size}
+                                </RadioGroup.Label>
+                                <div
+                                  className={classNames(
+                                    active ? "border" : "border-2",
+                                    checked
+                                      ? "border-orange"
+                                      : "border-transparent",
+                                    "pointer-events-none absolute -inset-px rounded-lg"
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              </>
+                            )}
+                          </RadioGroup.Option>
+                        ))}
+                      </div>
+                    </RadioGroup>
+                  </div>
+                </form>
+                <div className="py-4">
+                  {selectedVariant && (
+                    <ProductCounter
+                      cartVariant={{
+                        id: selectedVariant?.id,
+                        price: Number(selectedVariant.c_price),
+                        size: selectedVariant.size ?? "",
+                        name: name,
+                        photo: beverageImage,
+                      }}
+                      addedToCart={showToastMessage}
+                    />
+                  )}
+                </div>
+              </section>
+            </div>
+          </div>
+          {/* Product image */}
+          {beverageImage ? (
+            <div className="my-8 w-56">
+              <Image image={beverageImage} />
+            </div>
+          ) : (
+            <PlaceholderIcon />
+          )}
+          <section aria-labelledby="information-heading" className="mt-4">
+            <h2 id="information-heading" className="sr-only">
+              Product information
+            </h2>
+
+            {/* //         <p className="sr-only">{reviews.average} out of 5 stars</p>
+            //       </div>
+            //       <p className="ml-2 text-sm text-gray-500">
+            //         {reviews.totalCount} reviews
+            //       </p>
+            //     </div>
+            //   </div>
+            // </div> */}
+
+            <div className="mt-4 space-y-6">
+              <DetailTable details={getDetailTableData()} />
+
+              <p className="text-base text-gray-500">{description}</p>
+            </div>
+          </section>
+        </div>
+        <ToastMessage
+          show={showToast}
+          message="Added to Cart"
+          onClose={() => setShowToast(false)}
         />
-        <div className="flex py-8">
-          <div className="w-40">
-            <Image image={document.primaryPhoto} />
-          </div>
-          <div>
-            <div className="py-4 text-2xl font-bold">{document.name}</div>
-            {document.c_rating && (
-              <StarRating rating={document.c_rating} starSize={32} />
-            )}
-          </div>
-        </div>
-        <div className="flex gap-4 py-8">
-          {/* TODO: type and sort */}
-          {document.c_variantBeverages
-            ?.sort((a, b) => a.c_price - b.c_price)
-            .map((variant, i) => (
-              <button
-                key={uuid()}
-                className={classNames("border-2 px-6 py-2", {
-                  "border-black bg-orange": variant.id === selectedVariant?.id,
-                })}
-                onClick={() => setSelectedVariant(variant)}
-              >
-                <div>{variant.size}</div>
-                <div className="text-sm">{`$${variant.c_price}`}</div>
-              </button>
-            ))}
-        </div>
-        <div className="hidden md:flex">
-          <ProductCounter
-            cartVariant={{
-              id: selectedVariant?.id,
-              price: Number(selectedVariant.c_price),
-              size: selectedVariant.size,
-              name: document.name,
-              photo: document.primaryPhoto,
-            }}
-            addedToCart={showToastMessage}
-          />
-        </div>
-        <div className="py-8">
-          <div className="pb-2 text-2xl">Product Details</div>
-          <DetailTable details={getDetailTableData()} />
-        </div>
-        {document.description && (
-          <div className="py-8">
-            <div className="text-2xl">Description</div>
-            <p>{document.description}</p>
-          </div>
-        )}
-        <div className="fixed bottom-0 left-0 right-0 flex h-16 items-center justify-center border-t bg-white md:hidden">
-          <ProductCounter
-            cartVariant={{
-              id: selectedVariant?.id,
-              price: Number(selectedVariant.c_price),
-              size: selectedVariant.size,
-              name: document.name,
-              photo: document.primaryPhoto,
-            }}
-            addedToCart={showToastMessage}
-          />
-        </div>
       </div>
-      <ToastMessage
-        show={showToast}
-        message="Added to Cart"
-        onClose={() => setShowToast(false)}
-      />
     </PageLayout>
   );
 };

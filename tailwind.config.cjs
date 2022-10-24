@@ -68,11 +68,15 @@ module.exports = {
       },
     },
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     require("@tailwindcss/forms")({
       strategy: "class",
     }),
     require("@tailwindcss/line-clamp"),
     require("tailwindcss-animation-delay"),
+    require("@tailwindcss/aspect-ratio"),
   ],
 };

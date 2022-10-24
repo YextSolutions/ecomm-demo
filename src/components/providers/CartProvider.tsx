@@ -1,4 +1,4 @@
-import { ImageType } from "@yext/pages/components";
+import { ComplexImageType, ImageType } from "@yext/pages/components";
 import { getRuntime } from "@yext/pages/util";
 import * as React from "react";
 import { createContext, useEffect, useReducer, Dispatch } from "react";
@@ -10,7 +10,7 @@ export interface CartVariant {
   name: string;
   price: number;
   size: string;
-  photo?: ImageType;
+  photo?: ImageType | ComplexImageType;
 }
 
 export interface CartState {

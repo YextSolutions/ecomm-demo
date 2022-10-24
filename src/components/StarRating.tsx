@@ -4,11 +4,13 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import { v4 as uuid } from "uuid";
 
 interface StarRatingProps {
-  rating: number;
+  rating?: number;
   starSize?: number;
 }
 
 export const StarRating = ({ rating, starSize = 16 }: StarRatingProps) => {
+  if (!rating) return <></>;
+
   const [numStars, setNumStars] = useState([0, 0]);
 
   useEffect(() => {
