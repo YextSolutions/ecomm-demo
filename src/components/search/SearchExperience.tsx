@@ -1,9 +1,11 @@
 import {
-  SearchHeadlessProvider,
+  // SearchHeadlessProvider,
   provideHeadless,
 } from "@yext/search-headless-react";
 import * as React from "react";
 import searchConfig from "../../config/searchConfig";
+import { defaultRouter } from "../../routing/routing";
+import SearchHeadlessProvider from "./SearchHeadlessProvider";
 
 interface SearchExperienceProps {
   verticalKey?: string;
@@ -23,6 +25,7 @@ const SearchExperience = ({
   return (
     <SearchHeadlessProvider
       searcher={searcher}
+      routing={defaultRouter}
       // {...searchConfig}
       // verticalKey={verticalKey}
       // headlessId={headlessId}
