@@ -1,14 +1,15 @@
 import * as React from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Matcher,
   useSearchActions,
   SelectableStaticFilter,
   useSearchState,
+  FieldValueFilter,
+  NumberRangeValue,
 } from "@yext/search-headless-react";
 import { Range, getTrackBackground } from "react-range";
 import { twMerge } from "tailwind-merge";
-// import { useSearchParams } from "react-router-dom";
 import { debounce } from "lodash";
 import { IRenderThumbParams, IRenderTrackParams } from "react-range/lib/types";
 
@@ -43,6 +44,20 @@ export const PriceSlider = ({
   const searchActions = useSearchActions();
   const filters = useSearchState((state) => state.filters.static);
 
+  useEffect(() => {
+    const priceFilter = filters?.find(
+      (filter) =>
+        filter.filter.kind === "fieldValue" &&
+        filter.filter.fieldId === "c_variantBeverages.c_price"
+    )?.filter as FieldValueFilter | undefined;
+    if (priceFilter) {
+      const priceRange = priceFilter.value as NumberRangeValue;
+      const startValue = priceRange.start?.value;
+      const endValue = priceRange.end?.value;
+      setPriceValues([startValue ?? MIN, endValue ?? MAX]);
+    }
+  }, [filters]);
+
   const setPriceFilter = (values: number[]): void => {
     const [priceMin, priceMax] = values;
 
@@ -63,24 +78,40 @@ export const PriceSlider = ({
         fieldId: "c_variantBeverages.c_price",
         kind: "fieldValue",
         matcher: Matcher.Between,
-        value: {
-          start: {
-            matcher: Matcher.GreaterThanOrEqualTo,
-            value: priceMin,
-          },
-          end: {
-            matcher: Matcher.LessThanOrEqualTo,
-            value: priceMax,
-          },
-        },
+        value: {},
       },
     };
+
+    if (!priceMin && !priceMax) {
+      searchActions.setStaticFilters(filteredFilters);
+    }
+
+    if (priceMin) {
+      priceFilter.filter.value = {
+        start: {
+          matcher: Matcher.GreaterThanOrEqualTo,
+          value: priceMin,
+        },
+      };
+    }
+    if (priceMax) {
+      priceFilter.filter.value = {
+        ...priceFilter.filter.value,
+        end: {
+          matcher: Matcher.LessThanOrEqualTo,
+          value: priceMax,
+        },
+      };
+    }
 
     searchActions.setStaticFilters([...filteredFilters, priceFilter]);
     searchActions.executeVerticalQuery();
   };
 
-  const debouncedUpdateUrl = useMemo(() => debounce(setPriceFilter, 500), []);
+  const debouncedUpdatePrices = useMemo(
+    () => debounce(setPriceFilter, 500),
+    []
+  );
 
   const handleChange = (values: number[]) => {
     if (values[0] > values[1]) {
@@ -93,8 +124,8 @@ export const PriceSlider = ({
     setPriceValues(values);
 
     values[1] < (max ?? MAX)
-      ? debouncedUpdateUrl([values[0], values[1]])
-      : debouncedUpdateUrl([values[0]]);
+      ? debouncedUpdatePrices([values[0], values[1]])
+      : debouncedUpdatePrices([values[0]]);
   };
 
   return (
