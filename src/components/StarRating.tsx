@@ -11,30 +11,25 @@ interface StarRatingProps {
 export const StarRating = ({ rating, starSize = 16 }: StarRatingProps) => {
   if (!rating) return <></>;
 
-  const [numStars, setNumStars] = useState([0, 0]);
+  const [numStars, setNumStars] = useState(0);
+  const [halfStar, setHalfStar] = useState(false);
 
   useEffect(() => {
-    const ratingParts = rating.toString().split(".");
-    if (ratingParts.length === 1) {
-      setNumStars([Number(ratingParts[0]), 0]);
-    } else {
-      const decicmalPart = Number(ratingParts[1]);
-      if (decicmalPart < 2) {
-        setNumStars([Number(ratingParts[0]), 0]);
-      } else if (decicmalPart > 2 && decicmalPart < 7) {
-        setNumStars([Number(ratingParts[0]), 1]);
-      } else {
-        setNumStars([Number(ratingParts[0]) + 1, 0]);
-      }
+    //set the number of full stars
+    setNumStars(Math.floor(rating));
+
+    //set the number of half stars
+    if (rating % 1 >= 0.5) {
+      setHalfStar(true);
     }
   }, [rating]);
 
   return (
     <div className="flex text-orange">
-      {[...Array(numStars[0])].map((_) => (
+      {[...Array(numStars)].map((_) => (
         <FaStar key={uuid()} size={starSize} />
       ))}
-      {numStars[1] === 1 && <FaStarHalf size={starSize} />}
+      {halfStar && <FaStarHalf size={starSize} />}
     </div>
   );
 };
