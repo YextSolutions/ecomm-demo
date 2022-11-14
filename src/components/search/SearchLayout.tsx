@@ -22,8 +22,8 @@ const SearchLayout = ({
   breadcrumbs,
   categories,
 }: SearchLayoutProps): JSX.Element => {
-  useSearchPageSetupEffect(initialFilter);
-  useLocationFilter();
+  // useSearchPageSetupEffect(initialFilter);
+  // useLocationFilter();
   const [filtersOpen, setFiltersOpen] = useState(false);
   // using Tailwind md breakpoint
 

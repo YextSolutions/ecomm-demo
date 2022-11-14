@@ -12,7 +12,12 @@ import {
 import "../index.css";
 import PageLayout from "../components/PageLayout";
 import SearchLayout from "../components/search/SearchLayout";
-import { Matcher, SelectableStaticFilter } from "@yext/search-headless-react";
+import {
+  Matcher,
+  SearchActions,
+  SelectableStaticFilter,
+  State,
+} from "@yext/search-headless-react";
 import Site from "../types/Site";
 import { flattenCategoryAncestors } from "../util";
 import { CategoryLink } from "../types/kg";
@@ -69,8 +74,12 @@ const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
     ? flattenCategoryAncestors(document.c_parentCategory[0])?.reverse()
     : undefined;
 
+  const handleStaticFilters = (state: State, searchActions: SearchActions) => {
+    searchActions.setStaticFilters([initialFilter]);
+  };
+
   return (
-    <PageLayout>
+    <PageLayout onLoad={handleStaticFilters}>
       <SearchLayout
         initialFilter={initialFilter}
         title={document.name}

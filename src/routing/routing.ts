@@ -8,6 +8,9 @@ import {
   LowerNumberRangeLimit,
   UpperNumberRangeLimit,
   SelectableStaticFilter,
+  SortBy,
+  SortType,
+  Direction,
 } from "@yext/search-headless-react";
 
 export interface Router {
@@ -15,7 +18,7 @@ export interface Router {
   deserializeParams: (
     params: URLSearchParams,
     actions: SearchActions,
-    pageLimit?: number
+    state: State
   ) => void;
   updateCadence: "onStateChange" | "onSearch";
   includeFacets?: boolean;
@@ -24,7 +27,6 @@ export interface Router {
 export const defaultRouter: Router = {
   updateCadence: "onSearch",
   // this function does not return a verticalKey param because it is inferred to be already set
-  // TODO: add support for sort
   serializeState: (state) => {
     // Page limit defaults to 20
     const pageLimit = state.vertical.limit ?? 20;
@@ -34,7 +36,7 @@ export const defaultRouter: Router = {
       ? Math.floor(state.vertical.offset / pageLimit) + 1
       : 1;
 
-    // check if there are any selected facets or static filters
+    // check if there are any selected facets, static filters, or sorts to serialize
     const selectedFacetCount =
       state.filters.facets?.filter((facet) =>
         facet.options.some((option) => option.selected)
@@ -42,12 +44,14 @@ export const defaultRouter: Router = {
     const selectedStaticFilterCount =
       state.filters.static?.filter((staticFilter) => staticFilter.selected)
         .length ?? 0;
+    const sortByCount = state.vertical.sortBys?.length ?? 0;
 
     if (
       selectedFacetCount > 0 ||
       selectedStaticFilterCount > 0 ||
       state.query.input ||
-      pageNumber > 1
+      pageNumber > 1 ||
+      sortByCount > 0
     ) {
       const params = new URLSearchParams();
       if (state.query.input) {
@@ -56,39 +60,54 @@ export const defaultRouter: Router = {
       if (pageNumber > 1) {
         params.set("page", pageNumber.toString());
       }
-      if (state.filters.facets) {
-        serializeFacets(state, params);
+      if (selectedFacetCount > 0) {
+        addFacetsToParams(state, params);
       }
-      if (state.filters.static) {
+      if (selectedStaticFilterCount > 0) {
         serializeStaticFilters(state, params);
+      }
+      if (state.vertical.sortBys) {
+        serializeSortBy(state.vertical.sortBys, params);
       }
       return params;
     }
   },
-  deserializeParams: (params, actions, pageLimit) => {
+  // TODO: don't replace things that are already set in state
+  deserializeParams: (params, actions, state) => {
     // const verticalKey = params.get("verticalKey");
     const query = params.get("query");
     const page = params.get("page");
+    const sort = params.get("sort");
 
     if (query) {
       actions.setQuery(query);
     }
 
+    const pageLimit = state.vertical.limit;
     if (page) {
       actions.setOffset(
         pageLimit ? (parseInt(page) - 1) * pageLimit : (parseInt(page) - 1) * 20
       );
     }
 
+    if (sort) {
+      const sortBy = deserializeSortBys(sort);
+      sortBy && actions.setSortBys([sortBy]);
+    }
+
     actions.setFacets(deserializeFacets(params));
-    actions.setStaticFilters(deserializeStaticFilters(params));
+
+    debugger;
+    const stateFilters = state.filters.static ?? [];
+    const filters = stateFilters.concat(deserializeStaticFilters(params));
+    actions.setStaticFilters(filters);
 
     actions.executeVerticalQuery();
   },
 };
 
-// function that serilizes the selected facets into a URLSearchParams object
-const serializeFacets = (state: State, params: URLSearchParams) => {
+// function that adds the selected facets to the params
+const addFacetsToParams = (state: State, params: URLSearchParams) => {
   const facets = state.filters.facets;
 
   if (facets) {
@@ -96,7 +115,6 @@ const serializeFacets = (state: State, params: URLSearchParams) => {
       const selectedFacetOptions = facet.options
         .filter((option) => option.selected)
         .map((option) => {
-          // runtime check to see if option.value is a NumberRangeFilter
           if (option.matcher === Matcher.Between) {
             return serializeNumberRangeValue(
               facet.fieldId,
@@ -105,7 +123,6 @@ const serializeFacets = (state: State, params: URLSearchParams) => {
           }
           return option.value;
         });
-
       if (selectedFacetOptions.length > 0) {
         params.set(facet.fieldId, selectedFacetOptions.join(","));
       }
@@ -149,7 +166,6 @@ const deserializeFacets = (params: URLSearchParams): DisplayableFacet[] => {
             value: option,
             selected: true,
             matcher: Matcher.Equals,
-            // TODO: ask about this interface
             count: 0,
             displayName: fieldId,
           };
@@ -237,6 +253,16 @@ const deserializeStaticFilters = (
   return selectedStaticFilters;
 };
 
+const serializeSortBy = (sortBys: SortBy[], params: URLSearchParams) => {
+  // only serialize the first sortBy
+  const sortBy = sortBys[0];
+
+  // only account for SortTypes.Field
+  if (sortBy.type === SortType.Field) {
+    params.set("sort", `${sortBy.field}:${sortBy.direction}`);
+  }
+};
+
 const rangeMatcherSymbols: Record<
   Exclude<
     Matcher,
@@ -248,6 +274,15 @@ const rangeMatcherSymbols: Record<
   [Matcher.GreaterThanOrEqualTo]: ">=",
   [Matcher.LessThan]: "<",
   [Matcher.LessThanOrEqualTo]: "<=",
+};
+
+const deserializeSortBys = (sortByString: string): SortBy | undefined => {
+  const [field, direction] = sortByString.split(":");
+  return {
+    field,
+    direction: direction as Direction,
+    type: SortType.Field,
+  };
 };
 
 const serializeNumberRangeValue = (

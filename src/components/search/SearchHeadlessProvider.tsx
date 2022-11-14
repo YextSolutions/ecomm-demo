@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { cloneDeep } from "lodash";
 import {
+  Matcher,
   SearchActions,
   SearchHeadless,
   SearchHeadlessProvider,
@@ -17,7 +18,7 @@ export interface HeadlessProviderProps {
     deserializeParams: (
       params: URLSearchParams,
       actions: SearchActions,
-      pageLimit?: number
+      state: State
     ) => void;
     updateCadence: "onStateChange" | "onSearch";
   };
@@ -36,13 +37,34 @@ const InternalRouter = ({
   const searchActions = useSearchActions();
   const searchState = useSearchState((s) => s);
 
-  // Fetch the URL params when the page loads, but no after that
+  // Run whatever code is in the onLoad prop
   useEffect(() => {
-    const pageLimit = searchState.vertical.limit;
+    console.log("useEffect - onLoad");
+    if (onLoad) {
+      onLoad(searchState, searchActions);
+    }
+  }, []);
+
+  // Fetch the URL params when the page loads, but not after that
+  useEffect(() => {
+    console.log("useEffect - routing");
     if (routing) {
       const { deserializeParams } = routing;
       const params = new URLSearchParams(window.location.search);
-      deserializeParams(params, searchActions, pageLimit);
+
+      searchActions.setStaticFilters([
+        {
+          selected: true,
+          filter: {
+            fieldId: "c_beverageCategories.name",
+            value: "American Whiskey",
+            matcher: Matcher.Equals,
+            kind: "fieldValue",
+          },
+        },
+      ]);
+
+      deserializeParams(params, searchActions, searchState);
     }
   }, []);
 
@@ -64,13 +86,6 @@ const InternalRouter = ({
           }
         },
       });
-    }
-  }, []);
-
-  // Run whatever code is in the onLoad prop
-  useEffect(() => {
-    if (onLoad) {
-      onLoad(searchState, searchActions);
     }
   }, []);
 
