@@ -23,11 +23,14 @@ import ProductCounter from "../components/ProductCounter";
 import ToastMessage from "../components/ToastMessage";
 import { RadioGroup } from "@headlessui/react";
 import PlaceholderIcon from "../icons/PlaceholderIcon";
+import ReviewsProvider from "../components/providers/ReviewsProvider";
+import ReviewsSection from "../components/ReviewsSection";
 
 export const config: TemplateConfig = {
   stream: {
     $id: "beverage",
     fields: [
+      "id",
       "name",
       "primaryPhoto",
       "description",
@@ -45,6 +48,8 @@ export const config: TemplateConfig = {
       "c_variantBeverages.primaryPhoto",
       "c_abv",
       "slug",
+      "ref_reviewsAgg.averageRating",
+      "ref_reviewsAgg.reviewCount",
     ],
     filter: {
       entityTypes: ["ce_beverage"],
@@ -72,6 +77,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
 
 const Beverage: Template<TemplateRenderProps> = ({ document }) => {
   const {
+    id,
     name,
     description,
     c_originCountry,
@@ -81,6 +87,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
     c_abv,
     c_variantBeverages,
     primaryPhoto,
+    ref_reviewsAgg,
   } = document;
 
   const [showToast, setShowToast] = useState(false);
@@ -90,6 +97,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
   const [beverageImage, setBeverageImage] = useState<
     ComplexImageType | ImageType | undefined
   >();
+  const rating = ref_reviewsAgg?.[0].averageRating ?? c_rating;
 
   useEffect(() => {
     if (selectedVariant && selectedVariant.primaryPhoto) {
@@ -151,7 +159,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
                   {name}
                 </h1>
               </div>
-              <StarRating rating={c_rating} starSize={32} />
+              <StarRating rating={rating} starSize={32} />
             </div>
 
             {/* Product form */}
@@ -239,16 +247,6 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
             <h2 id="information-heading" className="sr-only">
               Product information
             </h2>
-
-            {/* //         <p className="sr-only">{reviews.average} out of 5 stars</p>
-            //       </div>
-            //       <p className="ml-2 text-sm text-gray-500">
-            //         {reviews.totalCount} reviews
-            //       </p>
-            //     </div>
-            //   </div>
-            // </div> */}
-
             <div className="mt-4 space-y-6">
               <DetailTable details={getDetailTableData()} />
 
@@ -262,6 +260,9 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
           onClose={() => setShowToast(false)}
         />
       </div>
+      <ReviewsProvider>
+        <ReviewsSection entityId={id} overallRating={rating} />
+      </ReviewsProvider>
     </PageLayout>
   );
 };
