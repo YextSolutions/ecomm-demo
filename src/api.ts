@@ -6,8 +6,7 @@ export const fetchReviewsFromYext = async (
   entityId: string,
   pageToken?: string,
   limit?: number,
-  sort?: string,
-  rating?: number
+  params?: Record<string, string>
 ): Promise<ReviewsResponse> => {
   let requestString = `${reviewsPath}?api_key=${
     import.meta.env.YEXT_PUBLIC_REVIEWS_API_KEY
@@ -18,11 +17,10 @@ export const fetchReviewsFromYext = async (
   if (limit) {
     requestString += `&limit=${limit}`;
   }
-  if (sort) {
-    requestString += `&sort=${sort}`;
-  }
-  if (rating) {
-    requestString += `&rating=${rating}`;
+  if (params) {
+    Object.keys(params).forEach((key) => {
+      requestString += `&${key}=${params[key]}`;
+    });
   }
 
   try {

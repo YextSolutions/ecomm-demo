@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createContext, Dispatch, useReducer, ReactNode } from "react";
+import { createContext, Dispatch, useReducer } from "react";
 import { fetchReviewsFromYext } from "../../api";
 import { Review } from "../../types/reviews";
 import { ProviderProps } from "./AppProvider";
@@ -12,7 +12,6 @@ interface ReviewsState {
   error: boolean;
   nextPageToken?: string;
   count: number;
-  ratingFilter?: number;
   // ratingCount: {
   //   oneStar: number;
   //   twoStar: number;
@@ -20,8 +19,6 @@ interface ReviewsState {
   //   fourStar: number;
   //   fiveStar: number;
   // };
-  limit?: number;
-  sort?: string;
   pageCount: number;
 }
 
@@ -39,7 +36,6 @@ const initialState: ReviewsState = {
   //   fourStar: 0,
   //   fiveStar: 0,
   // },
-  limit: 10,
   pageCount: 0,
 };
 
@@ -53,12 +49,10 @@ export interface FetchReviews {
   type: ReviewsActionTypes.FetchedReviews;
   payload: {
     entityId: string;
-    limit: number;
-    sort?: string;
-    ratingFilter?: number;
     nextPageToken?: string;
     reviews: Review[];
     count: number;
+    limit?: number;
   };
 }
 
@@ -72,8 +66,7 @@ export const fetchReviews = async (
   dispatch: Dispatch<ReviewsActions>,
   entityId: string,
   limit = 10,
-  sort?: string,
-  rating?: number
+  params?: Record<string, string>
 ) => {
   dispatch({ type: ReviewsActionTypes.FetchingReviews });
 
@@ -81,8 +74,7 @@ export const fetchReviews = async (
     entityId,
     undefined,
     limit,
-    sort,
-    rating
+    params
   );
 
   if (response) {
@@ -90,12 +82,10 @@ export const fetchReviews = async (
       type: ReviewsActionTypes.FetchedReviews,
       payload: {
         entityId,
-        limit,
-        sort,
-        ratingFilter: rating,
         nextPageToken: response.nextPageToken,
         reviews: response.docs,
         count: response.count,
+        limit,
       },
     });
   }
@@ -118,10 +108,9 @@ const reviewsReducer = (state: ReviewsState, action: ReviewsActions) => {
         reviews: action.payload.reviews,
         count: action.payload.count,
         nextPageToken: action.payload.nextPageToken,
-        limit: action.payload.limit,
-        sort: action.payload.sort,
-        ratingFilter: action.payload.ratingFilter,
-        pageCount: Math.ceil(action.payload.count / action.payload.limit),
+        pageCount: Math.ceil(
+          action.payload.count / (action.payload.limit ?? 10)
+        ),
       };
     default:
       return state;
