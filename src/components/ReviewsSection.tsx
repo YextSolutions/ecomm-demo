@@ -3,6 +3,8 @@ import { useContext, useEffect } from "react";
 import { fetchReviews, ReviewsContext } from "./providers/ReviewsProvider";
 import { StarRating } from "./StarRating";
 import { v4 as uuid } from "uuid";
+import { formatDate } from "../util";
+import SortingDropdown from "./search/NewSortingDropdown";
 
 interface ReviewSectionProps {
   entityId: string;
@@ -13,6 +15,48 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
+// typescript thing that can either be $sortBy__desc or $sortBy__asc
+type SortKey = "$sortBy__desc" | "$sortBy__asc";
+
+export interface ReviewSortBy {
+  label: string;
+  sort: {
+    key: SortKey;
+    value: string;
+  };
+}
+
+const reviewSortConfig: ReviewSortBy[] = [
+  {
+    label: "Newest",
+    sort: {
+      key: "$sortBy__desc",
+      value: "reviewDate",
+    },
+  },
+  {
+    label: "Oldest",
+    sort: {
+      key: "$sortBy__asc",
+      value: "reviewDate",
+    },
+  },
+  {
+    label: "Rating: High to Low",
+    sort: {
+      key: "$sortBy__desc",
+      value: "rating",
+    },
+  },
+  {
+    label: "Rating: Low to High",
+    sort: {
+      key: "$sortBy__asc",
+      value: "rating",
+    },
+  },
+];
+
 const ReviewsSection = ({
   entityId,
   overallRating,
@@ -20,12 +64,14 @@ const ReviewsSection = ({
   const { reviewsState, dispatch } = useContext(ReviewsContext);
 
   useEffect(() => {
-    fetchReviews(dispatch, entityId);
+    fetchReviews(dispatch, entityId, 5);
   }, []);
 
-  useEffect(() => {
-    console.log(reviewsState);
-  }, [reviewsState]);
+  const handleDropdownChange = (sortBy: { key: string; value: string }) => {
+    fetchReviews(dispatch, entityId, 5, {
+      [sortBy.key]: sortBy.value,
+    });
+  };
 
   return (
     <div className="bg-white">
@@ -117,13 +163,25 @@ const ReviewsSection = ({
           <h3 className="sr-only">Recent reviews</h3>
           <div className="flow-root">
             <div className="-my-12 divide-y divide-gray-200">
+              <div className="flex justify-end">
+                <SortingDropdown<{ key: string; value: string }>
+                  customCssClasses={{ menu: "py-12" }}
+                  options={reviewSortConfig}
+                  onSortChange={handleDropdownChange}
+                />
+              </div>
               {reviewsState.reviews?.map((review) => (
                 <div key={uuid()} className="py-12">
                   <div className="flex items-center">
                     <div className="ml-4">
-                      <h4 className="text-sm font-bold text-gray-900">
-                        {review.authorName}
-                      </h4>
+                      <div className="flex items-center">
+                        <h4 className="text-sm font-bold text-gray-900">
+                          {review.authorName}
+                        </h4>
+                        <p className="pl-4 text-xs font-normal">
+                          {formatDate(review.reviewDate)}
+                        </p>
+                      </div>
                       <div className="mt-1 flex items-center">
                         <StarRating
                           key={uuid()}
