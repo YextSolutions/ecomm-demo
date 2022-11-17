@@ -48,8 +48,8 @@ export const config: TemplateConfig = {
       "c_variantBeverages.primaryPhoto",
       "c_abv",
       "slug",
-      "ref_reviewsAgg.averageRating",
-      "ref_reviewsAgg.reviewCount",
+      // "ref_reviewsAgg.averageRating",
+      // "ref_reviewsAgg.reviewCount",
     ],
     filter: {
       entityTypes: ["ce_beverage"],
@@ -87,7 +87,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
     c_abv,
     c_variantBeverages,
     primaryPhoto,
-    ref_reviewsAgg,
+    // ref_reviewsAgg,
   } = document;
 
   const [showToast, setShowToast] = useState(false);
