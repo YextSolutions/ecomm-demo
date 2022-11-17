@@ -87,7 +87,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
     c_abv,
     c_variantBeverages,
     primaryPhoto,
-    ref_reviewsAgg,
+    // ref_reviewsAgg,
   } = document;
 
   const [showToast, setShowToast] = useState(false);
