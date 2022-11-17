@@ -1,8 +1,6 @@
 import * as React from "react";
 import { useSearchState } from "@yext/search-headless-react";
 import Breadcrumbs, { BreadcrumbsProps } from "../Breadcrumbs";
-import SortingDropdown from "./SortingDropdown";
-import TransitionContainer from "../TransitionContainer";
 
 interface BeverageResultsTitleProps {
   title?: string;
