@@ -87,7 +87,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
     c_abv,
     c_variantBeverages,
     primaryPhoto,
-    // ref_reviewsAgg,
+    ref_reviewsAgg,
   } = document;
 
   const [showToast, setShowToast] = useState(false);
@@ -97,8 +97,13 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
   const [beverageImage, setBeverageImage] = useState<
     ComplexImageType | ImageType | undefined
   >();
-  // const rating = ref_reviewsAgg?.[0].averageRating ?? c_rating;
-  const rating = c_rating;
+  const rating = ref_reviewsAgg[0]?.averageRating ?? c_rating;
+  // const rating = c_rating;
+
+  // useEeffect that logs the document to the console
+  useEffect(() => {
+    console.log(document);
+  }, [document]);
 
   useEffect(() => {
     if (selectedVariant && selectedVariant.primaryPhoto) {
