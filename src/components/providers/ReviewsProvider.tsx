@@ -12,13 +12,7 @@ interface ReviewsState {
   error: boolean;
   nextPageToken?: string;
   count: number;
-  // ratingCount: {
-  //   oneStar: number;
-  //   twoStar: number;
-  //   threeStar: number;
-  //   fourStar: number;
-  //   fiveStar: number;
-  // };
+  countsByRating?: number[];
   pageCount: number;
 }
 
@@ -29,13 +23,6 @@ const initialState: ReviewsState = {
   error: false,
   nextPageToken: undefined,
   count: 0,
-  // ratingCount: {
-  //   oneStar: 0,
-  //   twoStar: 0,
-  //   threeStar: 0,
-  //   fourStar: 0,
-  //   fiveStar: 0,
-  // },
   pageCount: 0,
 };
 
@@ -43,6 +30,7 @@ const initialState: ReviewsState = {
 export enum ReviewsActionTypes {
   FetchedReviews,
   FetchingReviews,
+  SetCountsByRating,
 }
 
 export interface FetchReviews {
@@ -60,7 +48,14 @@ export interface FetchingReviews {
   type: ReviewsActionTypes.FetchingReviews;
 }
 
-export type ReviewsActions = FetchReviews | FetchingReviews;
+export interface SetCountsByRating {
+  type: ReviewsActionTypes.SetCountsByRating;
+  payload: {
+    countsByRating: number[];
+  };
+}
+
+export type ReviewsActions = FetchReviews | FetchingReviews | SetCountsByRating;
 
 export const fetchReviews = async (
   dispatch: Dispatch<ReviewsActions>,
@@ -91,6 +86,41 @@ export const fetchReviews = async (
   }
 };
 
+export const fetchReviewTotals = async (
+  dispatch: Dispatch<ReviewsActions>,
+  entityId: string
+) => {
+  // use promise.all to call fetchReviewsFromYext 5 times, one for each star rating
+  // then dispatch an action to update the state with the totals
+
+  const reviewPromises = await Promise.allSettled(
+    [1, 2, 3, 4, 5].map((rating) =>
+      fetchReviewsFromYext(entityId, undefined, 1, {
+        rating: rating.toString(),
+      })
+    )
+  );
+
+  // reduce the array of promises into an array of counts
+  const countsByRating = reviewPromises.reduce((acc, curr) => {
+    if (curr.status === "fulfilled") {
+      acc.push(curr.value.count);
+    }
+    return acc;
+  }, [] as number[]);
+
+  if (countsByRating.length === 5) {
+    dispatch({
+      type: ReviewsActionTypes.SetCountsByRating,
+      payload: {
+        countsByRating,
+      },
+    });
+  } else {
+    console.error("Error fetching review totals");
+  }
+};
+
 // reducer
 const reviewsReducer = (state: ReviewsState, action: ReviewsActions) => {
   switch (action.type) {
@@ -111,6 +141,11 @@ const reviewsReducer = (state: ReviewsState, action: ReviewsActions) => {
         pageCount: Math.ceil(
           action.payload.count / (action.payload.limit ?? 10)
         ),
+      };
+    case ReviewsActionTypes.SetCountsByRating:
+      return {
+        ...state,
+        countsByRating: action.payload.countsByRating,
       };
     default:
       return state;
