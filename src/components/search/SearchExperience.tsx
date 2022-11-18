@@ -1,6 +1,9 @@
 import {
   // SearchHeadlessProvider,
   provideHeadless,
+  SearchActions,
+  SelectableStaticFilter,
+  State,
 } from "@yext/search-headless-react";
 import * as React from "react";
 import searchConfig from "../../config/searchConfig";
@@ -11,12 +14,16 @@ interface SearchExperienceProps {
   verticalKey?: string;
   children?: React.ReactNode;
   headlessId?: string;
+  initialFilters?: SelectableStaticFilter[];
+  excludedParams?: string[];
 }
 
 const SearchExperience = ({
   verticalKey = "beverages",
   children,
   headlessId,
+  initialFilters,
+  excludedParams: excludedFieldIds,
 }: SearchExperienceProps) => {
   const searcher = provideHeadless({
     ...searchConfig,
@@ -26,6 +33,9 @@ const SearchExperience = ({
     <SearchHeadlessProvider
       searcher={searcher}
       routing={defaultRouter}
+      initialFilters={initialFilters}
+      excludedParams={excludedFieldIds}
+
       // {...searchConfig}
       // verticalKey={verticalKey}
       // headlessId={headlessId}
