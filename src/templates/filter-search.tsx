@@ -12,13 +12,7 @@ import {
 import "../index.css";
 import PageLayout from "../components/PageLayout";
 import SearchLayout from "../components/search/SearchLayout";
-import {
-  Matcher,
-  SearchActions,
-  SelectableStaticFilter,
-  State,
-} from "@yext/search-headless-react";
-import Site from "../types/Site";
+import { Matcher, SelectableStaticFilter } from "@yext/search-headless-react";
 import { flattenCategoryAncestors } from "../util";
 import { CategoryLink } from "../types/kg";
 
@@ -61,7 +55,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
 };
 
 const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
-  const initialFilter: SelectableStaticFilter = {
+  const beverageCategoryFilter: SelectableStaticFilter = {
     selected: true,
     filter: {
       fieldId: "c_beverageCategories.name",
@@ -74,14 +68,12 @@ const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
     ? flattenCategoryAncestors(document.c_parentCategory[0])?.reverse()
     : undefined;
 
-  const handleStaticFilters = (state: State, searchActions: SearchActions) => {
-    searchActions.setStaticFilters([initialFilter]);
-  };
-
   return (
-    <PageLayout onLoad={handleStaticFilters}>
+    <PageLayout
+      initialFilters={[beverageCategoryFilter]}
+      excludedFieldIds={["f_c_beverageCategories.name"]}
+    >
       <SearchLayout
-        initialFilter={initialFilter}
         title={document.name}
         breadcrumbs={{
           currentPage: document.name,

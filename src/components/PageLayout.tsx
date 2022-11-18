@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 // import Header from "./header";
 import Header from "./TwHeader";
 import AppProvider from "./providers/AppProvider";
-import { SearchActions, State } from "@yext/search-headless-react";
+import { SelectableStaticFilter } from "@yext/search-headless-react";
 
 type Props = {
   children?: React.ReactNode;
@@ -12,7 +12,8 @@ type Props = {
   containerCss?: string;
   verticalKey?: string;
   hideLocationPicker?: boolean;
-  onLoad?: (state: State, actions: SearchActions) => void;
+  initialFilters?: SelectableStaticFilter[];
+  excludedFieldIds?: string[];
 };
 
 const PageLayout = ({
@@ -21,10 +22,15 @@ const PageLayout = ({
   containerCss,
   verticalKey,
   hideLocationPicker,
-  onLoad,
+  initialFilters,
+  excludedFieldIds,
 }: Props) => {
   return (
-    <SearchExperience verticalKey={verticalKey} onLoad={onLoad}>
+    <SearchExperience
+      verticalKey={verticalKey}
+      initialFilters={initialFilters}
+      excludedParams={excludedFieldIds}
+    >
       <AppProvider>
         <div className="min-h-screen font-primary">
           {header && <Header hideLocationPicker={hideLocationPicker} />}

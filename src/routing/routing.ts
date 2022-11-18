@@ -97,11 +97,10 @@ export const defaultRouter: Router = {
 
     actions.setFacets(deserializeFacets(params));
 
-    debugger;
     const stateFilters = state.filters.static ?? [];
+
     const filters = stateFilters.concat(deserializeStaticFilters(params));
     actions.setStaticFilters(filters);
-
     actions.executeVerticalQuery();
   },
 };

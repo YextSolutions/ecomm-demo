@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { cloneDeep } from "lodash";
 import {
-  Matcher,
   SearchActions,
   SearchHeadless,
   SearchHeadlessProvider,
+  SelectableStaticFilter,
   State,
 } from "@yext/search-headless-react";
 import { useSearchActions, useSearchState } from "@yext/search-headless-react";
@@ -22,6 +22,10 @@ export interface HeadlessProviderProps {
     ) => void;
     updateCadence: "onStateChange" | "onSearch";
   };
+  // this field defines which facets or filters to include in the Search state regardless of the URL
+  initialFilters?: SelectableStaticFilter[];
+  // this field defines which params from search state to exclude from the URL
+  excludedParams?: string[];
   children: React.ReactNode;
 }
 
@@ -33,38 +37,26 @@ const InternalRouter = ({
   onSearch,
   onLoad,
   children,
+  initialFilters,
 }: InternalRouterProps): JSX.Element => {
   const searchActions = useSearchActions();
   const searchState = useSearchState((s) => s);
 
-  // Run whatever code is in the onLoad prop
-  useEffect(() => {
-    console.log("useEffect - onLoad");
-    if (onLoad) {
-      onLoad(searchState, searchActions);
-    }
-  }, []);
-
   // Fetch the URL params when the page loads, but not after that
   useEffect(() => {
-    console.log("useEffect - routing");
     if (routing) {
       const { deserializeParams } = routing;
       const params = new URLSearchParams(window.location.search);
 
-      searchActions.setStaticFilters([
-        {
-          selected: true,
-          filter: {
-            fieldId: "c_beverageCategories.name",
-            value: "American Whiskey",
-            matcher: Matcher.Equals,
-            kind: "fieldValue",
-          },
-        },
-      ]);
-
+      // sets all the relevant search state from the URL params
       deserializeParams(params, searchActions, searchState);
+
+      // if there are any initial filters, set them
+      if (initialFilters) {
+        searchActions.setStaticFilters(initialFilters);
+      }
+
+      searchActions.executeVerticalQuery();
     }
   }, []);
 
@@ -89,6 +81,13 @@ const InternalRouter = ({
     }
   }, []);
 
+  // Run whatever code is in the onLoad prop
+  useEffect(() => {
+    if (onLoad) {
+      onLoad(searchState, searchActions);
+    }
+  }, []);
+
   return <>{children}</>;
 };
 
@@ -98,6 +97,8 @@ const HeadlessProvider = ({
   onSearch,
   onLoad,
   children,
+  initialFilters,
+  excludedParams: excludedFieldIds,
 }: HeadlessProviderProps): JSX.Element => {
   const newSearcher = cloneDeep(searcher);
 
@@ -105,6 +106,14 @@ const HeadlessProvider = ({
     const { serializeState } = routing;
     newSearcher.executeVerticalQuery = async () => {
       const params = serializeState(searcher.state);
+
+      // if there are any excluded field ids, remove them from the URL
+      if (params && excludedFieldIds) {
+        excludedFieldIds.forEach((id) => {
+          params.delete(id);
+        });
+      }
+
       window.history.pushState(
         {},
         "",
@@ -124,7 +133,13 @@ const HeadlessProvider = ({
 
   return (
     <SearchHeadlessProvider searcher={newSearcher}>
-      <InternalRouter onLoad={onLoad} onSearch={onSearch} routing={routing}>
+      <InternalRouter
+        onLoad={onLoad}
+        onSearch={onSearch}
+        routing={routing}
+        initialFilters={initialFilters}
+        excludedParams={excludedFieldIds}
+      >
         {children}
       </InternalRouter>
     </SearchHeadlessProvider>
