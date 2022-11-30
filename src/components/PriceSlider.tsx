@@ -105,6 +105,7 @@ export const PriceSlider = ({
     }
 
     searchActions.setStaticFilters([...filteredFilters, priceFilter]);
+
     searchActions.executeVerticalQuery();
   };
 

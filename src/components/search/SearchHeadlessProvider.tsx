@@ -4,6 +4,7 @@ import {
   SearchActions,
   SearchHeadless,
   SearchHeadlessProvider,
+  SelectableStaticFilter,
   State,
 } from "@yext/search-headless-react";
 import { useSearchActions, useSearchState } from "@yext/search-headless-react";
@@ -17,10 +18,14 @@ export interface HeadlessProviderProps {
     deserializeParams: (
       params: URLSearchParams,
       actions: SearchActions,
-      pageLimit?: number
+      state: State
     ) => void;
     updateCadence: "onStateChange" | "onSearch";
   };
+  // this field defines which facets or filters to include in the Search state regardless of the URL
+  initialFilters?: SelectableStaticFilter[];
+  // this field defines which params from search state to exclude from the URL
+  excludedParams?: string[];
   children: React.ReactNode;
 }
 
@@ -32,17 +37,26 @@ const InternalRouter = ({
   onSearch,
   onLoad,
   children,
+  initialFilters,
 }: InternalRouterProps): JSX.Element => {
   const searchActions = useSearchActions();
   const searchState = useSearchState((s) => s);
 
-  // Fetch the URL params when the page loads, but no after that
+  // Fetch the URL params when the page loads, but not after that
   useEffect(() => {
-    const pageLimit = searchState.vertical.limit;
     if (routing) {
       const { deserializeParams } = routing;
       const params = new URLSearchParams(window.location.search);
-      deserializeParams(params, searchActions, pageLimit);
+
+      // sets all the relevant search state from the URL params
+      deserializeParams(params, searchActions, searchState);
+
+      // if there are any initial filters, set them
+      if (initialFilters) {
+        searchActions.setStaticFilters(initialFilters);
+      }
+
+      searchActions.executeVerticalQuery();
     }
   }, []);
 
@@ -83,6 +97,8 @@ const HeadlessProvider = ({
   onSearch,
   onLoad,
   children,
+  initialFilters,
+  excludedParams: excludedFieldIds,
 }: HeadlessProviderProps): JSX.Element => {
   const newSearcher = cloneDeep(searcher);
 
@@ -90,6 +106,14 @@ const HeadlessProvider = ({
     const { serializeState } = routing;
     newSearcher.executeVerticalQuery = async () => {
       const params = serializeState(searcher.state);
+
+      // if there are any excluded field ids, remove them from the URL
+      if (params && excludedFieldIds) {
+        excludedFieldIds.forEach((id) => {
+          params.delete(id);
+        });
+      }
+
       window.history.pushState(
         {},
         "",
@@ -109,7 +133,13 @@ const HeadlessProvider = ({
 
   return (
     <SearchHeadlessProvider searcher={newSearcher}>
-      <InternalRouter onLoad={onLoad} onSearch={onSearch} routing={routing}>
+      <InternalRouter
+        onLoad={onLoad}
+        onSearch={onSearch}
+        routing={routing}
+        initialFilters={initialFilters}
+        excludedParams={excludedFieldIds}
+      >
         {children}
       </InternalRouter>
     </SearchHeadlessProvider>
