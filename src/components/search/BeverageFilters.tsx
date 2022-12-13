@@ -21,7 +21,7 @@ const BeverageFilters = ({
   categories,
 }: BeverageFiltersProps) => {
   return (
-    <div className="md:max-w-lg">
+    <div className="md:w-60">
       <SortingDropdown containerCss="pt-4 pb-8 md:hidden" />
       {categories && (
         <CategoryTiles title="CATEGORIES" categories={categories} />

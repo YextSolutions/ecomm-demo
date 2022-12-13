@@ -8,7 +8,7 @@ const BeverageVerticalResults = () => {
     <>
       <VerticalResults<Beverage>
         customCssClasses={{
-          verticalResultsContainer: "grid grid-cols-2 md:grid-cols-3 gap-4",
+          verticalResultsContainer: "grid grid-cols-2 lg:grid-cols-3 gap-4",
         }}
         CardComponent={BeverageCard}
         displayAllOnNoResults={false}
