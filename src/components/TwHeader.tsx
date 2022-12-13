@@ -67,14 +67,14 @@ const Header = ({ hideLocationPicker }: HeaderProps) => {
             />
           </ScreenOverlay>
         )}
-        <div className="flex items-center justify-between px-4 py-6 sm:px-6 md:space-x-10 ">
+        <div className="grid grid-cols-3 px-4 py-6 sm:px-6 md:grid-cols-2 md:space-x-10 lg:flex lg:justify-between ">
           <div className="-my-2 -mr-2 md:hidden">
             <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-red hover:bg-light-orange  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red">
               <span className="sr-only">Open menu</span>
               <AiOutlineMenu className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-8 place-self-center">
             <a className="flex" href="/">
               <span className="sr-only">Toast</span>
               <p className="text-3xl font-semibold text-red md:block">TOAST</p>
@@ -97,7 +97,7 @@ const Header = ({ hideLocationPicker }: HeaderProps) => {
               <SearchBar customCssClasses={{ searchBarContainer: "mb-0" }} />
             </div>
           </div>
-          <div className="flex space-x-1.5">
+          <div className="flex space-x-1.5 place-self-end">
             <div className="lg:hidden">
               <button
                 className="flex h-8 w-8 items-center text-red"

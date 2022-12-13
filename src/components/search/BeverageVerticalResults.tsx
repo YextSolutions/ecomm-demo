@@ -1,7 +1,7 @@
 import * as React from "react";
 import { VerticalResults } from "@yext/search-ui-react";
 import { BeverageCard } from "./cards/BeverageCard";
-import { Beverage } from "../../types/beverages";
+import Beverage from "../../types/beverages";
 
 const BeverageVerticalResults = () => {
   return (

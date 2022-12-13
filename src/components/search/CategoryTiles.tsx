@@ -35,8 +35,8 @@ const CategoryTiles = ({ title, categories }: CategoryTilesProps) => {
         className={classNames(
           "transition-max-h mt-6 flex flex-wrap overflow-hidden duration-200 ease-linear ",
           {
-            "max-h-32": !expanded,
-            "max-h-72 overflow-y-scroll": expanded,
+            "max-h-[7.5rem]": !expanded,
+            "max-h-96 overflow-y-scroll md:max-h-[600px]": expanded,
           }
         )}
       >

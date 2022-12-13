@@ -25,6 +25,9 @@ import { RadioGroup } from "@headlessui/react";
 import PlaceholderIcon from "../icons/PlaceholderIcon";
 import ReviewsProvider from "../components/providers/ReviewsProvider";
 import ReviewsSection from "../components/ReviewsSection";
+// import Beverage as BeverageType from "../types/beverages";
+// import Beverage from "../types/beverages" but rename it to BeverageType
+import BeverageType from "../types/beverages";
 
 export const config: TemplateConfig = {
   stream: {
@@ -45,6 +48,8 @@ export const config: TemplateConfig = {
       "c_variantBeverages.name",
       "c_variantBeverages.c_price",
       "c_variantBeverages.size",
+      "c_variantBeverages.c_containerType",
+
       "c_variantBeverages.primaryPhoto",
       "c_abv",
       "slug",
@@ -75,6 +80,16 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
   };
 };
 
+type AggregateReviewData = {
+  ref_reviewsAgg: {
+    averageRating: number;
+    reviewCount: number;
+  }[];
+};
+
+type BeverageDocument = BeverageType & AggregateReviewData;
+
+// TODO: Transform price prop to be a number
 const Beverage: Template<TemplateRenderProps> = ({ document }) => {
   const {
     id,
@@ -88,22 +103,17 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
     c_variantBeverages,
     primaryPhoto,
     ref_reviewsAgg,
-  } = document;
+  } = document as BeverageDocument;
 
   const [showToast, setShowToast] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(
-    c_variantBeverages.sort((a, b) => a.c_price - b.c_price)[0]
+    c_variantBeverages?.sort((a, b) => Number(a.c_price) - Number(b.c_price))[0]
   );
   const [beverageImage, setBeverageImage] = useState<
     ComplexImageType | ImageType | undefined
   >();
   const rating = ref_reviewsAgg[0]?.averageRating ?? c_rating;
   // const rating = c_rating;
-
-  // useEeffect that logs the document to the console
-  useEffect(() => {
-    console.log(document);
-  }, [document]);
 
   useEffect(() => {
     if (selectedVariant && selectedVariant.primaryPhoto) {
@@ -176,7 +186,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
                 </h2>
 
                 <form>
-                  <div className="pb-4 sm:flex sm:justify-between">
+                  <div className="flex justify-between pb-4">
                     {/* Size selector */}
                     <RadioGroup
                       value={selectedVariant}
@@ -185,7 +195,7 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
                       <RadioGroup.Label className="block text-sm font-medium text-gray-700">
                         Size
                       </RadioGroup.Label>
-                      <div className="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                      <div className="mt-1 grid grid-cols-3 gap-4">
                         {c_variantBeverages?.map((variant) => (
                           <RadioGroup.Option
                             as="div"
@@ -204,7 +214,12 @@ const Beverage: Template<TemplateRenderProps> = ({ document }) => {
                                   as="p"
                                   className="text-base font-medium text-gray-900"
                                 >
-                                  {variant.size}
+                                  {variant.size.includes("-pack")
+                                    ? variant.size.replace("-pack", "x")
+                                    : variant.size}
+                                  <p className="overflow-hidden text-ellipsis">
+                                    {variant.c_containerType}
+                                  </p>
                                 </RadioGroup.Label>
                                 <div
                                   className={classNames(
