@@ -11,7 +11,6 @@ import {
 import "../index.css";
 import PageLayout from "../components/PageLayout";
 import SearchLayout from "../components/search/SearchLayout";
-import Site from "../types/Site";
 
 export const getPath: GetPath<TemplateProps> = (props) => {
   return "/search";
@@ -28,16 +27,9 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
 };
 
 const Search: Template<TemplateRenderProps> = ({ document }) => {
-  const { _site } = document;
-  const site: Site = _site;
-  const coverPhoto = site.c_coverPhotos?.find(
-    (photo) => photo.name === "Home"
-  )?.photo;
-
   return (
-    <PageLayout>
+    <PageLayout excludedFieldIds={["f_c_soldAt.address.line1"]}>
       <SearchLayout
-        coverPhoto={coverPhoto}
         categories={[
           { name: "Beer", slug: "/beer" },
           { name: "Wine", slug: "/wine" },

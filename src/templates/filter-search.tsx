@@ -71,7 +71,10 @@ const FilterSearch: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <PageLayout
       initialFilters={[beverageCategoryFilter]}
-      excludedFieldIds={["f_c_beverageCategories.name"]}
+      excludedFieldIds={[
+        "f_c_beverageCategories.name",
+        "f_c_soldAt.address.line1",
+      ]}
     >
       <SearchLayout
         title={document.name}

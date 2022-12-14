@@ -16,6 +16,7 @@ import SortingDropdown from "./SortingDropdown";
 import { useEffect, useState } from "react";
 import Beverage from "../../types/beverages";
 import { BeverageCard } from "./cards/BeverageCard";
+import { useLocationFilter } from "../../hooks/useLocationFilter";
 
 interface BeverageResultsViewProps {
   title?: string;
@@ -36,6 +37,8 @@ const BeverageResults = ({
 }: BeverageResultsViewProps): JSX.Element => {
   const [showResults, setShowResults] = useState(false);
   const searchLoading = useSearchState((state) => state.searchStatus.isLoading);
+
+  useLocationFilter();
 
   useEffect(() => {
     console.log("searchLoading", searchLoading);
@@ -84,7 +87,6 @@ const BeverageResults = ({
             CardComponent={BeverageCard}
             displayAllOnNoResults={false}
           />
-          {/* TODO: Scroll to top on click */}
           <Pagination />
         </div>
       </div>
