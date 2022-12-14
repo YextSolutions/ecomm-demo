@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CardProps } from "@yext/search-ui-react";
+import { CardComponent, CardProps } from "@yext/search-ui-react";
 import Location from "../../../types/locations";
 import {
   LocationActionType,
@@ -8,7 +8,9 @@ import {
 import { useContext } from "react";
 
 // TODO: use context to set location filter
-const LocationCard = ({ result }: CardProps<Location>) => {
+const LocationCard: CardComponent<Location> = ({
+  result,
+}: CardProps<Location>) => {
   const location = result.rawData;
 
   const { dispatch, locationState } = useContext(LocationContext);
@@ -26,8 +28,8 @@ const LocationCard = ({ result }: CardProps<Location>) => {
     }
   };
 
-  const renderRadio = () => {
-    return (
+  return (
+    <div className="mx-4 border-b">
       <div className="flex items-center py-4">
         <input
           type="radio"
@@ -47,10 +49,8 @@ const LocationCard = ({ result }: CardProps<Location>) => {
           </div>
         </label>
       </div>
-    );
-  };
-
-  return <div className="mx-4 border-b">{renderRadio()}</div>;
+    </div>
+  );
 };
 
 export default LocationCard;

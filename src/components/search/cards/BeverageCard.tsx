@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CardProps } from "@yext/search-ui-react";
-import { Beverage } from "../../../types/beverages";
+import Beverage from "../../../types/beverages";
 import { Image } from "@yext/pages/components";
 import { StarRating } from "../../StarRating";
 import classNames from "classnames";

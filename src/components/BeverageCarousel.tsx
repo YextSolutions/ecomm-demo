@@ -2,7 +2,7 @@ import * as React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider, { Settings } from "react-slick";
-import { Beverage } from "../types/beverages";
+import Beverage from "../types/beverages";
 import { Image } from "@yext/pages/components";
 import { v4 as uuid } from "uuid";
 import { BiCaretRightCircle, BiCaretLeftCircle } from "react-icons/bi";

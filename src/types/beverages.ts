@@ -1,3 +1,5 @@
+import { ParentCategory } from "./beverage_categories";
+
 export interface ImageThumbnail {
   url: string;
   width: number;
@@ -30,13 +32,13 @@ export enum C_tag {
   GIFT = "Gift",
 }
 
-export interface Beverage {
+export default interface Beverage {
   slug: string;
   primaryPhoto?: ComplexImage;
   description?: string;
   name: string;
   c_abv?: number;
-  c_beverageCategories?: EntityReference[];
+  c_beverageCategories: ParentCategory[];
   c_originCountry?: string;
   c_rating?: number;
   c_tag?: C_tag;
@@ -45,6 +47,9 @@ export interface Beverage {
   c_variantBeverages?: {
     id: string;
     c_price?: string;
+    primaryPhoto?: ComplexImage;
+    size: string;
+    c_containerType?: string;
   }[];
   id: string;
 }

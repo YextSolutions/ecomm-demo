@@ -15,6 +15,7 @@ import { VerticalResults } from "@yext/search-ui-react";
 import searchConfig from "../config/searchConfig";
 import classNames from "classnames";
 import LocationCard from "./search/cards/LocationCard";
+import Location from "../types/locations";
 
 const locationsSearcher = provideHeadless({
   ...searchConfig,
@@ -50,8 +51,8 @@ export const LocationSelectorDropdown = ({
   return (
     // TODO: add loading icon when stores are loading, maybe use local storage if address doesn't change
     !hidden ? (
-      <div className="h-[calc(100vh-170px)] overflow-y-auto">
-        <div className="mx-4 flex items-center py-4">
+      <div className="h-[calc(100vh-170px)] overflow-y-auto pb-10">
+        <div className="mx-4 flex items-center border-b py-4">
           <input
             type="radio"
             name="location"
@@ -59,7 +60,7 @@ export const LocationSelectorDropdown = ({
             checked={locationState.checkedLocation?.addressLine1 === "ALL"}
             className="form-radio mr-3 text-orange  focus:outline-orange"
           />
-          <label className="text-sm text-black">All Stores</label>
+          <label className="py-2.5 text-sm text-black">All Stores</label>
         </div>
         <VerticalResults<Location> CardComponent={LocationCard} />
       </div>

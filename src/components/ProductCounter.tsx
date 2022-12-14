@@ -32,14 +32,14 @@ const ProductCounter = ({ cartVariant, addedToCart }: ProductCounterProps) => {
   };
 
   return (
-    <div className="flex ">
+    <div className="flex min-h-[40px]">
       <Counter
         count={displaySum}
         handleCountChange={handleDisplaySumChange}
         minusDisabled={displaySum === 1}
       />
       <button
-        className="ml-6 h-10 w-52 rounded bg-blue"
+        className="ml-6  w-52 rounded bg-blue"
         onClick={() => handleAddToCart()}
       >
         <p className="text-center text-base font-bold text-white">

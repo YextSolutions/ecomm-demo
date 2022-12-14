@@ -10,10 +10,11 @@ import {
   renderHighlightedValue,
   SearchBar as SB,
   SearchBarProps,
+  FocusedItemData,
 } from "@yext/search-ui-react";
 import * as React from "react";
 import searchConfig from "../../config/searchConfig";
-import { Beverage } from "../../types/beverages";
+import Beverage from "../../types/beverages";
 import BeverageCategory from "../../types/beverage_categories";
 import { removeQueryParam, setPathAndQueryParams } from "../../util";
 import { BeverageCard } from "./cards/BeverageCard";

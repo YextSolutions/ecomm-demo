@@ -17,7 +17,7 @@ const Counter = ({
   id,
 }: CounterProps) => {
   return (
-    <div className="flex h-10 w-28 border">
+    <div className="flex w-28 border">
       <button
         className="flex w-1/3 items-center justify-center disabled:opacity-30"
         disabled={minusDisabled}

@@ -1,4 +1,4 @@
-import { Beverage } from "./beverages";
+import Beverage from "./beverages";
 import { CategoryPhoto } from "./kg";
 import Site from "./Site";
 
