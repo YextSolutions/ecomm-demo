@@ -23,10 +23,9 @@ export const useLocationFilter = () => {
       searchActions.setStaticFilters(filteredFilters);
       searchActions.executeVerticalQuery();
     };
-
     if (locationState?.checkedLocation) {
       if (locationState.checkedLocation?.addressLine1 !== "ALL") {
-        filteredFilters.push(...filteredFilters, {
+        filteredFilters.push({
           selected: true,
           filter: {
             fieldId: "c_soldAt.address.line1",

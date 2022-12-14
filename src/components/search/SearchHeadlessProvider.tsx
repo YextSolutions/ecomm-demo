@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { cloneDeep } from "lodash";
 import {
   SearchActions,
@@ -40,6 +40,7 @@ const InternalRouter = ({
   const searchActions = useSearchActions();
   const searchState = useSearchState((s) => s);
   const params = useURLSearchParams();
+  const [initialSearchComplete, setInitialSearchComplete] = useState(false);
 
   useEffect(() => {
     if (routing && params) {
@@ -52,13 +53,18 @@ const InternalRouter = ({
       if (initialFilters) {
         searchActions.setStaticFilters(initialFilters);
       }
-
       searchActions.executeVerticalQuery();
+      setInitialSearchComplete(true);
     }
   }, []);
 
   useEffect(() => {
-    if (params && routing && routing.updateCadence === "onSearch") {
+    if (
+      initialSearchComplete &&
+      params &&
+      routing &&
+      routing.updateCadence === "onSearch"
+    ) {
       const { deserializeParams } = routing;
 
       // sets all the relevant search state from the URL params
