@@ -1,11 +1,10 @@
 import {
-  // SearchHeadlessProvider,
   provideHeadless,
-  SearchActions,
   SelectableStaticFilter,
-  State,
+  useSearchActions,
 } from "@yext/search-headless-react";
 import * as React from "react";
+import { useEffect } from "react";
 import searchConfig from "../../config/searchConfig";
 import { defaultRouter } from "../../routing/routing";
 import SearchHeadlessProvider from "./SearchHeadlessProvider";
@@ -13,39 +12,47 @@ import SearchHeadlessProvider from "./SearchHeadlessProvider";
 interface SearchExperienceProps {
   verticalKey?: string;
   children?: React.ReactNode;
-  headlessId?: string;
   initialFilters?: SelectableStaticFilter[];
   excludedParams?: string[];
 }
 
+const searcher = provideHeadless({
+  ...searchConfig,
+});
+
 const SearchExperience = ({
   verticalKey = "beverages",
   children,
-  headlessId,
   initialFilters,
   excludedParams: excludedFieldIds,
 }: SearchExperienceProps) => {
-  const searcher = provideHeadless({
-    ...searchConfig,
-    verticalKey: verticalKey,
-  });
   return (
     <SearchHeadlessProvider
       searcher={searcher}
       routing={defaultRouter}
       initialFilters={initialFilters}
       excludedParams={excludedFieldIds}
-
-      // {...searchConfig}
-      // verticalKey={verticalKey}
-      // headlessId={headlessId}
     >
-      <StateManager>{children}</StateManager>
+      <StateManager verticalKey={verticalKey}>{children}</StateManager>
     </SearchHeadlessProvider>
   );
 };
 
-const StateManager = ({ children }: { children: React.ReactNode }) => {
+const StateManager = ({
+  children,
+  verticalKey,
+}: {
+  children: React.ReactNode;
+  verticalKey?: string;
+}) => {
+  const searchActions = useSearchActions();
+
+  useEffect(() => {
+    if (verticalKey) {
+      searchActions.setVertical(verticalKey);
+    }
+  }, [verticalKey]);
+
   return <>{children}</>;
 };
 

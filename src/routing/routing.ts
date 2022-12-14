@@ -11,6 +11,7 @@ import {
   SortBy,
   SortType,
   Direction,
+  SearchHeadless,
 } from "@yext/search-headless-react";
 
 export interface Router {
@@ -25,6 +26,10 @@ export interface Router {
 }
 
 export const defaultRouter: Router = {
+  /*
+  this app makes sense to be onSearch because both built in components and custom components
+  will update the state and then execute a vertical search
+  */
   updateCadence: "onSearch",
   // this function does not return a verticalKey param because it is inferred to be already set
   serializeState: (state) => {
@@ -46,6 +51,7 @@ export const defaultRouter: Router = {
         .length ?? 0;
     const sortByCount = state.vertical.sortBys?.length ?? 0;
 
+    const params = new URLSearchParams();
     if (
       selectedFacetCount > 0 ||
       selectedStaticFilterCount > 0 ||
@@ -53,7 +59,6 @@ export const defaultRouter: Router = {
       pageNumber > 1 ||
       sortByCount > 0
     ) {
-      const params = new URLSearchParams();
       if (state.query.input) {
         params.set("query", state.query.input);
       }
@@ -95,13 +100,21 @@ export const defaultRouter: Router = {
       sortBy && actions.setSortBys([sortBy]);
     }
 
-    actions.setFacets(deserializeFacets(params));
+    // filter out the params that are not facets
+    const facetParams = Array.from(params.entries())
+      .map(([fieldId, values]) => ({ fieldId, selectedOptions: values }))
+      .filter(
+        ({ fieldId }) =>
+          !["query", "page", "verticalKey"].includes(fieldId) &&
+          !filterFieldIdRegex.test(fieldId)
+      );
+
+    setInitialFacets(facetParams, actions);
 
     const stateFilters = state.filters.static ?? [];
 
     const filters = stateFilters.concat(deserializeStaticFilters(params));
     actions.setStaticFilters(filters);
-    actions.executeVerticalQuery();
   },
 };
 
@@ -132,17 +145,17 @@ const addFacetsToParams = (state: State, params: URLSearchParams) => {
 // regex for any string that starts with f_
 const filterFieldIdRegex = /^f_/;
 
-const deserializeFacets = (params: URLSearchParams): DisplayableFacet[] => {
-  // filter out the params that are not facets
-  const facetParams = Array.from(params.entries()).filter(
-    ([key]) =>
-      !["query", "page", "verticalKey"].includes(key) &&
-      !filterFieldIdRegex.test(key)
-  );
-
+/*
+ * Function that sets facets before there is an inital search. The intital search will return the facet display names which
+ * is why it doesn't matter what is passed for the display name value here.
+ */
+const setInitialFacets = (
+  facetParams: { fieldId: string; selectedOptions: string }[],
+  actions: SearchHeadless
+) => {
   // map the facet params to a DisplayableFacet object
   const selectedFacets: DisplayableFacet[] = facetParams.map((facet) => {
-    const [fieldId, selectedOptions] = facet;
+    const { fieldId, selectedOptions } = facet;
 
     const options: DisplayableFacetOption[] = selectedOptions
       .split(",")
@@ -178,7 +191,8 @@ const deserializeFacets = (params: URLSearchParams): DisplayableFacet[] => {
       matcher: Matcher.Equals,
     };
   });
-  return selectedFacets;
+
+  actions.setFacets(selectedFacets);
 };
 
 const serializeStaticFilters = (state: State, params: URLSearchParams) => {
